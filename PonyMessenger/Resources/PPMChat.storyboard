@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--微信-->
         <scene sceneID="qe9-z1-M5f">
             <objects>
-                <viewController id="eWk-uY-W1g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PPMChatRecentViewController" id="eWk-uY-W1g" customClass="PPMChatRecentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lF6-bq-p11"/>
                         <viewControllerLayoutGuide type="bottom" id="3HX-ag-f69"/>
@@ -18,12 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="微信" image="tabbar_mainframe" id="BvP-mX-5Yv"/>
+                    <navigationItem key="navigationItem" title="微信" id="WWu-6i-ObT"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2F-Du-4o3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="401" y="474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_mainframe" width="25" height="23"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

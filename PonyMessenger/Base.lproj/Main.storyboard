@@ -8,7 +8,7 @@
         <!--Item-->
         <scene sceneID="Nmf-8m-AVq">
             <objects>
-                <navigationController id="33y-95-bxw" customClass="PPMNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PPMNavigationController" id="33y-95-bxw" customClass="PPMNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="dUN-SZ-Bgb"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jBG-3w-owU">
@@ -27,7 +27,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="VJZ-i5-eHP">
             <objects>
-                <tabBarController id="A0Z-Q2-gBY" customClass="PPMTabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="PPMTabBarController" id="A0Z-Q2-gBY" customClass="PPMTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="n16-Rw-kpk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

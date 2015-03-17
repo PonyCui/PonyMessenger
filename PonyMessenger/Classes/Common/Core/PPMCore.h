@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PPMWireframe.h"
 #import "PPMChatCore.h"
 
 @interface PPMCore : NSObject
+
+@property (nonatomic, readonly) PPMWireframe *wireframe;
 
 @property (nonatomic, readonly) PPMChatCore *chatCore;
 

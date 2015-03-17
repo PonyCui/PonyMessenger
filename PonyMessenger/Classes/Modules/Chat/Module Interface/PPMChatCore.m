@@ -10,4 +10,13 @@
 
 @implementation PPMChatCore
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _wireframe = [[PPMChatWireframe alloc] init];
+    }
+    return self;
+}
+
 @end

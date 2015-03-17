@@ -14,6 +14,7 @@
 {
     self = [super init];
     if (self) {
+        _wireframe = [[PPMWireframe alloc] init];
         _chatCore = [[PPMChatCore alloc] init];
     }
     return self;

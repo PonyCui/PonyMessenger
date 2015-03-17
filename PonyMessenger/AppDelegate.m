@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PPMApplication.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+        [tabBarController setViewControllers:@[]];
+        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
+         presentRecentViewControllerToTabBarController:tabBarController];
+    }
     return YES;
 }
 
