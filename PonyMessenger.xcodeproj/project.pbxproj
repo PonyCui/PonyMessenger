@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0F647031AB869D700CACCA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647021AB869D700CACCA2 /* main.m */; };
+		F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647051AB869D700CACCA2 /* AppDelegate.m */; };
+		F0F647091AB869D700CACCA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647081AB869D700CACCA2 /* ViewController.m */; };
+		F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470A1AB869D700CACCA2 /* Main.storyboard */; };
+		F0F6470E1AB869D700CACCA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470D1AB869D700CACCA2 /* Images.xcassets */; };
+		F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470F1AB869D700CACCA2 /* LaunchScreen.xib */; };
+		F0F6471D1AB869D700CACCA2 /* PonyMessengerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F6471C1AB869D700CACCA2 /* PonyMessengerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F0F647171AB869D700CACCA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0F646F51AB869D700CACCA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0F646FC1AB869D700CACCA2;
+			remoteInfo = PonyMessenger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonyMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F647011AB869D700CACCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0F647021AB869D700CACCA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F0F647041AB869D700CACCA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F0F647051AB869D700CACCA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F0F647071AB869D700CACCA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F0F647081AB869D700CACCA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F0F6470B1AB869D700CACCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F0F6470D1AB869D700CACCA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F0F647101AB869D700CACCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F0F647161AB869D700CACCA2 /* PonyMessengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PonyMessengerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0F6471B1AB869D700CACCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0F6471C1AB869D700CACCA2 /* PonyMessengerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PonyMessengerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0F646FA1AB869D700CACCA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F647131AB869D700CACCA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0F646F41AB869D700CACCA2 = {
+			isa = PBXGroup;
+			children = (
+				F0F646FF1AB869D700CACCA2 /* PonyMessenger */,
+				F0F647191AB869D700CACCA2 /* PonyMessengerTests */,
+				F0F646FE1AB869D700CACCA2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0F646FE1AB869D700CACCA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */,
+				F0F647161AB869D700CACCA2 /* PonyMessengerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0F646FF1AB869D700CACCA2 /* PonyMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				F0F647041AB869D700CACCA2 /* AppDelegate.h */,
+				F0F647051AB869D700CACCA2 /* AppDelegate.m */,
+				F0F647071AB869D700CACCA2 /* ViewController.h */,
+				F0F647081AB869D700CACCA2 /* ViewController.m */,
+				F0F6470A1AB869D700CACCA2 /* Main.storyboard */,
+				F0F6470D1AB869D700CACCA2 /* Images.xcassets */,
+				F0F6470F1AB869D700CACCA2 /* LaunchScreen.xib */,
+				F0F647001AB869D700CACCA2 /* Supporting Files */,
+			);
+			path = PonyMessenger;
+			sourceTree = "<group>";
+		};
+		F0F647001AB869D700CACCA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0F647011AB869D700CACCA2 /* Info.plist */,
+				F0F647021AB869D700CACCA2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F0F647191AB869D700CACCA2 /* PonyMessengerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0F6471C1AB869D700CACCA2 /* PonyMessengerTests.m */,
+				F0F6471A1AB869D700CACCA2 /* Supporting Files */,
+			);
+			path = PonyMessengerTests;
+			sourceTree = "<group>";
+		};
+		F0F6471A1AB869D700CACCA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0F6471B1AB869D700CACCA2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0F646FC1AB869D700CACCA2 /* PonyMessenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0F647201AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessenger" */;
+			buildPhases = (
+				F0F646F91AB869D700CACCA2 /* Sources */,
+				F0F646FA1AB869D700CACCA2 /* Frameworks */,
+				F0F646FB1AB869D700CACCA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PonyMessenger;
+			productName = PonyMessenger;
+			productReference = F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0F647151AB869D700CACCA2 /* PonyMessengerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0F647231AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessengerTests" */;
+			buildPhases = (
+				F0F647121AB869D700CACCA2 /* Sources */,
+				F0F647131AB869D700CACCA2 /* Frameworks */,
+				F0F647141AB869D700CACCA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0F647181AB869D700CACCA2 /* PBXTargetDependency */,
+			);
+			name = PonyMessengerTests;
+			productName = PonyMessengerTests;
+			productReference = F0F647161AB869D700CACCA2 /* PonyMessengerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0F646F51AB869D700CACCA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "崔 明辉";
+				TargetAttributes = {
+					F0F646FC1AB869D700CACCA2 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					F0F647151AB869D700CACCA2 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = F0F646FC1AB869D700CACCA2;
+					};
+				};
+			};
+			buildConfigurationList = F0F646F81AB869D700CACCA2 /* Build configuration list for PBXProject "PonyMessenger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F0F646F41AB869D700CACCA2;
+			productRefGroup = F0F646FE1AB869D700CACCA2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0F646FC1AB869D700CACCA2 /* PonyMessenger */,
+				F0F647151AB869D700CACCA2 /* PonyMessengerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0F646FB1AB869D700CACCA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */,
+				F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */,
+				F0F6470E1AB869D700CACCA2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F647141AB869D700CACCA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0F646F91AB869D700CACCA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F647091AB869D700CACCA2 /* ViewController.m in Sources */,
+				F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */,
+				F0F647031AB869D700CACCA2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0F647121AB869D700CACCA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0F6471D1AB869D700CACCA2 /* PonyMessengerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F0F647181AB869D700CACCA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0F646FC1AB869D700CACCA2 /* PonyMessenger */;
+			targetProxy = F0F647171AB869D700CACCA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0F6470A1AB869D700CACCA2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0F6470B1AB869D700CACCA2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F0F6470F1AB869D700CACCA2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0F647101AB869D700CACCA2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F0F6471E1AB869D700CACCA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F0F6471F1AB869D700CACCA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F0F647211AB869D700CACCA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PonyMessenger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F0F647221AB869D700CACCA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PonyMessenger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F0F647241AB869D700CACCA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PonyMessengerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PonyMessenger.app/PonyMessenger";
+			};
+			name = Debug;
+		};
+		F0F647251AB869D700CACCA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PonyMessengerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PonyMessenger.app/PonyMessenger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0F646F81AB869D700CACCA2 /* Build configuration list for PBXProject "PonyMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F6471E1AB869D700CACCA2 /* Debug */,
+				F0F6471F1AB869D700CACCA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0F647201AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F647211AB869D700CACCA2 /* Debug */,
+				F0F647221AB869D700CACCA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F0F647231AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessengerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0F647241AB869D700CACCA2 /* Debug */,
+				F0F647251AB869D700CACCA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0F646F51AB869D700CACCA2 /* Project object */;
+}
