@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */; };
+		F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00392E81AB87596002EF72B /* PPMChat.storyboard */; };
+		F00392F41AB87790002EF72B /* PPMApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392F31AB87790002EF72B /* PPMApplication.m */; };
+		F00392F71AB877BF002EF72B /* PPMDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392F61AB877BF002EF72B /* PPMDefines.m */; };
+		F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392FA1AB8784C002EF72B /* PPMCore.m */; };
+		F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392FD1AB878F8002EF72B /* PPMChatCore.m */; };
+		F00393021AB87D63002EF72B /* PPMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F00393011AB87D63002EF72B /* PPMTabBarController.m */; };
+		F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F00393041AB87E35002EF72B /* PPMNavigationController.m */; };
 		F0F647031AB869D700CACCA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647021AB869D700CACCA2 /* main.m */; };
 		F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647051AB869D700CACCA2 /* AppDelegate.m */; };
-		F0F647091AB869D700CACCA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647081AB869D700CACCA2 /* ViewController.m */; };
 		F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470A1AB869D700CACCA2 /* Main.storyboard */; };
 		F0F6470E1AB869D700CACCA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470D1AB869D700CACCA2 /* Images.xcassets */; };
 		F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470F1AB869D700CACCA2 /* LaunchScreen.xib */; };
@@ -27,13 +34,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PonyMessenger.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B62EFBCE8B51F3951CFDE188 /* Pods-PonyMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonyMessenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PonyMessenger/Pods-PonyMessenger.debug.xcconfig"; sourceTree = "<group>"; };
+		C3C56D5CFFDA60C1069C8488 /* Pods-PonyMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PonyMessenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-PonyMessenger/Pods-PonyMessenger.release.xcconfig"; sourceTree = "<group>"; };
+		F00392E81AB87596002EF72B /* PPMChat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPMChat.storyboard; sourceTree = "<group>"; };
+		F00392F21AB87790002EF72B /* PPMApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMApplication.h; sourceTree = "<group>"; };
+		F00392F31AB87790002EF72B /* PPMApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMApplication.m; sourceTree = "<group>"; };
+		F00392F51AB877BF002EF72B /* PPMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMDefines.h; sourceTree = "<group>"; };
+		F00392F61AB877BF002EF72B /* PPMDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMDefines.m; sourceTree = "<group>"; };
+		F00392F91AB8784C002EF72B /* PPMCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMCore.h; sourceTree = "<group>"; };
+		F00392FA1AB8784C002EF72B /* PPMCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMCore.m; sourceTree = "<group>"; };
+		F00392FC1AB878F8002EF72B /* PPMChatCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatCore.h; sourceTree = "<group>"; };
+		F00392FD1AB878F8002EF72B /* PPMChatCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatCore.m; sourceTree = "<group>"; };
+		F00393001AB87D63002EF72B /* PPMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMTabBarController.h; sourceTree = "<group>"; };
+		F00393011AB87D63002EF72B /* PPMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMTabBarController.m; sourceTree = "<group>"; };
+		F00393031AB87E35002EF72B /* PPMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMNavigationController.h; sourceTree = "<group>"; };
+		F00393041AB87E35002EF72B /* PPMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMNavigationController.m; sourceTree = "<group>"; };
 		F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonyMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F647011AB869D700CACCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0F647021AB869D700CACCA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F0F647041AB869D700CACCA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0F647051AB869D700CACCA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F0F647071AB869D700CACCA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F0F647081AB869D700CACCA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F0F6470B1AB869D700CACCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0F6470D1AB869D700CACCA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F0F647101AB869D700CACCA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -47,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +82,122 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CD06DFCA3608186646A69EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52D86E3C78EC0F9314A62AEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B62EFBCE8B51F3951CFDE188 /* Pods-PonyMessenger.debug.xcconfig */,
+				C3C56D5CFFDA60C1069C8488 /* Pods-PonyMessenger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F00392E41AB874F2002EF72B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F00392E81AB87596002EF72B /* PPMChat.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F00392E51AB874F2002EF72B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F00392E61AB874F2002EF72B /* Common */,
+				F00392E71AB874F2002EF72B /* Modules */,
+				F00392F21AB87790002EF72B /* PPMApplication.h */,
+				F00392F31AB87790002EF72B /* PPMApplication.m */,
+				F00392F51AB877BF002EF72B /* PPMDefines.h */,
+				F00392F61AB877BF002EF72B /* PPMDefines.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F00392E61AB874F2002EF72B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F00392F81AB87845002EF72B /* Core */,
+				F00392FF1AB87D46002EF72B /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F00392E71AB874F2002EF72B /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F00392EE1AB87755002EF72B /* Chat */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F00392EE1AB87755002EF72B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F00392EF1AB87755002EF72B /* Application Logic */,
+				F00392F01AB87755002EF72B /* Module Interface */,
+				F00392F11AB87755002EF72B /* User Interface */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		F00392EF1AB87755002EF72B /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		F00392F01AB87755002EF72B /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				F00392FC1AB878F8002EF72B /* PPMChatCore.h */,
+				F00392FD1AB878F8002EF72B /* PPMChatCore.m */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		F00392F11AB87755002EF72B /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		F00392F81AB87845002EF72B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F00392F91AB8784C002EF72B /* PPMCore.h */,
+				F00392FA1AB8784C002EF72B /* PPMCore.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F00392FF1AB87D46002EF72B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F00393001AB87D63002EF72B /* PPMTabBarController.h */,
+				F00393011AB87D63002EF72B /* PPMTabBarController.m */,
+				F00393031AB87E35002EF72B /* PPMNavigationController.h */,
+				F00393041AB87E35002EF72B /* PPMNavigationController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F0F646F41AB869D700CACCA2 = {
 			isa = PBXGroup;
 			children = (
 				F0F646FF1AB869D700CACCA2 /* PonyMessenger */,
 				F0F647191AB869D700CACCA2 /* PonyMessengerTests */,
 				F0F646FE1AB869D700CACCA2 /* Products */,
+				52D86E3C78EC0F9314A62AEE /* Pods */,
+				4CD06DFCA3608186646A69EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +213,10 @@
 		F0F646FF1AB869D700CACCA2 /* PonyMessenger */ = {
 			isa = PBXGroup;
 			children = (
+				F00392E41AB874F2002EF72B /* Resources */,
+				F00392E51AB874F2002EF72B /* Classes */,
 				F0F647041AB869D700CACCA2 /* AppDelegate.h */,
 				F0F647051AB869D700CACCA2 /* AppDelegate.m */,
-				F0F647071AB869D700CACCA2 /* ViewController.h */,
-				F0F647081AB869D700CACCA2 /* ViewController.m */,
 				F0F6470A1AB869D700CACCA2 /* Main.storyboard */,
 				F0F6470D1AB869D700CACCA2 /* Images.xcassets */,
 				F0F6470F1AB869D700CACCA2 /* LaunchScreen.xib */,
@@ -126,9 +258,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0F647201AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessenger" */;
 			buildPhases = (
+				756AEFBEB4D5FBC57085C8E9 /* Check Pods Manifest.lock */,
 				F0F646F91AB869D700CACCA2 /* Sources */,
 				F0F646FA1AB869D700CACCA2 /* Frameworks */,
 				F0F646FB1AB869D700CACCA2 /* Resources */,
+				AEDD218D4E70168AD5897567 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +297,7 @@
 		F0F646F51AB869D700CACCA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PPM;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "崔 明辉";
 				TargetAttributes = {
@@ -201,6 +336,7 @@
 			files = (
 				F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */,
 				F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */,
+				F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */,
 				F0F6470E1AB869D700CACCA2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,14 +350,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		756AEFBEB4D5FBC57085C8E9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AEDD218D4E70168AD5897567 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PonyMessenger/Pods-PonyMessenger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F0F646F91AB869D700CACCA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0F647091AB869D700CACCA2 /* ViewController.m in Sources */,
+				F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */,
+				F00392F41AB87790002EF72B /* PPMApplication.m in Sources */,
 				F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */,
 				F0F647031AB869D700CACCA2 /* main.m in Sources */,
+				F00393021AB87D63002EF72B /* PPMTabBarController.m in Sources */,
+				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,
+				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
+				F00392F71AB877BF002EF72B /* PPMDefines.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +517,11 @@
 		};
 		F0F647211AB869D700CACCA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B62EFBCE8B51F3951CFDE188 /* Pods-PonyMessenger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PonyMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,9 +529,11 @@
 		};
 		F0F647221AB869D700CACCA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3C56D5CFFDA60C1069C8488 /* Pods-PonyMessenger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PonyMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +592,7 @@
 				F0F647221AB869D700CACCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0F647231AB869D700CACCA2 /* Build configuration list for PBXNativeTarget "PonyMessengerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +601,7 @@
 				F0F647251AB869D700CACCA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

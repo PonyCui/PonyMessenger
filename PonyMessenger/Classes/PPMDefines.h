@@ -1,15 +1,15 @@
 //
-//  ViewController.h
+//  PPMDefines.h
 //  PonyMessenger
 //
 //  Created by 崔 明辉 on 15-3-17.
 //  Copyright (c) 2015年 崔 明辉. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface PPMDefines : NSObject
 
++ (PPMDefines *)sharedDefines;
 
 @end
-
