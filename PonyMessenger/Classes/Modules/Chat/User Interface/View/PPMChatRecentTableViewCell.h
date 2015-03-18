@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMChatRecentCellPresenter;
+
 @interface PPMChatRecentTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) PPMChatRecentCellPresenter *eventHandler;
 
 @end

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMChatRecentListPresenter;
+
 @interface PPMChatRecentViewController : UIViewController
+
+@property (nonatomic, strong) PPMChatRecentListPresenter *eventHandler;
+
+- (void)reloadTableView;
 
 @end

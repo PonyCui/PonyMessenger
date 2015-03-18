@@ -7,6 +7,10 @@
 //
 
 #import "PPMChatRecentViewController.h"
+#import "PPMChatRecentListPresenter.h"
+#import "PPMChatRecentListInteractor.h"
+#import "PPMChatRecentTableViewCell.h"
+#import "PPMChatRecentCellPresenter.h"
 
 @interface PPMChatRecentViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -20,6 +24,7 @@
     [super viewDidLoad];
     self.parentViewController.title = @"微信";
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_mainframeHL"];
+    [self.eventHandler updateView];
     // Do any additional setup after loading the view.
 }
 
@@ -35,13 +40,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 99;
+    return [self.eventHandler.listInteractor.cellInteractors count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    PPMChatRecentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (indexPath.row < [self.eventHandler.listInteractor.cellInteractors count]) {
+        cell.eventHandler.cellInteractor = self.eventHandler.listInteractor.cellInteractors[indexPath.row];
+    }
     return cell;
+}
+
+#pragma mark - Events
+
+- (void)reloadTableView {
+    [self.tableView reloadData];
 }
 
 @end

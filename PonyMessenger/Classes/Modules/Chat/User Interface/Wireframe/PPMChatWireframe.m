@@ -8,6 +8,7 @@
 
 #import "PPMChatWireframe.h"
 #import "PPMChatRecentViewController.h"
+#import "PPMChatRecentListPresenter.h"
 #import "PPMChatContactViewController.h"
 #import "PPMApplication.h"
 
@@ -29,7 +30,10 @@
 
 - (PPMChatRecentViewController *)recentViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
-    return [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatRecentViewController"];
+    PPMChatRecentViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatRecentViewController"];
+    viewController.eventHandler = [[PPMChatRecentListPresenter alloc] init];
+    viewController.eventHandler.userInterface = viewController;
+    return viewController;
 }
 
 - (PPMChatContactViewController *)contactViewController {
