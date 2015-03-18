@@ -19,6 +19,7 @@
 		F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCB1AB8836E00A5E6AA /* PPMChatWireframe.m */; };
 		F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */; };
 		F08A3DD11AB8859100A5E6AA /* PPMChat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */; };
+		F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DD31AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m */; };
 		F0F647031AB869D700CACCA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647021AB869D700CACCA2 /* main.m */; };
 		F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647051AB869D700CACCA2 /* AppDelegate.m */; };
 		F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470A1AB869D700CACCA2 /* Main.storyboard */; };
@@ -61,6 +62,8 @@
 		F08A3DCD1AB8839E00A5E6AA /* PPMChatRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentViewController.h; sourceTree = "<group>"; };
 		F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentViewController.m; sourceTree = "<group>"; };
 		F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PPMChat.xcassets; sourceTree = "<group>"; };
+		F08A3DD21AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentTableViewCell.h; sourceTree = "<group>"; };
+		F08A3DD31AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentTableViewCell.m; sourceTree = "<group>"; };
 		F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonyMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F647011AB869D700CACCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0F647021AB869D700CACCA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 			children = (
 				F08A3DCD1AB8839E00A5E6AA /* PPMChatRecentViewController.h */,
 				F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */,
+				F08A3DD21AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.h */,
+				F08A3DD31AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */,
 				F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */,
 				F00392F41AB87790002EF72B /* PPMApplication.m in Sources */,
 				F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */,
