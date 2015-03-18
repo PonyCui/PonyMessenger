@@ -15,6 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1104014598540146" green="0.092523950729927001" blue="0.084968065693430656" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xwJ-1a-RKr" kind="relationship" relationship="rootViewController" id="b8G-yb-7Hp"/>

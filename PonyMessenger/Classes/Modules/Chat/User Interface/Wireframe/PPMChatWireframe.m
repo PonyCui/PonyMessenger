@@ -8,6 +8,7 @@
 
 #import "PPMChatWireframe.h"
 #import "PPMChatRecentViewController.h"
+#import "PPMChatContactViewController.h"
 #import "PPMApplication.h"
 
 @implementation PPMChatWireframe
@@ -18,11 +19,22 @@
      presentViewController:recentViewController toTabBarController:tabBarController];
 }
 
+- (void)presentContactViewControllerToTabBarController:(UITabBarController *)tabBarController {
+    PPMChatContactViewController *contactViewController = [self contactViewController];
+    [[[[PPMApplication sharedApplication] core] wireframe]
+     presentViewController:contactViewController toTabBarController:tabBarController];
+}
+
 #pragma mark - Getter
 
 - (PPMChatRecentViewController *)recentViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
     return [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatRecentViewController"];
+}
+
+- (PPMChatContactViewController *)contactViewController {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
+    return [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatContactViewController"];
 }
 
 @end

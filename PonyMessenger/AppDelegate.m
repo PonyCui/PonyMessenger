@@ -23,6 +23,8 @@
         [tabBarController setViewControllers:@[]];
         [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
          presentRecentViewControllerToTabBarController:tabBarController];
+        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
+         presentContactViewControllerToTabBarController:tabBarController];
     }
     return YES;
 }

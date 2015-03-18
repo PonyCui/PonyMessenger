@@ -13,4 +13,6 @@
 
 - (void)presentRecentViewControllerToTabBarController:(UITabBarController *)tabBarController;
 
+- (void)presentContactViewControllerToTabBarController:(UITabBarController *)tabBarController;
+
 @end
