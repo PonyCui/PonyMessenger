@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) PPMChatRecentCellInteractor *cellInteractor;
 
+- (void)updateView;
+
 @end

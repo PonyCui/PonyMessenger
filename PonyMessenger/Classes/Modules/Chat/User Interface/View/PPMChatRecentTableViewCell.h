@@ -14,4 +14,12 @@
 
 @property (nonatomic, strong) PPMChatRecentCellPresenter *eventHandler;
 
+- (void)setIconImage:(UIImage *)iconImage;
+
+- (void)setTitleText:(NSString *)text;
+
+- (void)setDescriptionText:(NSString *)text;
+
+- (void)setTimeDate:(NSDate *)date;
+
 @end

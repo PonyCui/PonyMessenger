@@ -7,6 +7,7 @@
 //
 
 #import "PPMChatRecentTableViewCell.h"
+#import "PPMChatRecentCellPresenter.h"
 
 @interface PPMChatRecentTableViewCell ()
 
@@ -23,12 +24,28 @@
 @implementation PPMChatRecentTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.eventHandler = [[PPMChatRecentCellPresenter alloc] init];
+    self.eventHandler.userInterface = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
+}
+
+- (void)setIconImage:(UIImage *)iconImage {
+    self.iconImageView.image = iconImage;
+}
+
+- (void)setTitleText:(NSString *)text {
+    self.titleLabel.text = text;
+}
+
+- (void)setDescriptionText:(NSString *)text {
+    self.descriptionLabel.text = text;
+}
+
+- (void)setTimeDate:(NSDate *)date {
 }
 
 @end

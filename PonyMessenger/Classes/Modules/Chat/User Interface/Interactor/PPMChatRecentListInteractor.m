@@ -7,11 +7,19 @@
 //
 
 #import "PPMChatRecentListInteractor.h"
+#import "PPMChatRecentCellInteractor.h"
 
 @implementation PPMChatRecentListInteractor
 
 - (void)findRecentSessions {
-    
+    NSMutableArray *cellInteractors = [NSMutableArray array];
+    NSInteger i = 100;
+    do {
+        PPMChatRecentCellInteractor *cellInteractor = [[PPMChatRecentCellInteractor alloc] init];
+        [cellInteractors addObject:cellInteractor];
+        i--;
+    } while (i > 0);
+    self.cellInteractors = cellInteractors;
 }
 
 @end
