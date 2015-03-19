@@ -52,4 +52,10 @@
     return @[@"A", @"B", @"A", @"B", @"A", @"B", @"A", @"B", @"A", @"B"];
 }
 
+#pragma mark - Events
+
+- (void)reloadTableView {
+    [self.tableView reloadData];
+}
+
 @end

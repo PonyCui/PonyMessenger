@@ -10,6 +10,9 @@
 
 @interface PPMChatRecentListInteractor : NSObject
 
+/**
+ *  NSArray -> PPMChatRecentCellInteractor
+ */
 @property (nonatomic, copy) NSArray *cellInteractors;
 
 - (void)findRecentSessions;

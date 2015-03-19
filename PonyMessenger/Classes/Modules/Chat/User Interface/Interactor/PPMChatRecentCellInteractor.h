@@ -11,12 +11,24 @@
 
 @interface PPMChatRecentCellInteractor : NSObject
 
+/**
+ *  @brief 头像
+ */
 @property (nonatomic, strong) UIImage *iconImage;
 
+/**
+ *  @brief 昵称
+ */
 @property (nonatomic, copy) NSString *nickname;
 
+/**
+ *  @brief 最后一条交谈内容
+ */
 @property (nonatomic, copy) NSString *recentTalk;
 
+/**
+ *  @brief 最后一条交谈内容的时间
+ */
 @property (nonatomic, strong) NSDate *recentDate;
 
 @end

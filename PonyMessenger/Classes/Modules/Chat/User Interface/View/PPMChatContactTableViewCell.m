@@ -8,6 +8,14 @@
 
 #import "PPMChatContactTableViewCell.h"
 
+@interface PPMChatContactTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end
+
 @implementation PPMChatContactTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +26,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setIconImage:(UIImage *)iconImage {
+    self.iconImageView.image = iconImage;
+}
+
+- (void)setTitleText:(NSString *)text {
+    self.titleLabel.text = text;
 }
 
 @end

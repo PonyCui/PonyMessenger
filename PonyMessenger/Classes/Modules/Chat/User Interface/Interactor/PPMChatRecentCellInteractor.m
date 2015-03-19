@@ -22,10 +22,12 @@
         self.nickname = [NSString stringWithFormat:@"PonyCui的小号 - %u", arc4random()];
         self.recentTalk = @"春哥你这个逗逼";
         self.recentDate = [NSDate dateWithTimeIntervalSinceNow:-(arc4random() % 8640000)];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://pic3.zhimg.com/5f89bb81b3ca4610e568eca5835ac8da_l.jpg"]];
-            self.iconImage = [UIImage imageWithData:imageData];
-        });
+        [NSURLConnection
+         sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://pic3.zhimg.com/5f89bb81b3ca4610e568eca5835ac8da_l.jpg"]]
+         queue:[NSOperationQueue mainQueue]
+         completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            self.iconImage = [UIImage imageWithData:data];
+        }];
     }
     return self;
 }

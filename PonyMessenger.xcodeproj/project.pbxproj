@@ -26,6 +26,10 @@
 		F08A3DE51AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DE41AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m */; };
 		F08A3DE81AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DE71AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m */; };
 		F08A3DEB1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DEA1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m */; };
+		F08A3DEE1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DED1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m */; };
+		F08A3DF11ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF01ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m */; };
+		F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF31ABAFBE300A5E6AA /* PPMChatContactListPresenter.m */; };
+		F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */; };
 		F0F647031AB869D700CACCA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647021AB869D700CACCA2 /* main.m */; };
 		F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0F647051AB869D700CACCA2 /* AppDelegate.m */; };
 		F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F6470A1AB869D700CACCA2 /* Main.storyboard */; };
@@ -82,6 +86,14 @@
 		F08A3DE71AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentListPresenter.m; sourceTree = "<group>"; };
 		F08A3DE91AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentCellPresenter.h; sourceTree = "<group>"; };
 		F08A3DEA1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentCellPresenter.m; sourceTree = "<group>"; };
+		F08A3DEC1ABAFBC500A5E6AA /* PPMChatContactListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactListInteractor.h; sourceTree = "<group>"; };
+		F08A3DED1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactListInteractor.m; sourceTree = "<group>"; };
+		F08A3DEF1ABAFBD500A5E6AA /* PPMChatContactCellInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactCellInteractor.h; sourceTree = "<group>"; };
+		F08A3DF01ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactCellInteractor.m; sourceTree = "<group>"; };
+		F08A3DF21ABAFBE300A5E6AA /* PPMChatContactListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactListPresenter.h; sourceTree = "<group>"; };
+		F08A3DF31ABAFBE300A5E6AA /* PPMChatContactListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactListPresenter.m; sourceTree = "<group>"; };
+		F08A3DF51ABAFBF100A5E6AA /* PPMChatContactCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactCellPresenter.h; sourceTree = "<group>"; };
+		F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactCellPresenter.m; sourceTree = "<group>"; };
 		F0F646FD1AB869D700CACCA2 /* PonyMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PonyMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F647011AB869D700CACCA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0F647021AB869D700CACCA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -268,6 +280,10 @@
 				F08A3DE11AB9D6B500A5E6AA /* PPMChatRecentListInteractor.m */,
 				F08A3DE31AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.h */,
 				F08A3DE41AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m */,
+				F08A3DEC1ABAFBC500A5E6AA /* PPMChatContactListInteractor.h */,
+				F08A3DED1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m */,
+				F08A3DEF1ABAFBD500A5E6AA /* PPMChatContactCellInteractor.h */,
+				F08A3DF01ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -279,6 +295,10 @@
 				F08A3DE71AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m */,
 				F08A3DE91AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.h */,
 				F08A3DEA1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m */,
+				F08A3DF21ABAFBE300A5E6AA /* PPMChatContactListPresenter.h */,
+				F08A3DF31ABAFBE300A5E6AA /* PPMChatContactListPresenter.m */,
+				F08A3DF51ABAFBF100A5E6AA /* PPMChatContactCellPresenter.h */,
+				F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -490,10 +510,14 @@
 				F00392F41AB87790002EF72B /* PPMApplication.m in Sources */,
 				F08A3DE81AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m in Sources */,
 				F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */,
+				F08A3DEE1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m in Sources */,
 				F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */,
 				F0F647031AB869D700CACCA2 /* main.m in Sources */,
 				F00393091AB87FB2002EF72B /* PPMWireframe.m in Sources */,
 				F00393021AB87D63002EF72B /* PPMTabBarController.m in Sources */,
+				F08A3DF11ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m in Sources */,
+				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
+				F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */,
 				F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */,
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
 				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,

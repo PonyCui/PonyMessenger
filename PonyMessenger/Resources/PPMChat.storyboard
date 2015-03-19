@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-3r-Elh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -91,9 +91,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lFt-3r-Elh" secondAttribute="trailing" id="0T7-qY-P0J"/>
-                            <constraint firstItem="3HX-ag-f69" firstAttribute="top" secondItem="lFt-3r-Elh" secondAttribute="bottom" constant="-49" id="9pg-dl-vBj"/>
+                            <constraint firstItem="3HX-ag-f69" firstAttribute="bottom" secondItem="lFt-3r-Elh" secondAttribute="bottom" id="9pg-dl-vBj"/>
                             <constraint firstItem="lFt-3r-Elh" firstAttribute="leading" secondItem="HxC-Bj-1fk" secondAttribute="leading" id="S7R-5V-96G"/>
-                            <constraint firstItem="lFt-3r-Elh" firstAttribute="top" secondItem="lF6-bq-p11" secondAttribute="bottom" constant="-64" id="WzN-t5-4do"/>
+                            <constraint firstItem="lFt-3r-Elh" firstAttribute="top" secondItem="lF6-bq-p11" secondAttribute="top" id="WzN-t5-4do"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="微信" image="tabbar_mainframe" id="BvP-mX-5Yv"/>
@@ -121,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="26" sectionFooterHeight="26" translatesAutoresizingMaskIntoConstraints="NO" id="1G4-Ta-qgV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -152,6 +152,10 @@
                                                 <constraint firstItem="DdO-z9-b19" firstAttribute="centerY" secondItem="EFo-ZC-obj" secondAttribute="centerY" id="oZQ-he-v4B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="DdO-z9-b19" id="Uob-6x-ezW"/>
+                                            <outlet property="titleLabel" destination="EFo-ZC-obj" id="L4R-tb-mif"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -162,9 +166,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hyY-4w-7MW" firstAttribute="top" secondItem="1G4-Ta-qgV" secondAttribute="bottom" constant="-49" id="EZh-jc-5UL"/>
+                            <constraint firstItem="hyY-4w-7MW" firstAttribute="bottom" secondItem="1G4-Ta-qgV" secondAttribute="bottom" id="EZh-jc-5UL"/>
                             <constraint firstAttribute="trailing" secondItem="1G4-Ta-qgV" secondAttribute="trailing" id="d4A-vD-8tG"/>
-                            <constraint firstItem="1G4-Ta-qgV" firstAttribute="top" secondItem="GbI-ew-VRM" secondAttribute="bottom" constant="-64" id="gZQ-gG-uL4"/>
+                            <constraint firstItem="1G4-Ta-qgV" firstAttribute="top" secondItem="GbI-ew-VRM" secondAttribute="top" id="gZQ-gG-uL4"/>
                             <constraint firstItem="1G4-Ta-qgV" firstAttribute="leading" secondItem="uF7-YV-h77" secondAttribute="leading" id="gyB-G5-aAU"/>
                         </constraints>
                     </view>

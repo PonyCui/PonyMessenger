@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMChatContactCellPresenter;
+
 @interface PPMChatContactTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) PPMChatContactCellPresenter *eventHandler;
+
+- (void)setIconImage:(UIImage *)iconImage;
+
+- (void)setTitleText:(NSString *)text;
 
 @end

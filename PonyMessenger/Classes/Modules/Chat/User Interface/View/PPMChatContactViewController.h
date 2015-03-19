@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMChatContactListPresenter;
+
 @interface PPMChatContactViewController : UIViewController
+
+@property (nonatomic, strong) PPMChatContactListPresenter *eventHandler;
+
+- (void)reloadTableView;
 
 @end
