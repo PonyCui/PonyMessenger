@@ -9,7 +9,9 @@
 #import "PPMChatRecentCellPresenter.h"
 #import "PPMChatRecentCellInteractor.h"
 #import "PPMChatRecentTableViewCell.h"
+#import "PPMApplication.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <PonyChatUI/PCUApplication.h>
 
 @implementation PPMChatRecentCellPresenter
 
@@ -55,6 +57,20 @@
             [self.userInterface setTimeDate:self.cellInteractor.recentDate];
         });
     }];
+}
+
+- (void)presentChatViewController {
+    id viewController = [self.userInterface nextResponder];
+    while (![viewController isKindOfClass:[UIViewController class]] && viewController != nil) {
+        viewController = [viewController nextResponder];
+    }
+    PCUChat *chatItem = [[PCUChat alloc] init];
+    chatItem.identifier = @"ChatIdentifier";
+    chatItem.title = self.cellInteractor.nickname;
+    [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
+     presentSessionViewControllerToNavigationController:[viewController navigationController]
+     withChatItem:chatItem];
+    
 }
 
 @end

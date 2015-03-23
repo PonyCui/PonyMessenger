@@ -10,6 +10,9 @@
 #import "PPMChatRecentViewController.h"
 #import "PPMChatRecentListPresenter.h"
 #import "PPMChatContactViewController.h"
+#import "PPMChatSessionViewController.h"
+#import "PPMChatSessionPresenter.h"
+#import "PPMChatSessionInteractor.h"
 #import "PPMApplication.h"
 
 @implementation PPMChatWireframe
@@ -26,6 +29,13 @@
      presentViewController:contactViewController toTabBarController:tabBarController];
 }
 
+- (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
+                                              withChatItem:(PCUChat *)chatItem {
+    PPMChatSessionViewController *sessionViewController = [self sessionViewController];
+    sessionViewController.eventHandler.sessionInteractor.chatItem = chatItem;
+    [navigationController pushViewController:sessionViewController animated:YES];
+}
+
 #pragma mark - Getter
 
 - (PPMChatRecentViewController *)recentViewController {
@@ -39,6 +49,15 @@
 - (PPMChatContactViewController *)contactViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
     return [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatContactViewController"];
+}
+
+- (PPMChatSessionViewController *)sessionViewController {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
+    PPMChatSessionViewController *sessionViewController =
+    [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatSessionViewController"];
+    sessionViewController.eventHandler = [[PPMChatSessionPresenter alloc] init];
+    sessionViewController.eventHandler.userInterface = sessionViewController;
+    return sessionViewController;
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "PPMApplication.h"
+#import <PonyChatUI/PCUApplication.h>
+#import <PonyChatUI/PCUSender.h>
 
 @interface AppDelegate ()
 
@@ -26,7 +28,16 @@
         [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
          presentContactViewControllerToTabBarController:tabBarController];
     }
+    [self configureSender];
     return YES;
+}
+
+- (void)configureSender {
+    PCUSender *sender = [[PCUSender alloc] init];
+    sender.identifier = @"1";
+    sender.thumbURLString = @"http://tp3.sinaimg.cn/1642351362/180/5708018784/0";
+    sender.title = @"Pony";
+    [PCUApplication setSender:sender];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

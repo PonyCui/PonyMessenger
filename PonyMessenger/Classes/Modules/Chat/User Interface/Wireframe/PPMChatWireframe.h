@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class PCUChat;
+
 @interface PPMChatWireframe : NSObject
 
 - (void)presentRecentViewControllerToTabBarController:(UITabBarController *)tabBarController;
 
 - (void)presentContactViewControllerToTabBarController:(UITabBarController *)tabBarController;
+
+- (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
+                                              withChatItem:(PCUChat *)chatItem;
 
 @end

@@ -184,6 +184,26 @@
             </objects>
             <point key="canvasLocation" x="401" y="1208"/>
         </scene>
+        <!--对话界面-->
+        <scene sceneID="Ram-gc-dF0">
+            <objects>
+                <viewController storyboardIdentifier="PPMChatSessionViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="2ce-FZ-QD9" customClass="PPMChatSessionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lGo-hw-34f"/>
+                        <viewControllerLayoutGuide type="bottom" id="lhZ-cm-BHc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fiW-uH-Hbz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="对话界面" id="ftA-bp-Eeg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pb-OU-Q5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="859"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Album_ToolViewEmotion" width="30" height="30"/>
