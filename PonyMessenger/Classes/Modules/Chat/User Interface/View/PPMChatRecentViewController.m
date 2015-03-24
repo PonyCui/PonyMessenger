@@ -28,6 +28,11 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -50,6 +55,11 @@
         cell.eventHandler.cellInteractor = self.eventHandler.listInteractor.cellInteractors[indexPath.row];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PPMChatRecentTableViewCell *cell = (PPMChatRecentTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    [cell.eventHandler presentChatViewControllerToNavigationController:self.navigationController];
 }
 
 #pragma mark - Events

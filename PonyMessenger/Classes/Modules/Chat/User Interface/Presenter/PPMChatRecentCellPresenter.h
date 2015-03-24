@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class PPMChatRecentTableViewCell, PPMChatRecentCellInteractor;
 
@@ -18,6 +19,6 @@
 
 - (void)updateView;
 
-- (void)presentChatViewController;
+- (void)presentChatViewControllerToNavigationController:(UINavigationController *)navigationController;
 
 @end

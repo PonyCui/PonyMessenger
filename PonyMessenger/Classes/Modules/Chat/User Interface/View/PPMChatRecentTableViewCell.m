@@ -7,7 +7,6 @@
 //
 
 #import "PPMChatRecentTableViewCell.h"
-#import "PPMChatRecentCellPresenter.h"
 
 @interface PPMChatRecentTableViewCell ()
 
@@ -30,9 +29,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    if (selected) {
-        [self.eventHandler presentChatViewController];
-    }
 }
 
 - (void)setIconImage:(UIImage *)iconImage {

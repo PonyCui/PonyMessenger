@@ -59,16 +59,12 @@
     }];
 }
 
-- (void)presentChatViewController {
-    id viewController = [self.userInterface nextResponder];
-    while (![viewController isKindOfClass:[UIViewController class]] && viewController != nil) {
-        viewController = [viewController nextResponder];
-    }
+- (void)presentChatViewControllerToNavigationController:(id)navigationController {
     PCUChat *chatItem = [[PCUChat alloc] init];
     chatItem.identifier = @"ChatIdentifier";
     chatItem.title = self.cellInteractor.nickname;
     [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-     presentSessionViewControllerToNavigationController:[viewController navigationController]
+     presentSessionViewControllerToNavigationController:navigationController
      withChatItem:chatItem];
     
 }
