@@ -1,15 +1,15 @@
 //
-//  PPMCoreData.m
+//  PPMPublicCoreData.m
 //  PonyMessenger
 //
-//  Created by 崔 明辉 on 15-3-27.
+//  Created by 崔 明辉 on 15-3-28.
 //  Copyright (c) 2015年 崔 明辉. All rights reserved.
 //
 
-#import "PPMCoreData.h"
+#import "PPMPublicCoreData.h"
 #import <CoreData/CoreData.h>
 
-@interface PPMCoreData ()
+@interface PPMPublicCoreData ()
 
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
@@ -17,9 +17,18 @@
 
 @end
 
-@implementation PPMCoreData
+@implementation PPMPublicCoreData
 
-- (instancetype)initWithUserID:(NSString *)userID
++ (PPMPublicCoreData *)sharedCoreData {
+    static PPMPublicCoreData *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[PPMPublicCoreData alloc] init];
+    });
+    return instance;
+}
+
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -33,7 +42,7 @@
                                  [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                                  [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
         NSURL *storeURL = [applicationDocumentsDirectory
-                           URLByAppendingPathComponent:[NSString stringWithFormat:@"PPM.%@.sqlite", userID]];
+                           URLByAppendingPathComponent:[NSString stringWithFormat:@"PPM.%@.sqlite", @"0"]];
         
         [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                   configuration:nil
@@ -47,23 +56,20 @@
     return self;
 }
 
-- (void)fetchUserInformationWithUserID:(NSString *)userID completionBlock:(PPMCoreDataUserInformationFetchCompletionBlock)completionBlock {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserInformation"];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"user_id = %@", userID]];
+- (void)fetchAccountItemsWithCompletionBlock:(PPMPublicCoreDataAccountItemsFetchingCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
     [self.managedObjectContext performBlock:^{
-        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
-        if ([result count] > 0) {
-            completionBlock([result firstObject]);
-        }
+        NSArray *items = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(items);
     }];
 }
 
-- (PPMManagedUserInformationItem *)newUserInformationItem {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"UserInformation"
+- (PPMManagedAccountItem *)newAccountItem {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Account"
                                                          inManagedObjectContext:self.managedObjectContext];
-    PPMManagedUserInformationItem *newEntry = (PPMManagedUserInformationItem *)[[NSManagedObject alloc]
-                                                                                initWithEntity:entityDescription
-                                                                insertIntoManagedObjectContext:self.managedObjectContext];
+    PPMManagedAccountItem *newEntry = (PPMManagedAccountItem *)[[NSManagedObject alloc]
+                                                                 initWithEntity:entityDescription
+                                                 insertIntoManagedObjectContext:self.managedObjectContext];
     
     return newEntry;
 }

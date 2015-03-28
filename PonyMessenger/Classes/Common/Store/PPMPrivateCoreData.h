@@ -10,21 +10,20 @@
 
 @class PPMManagedUserInformationItem;
 
-typedef void(^PPMCoreDataUserInformationFetchCompletionBlock)(PPMManagedUserInformationItem *item);
-
-@interface PPMCoreData : NSObject
+typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedUserInformationItem *item);
 
 /**
- *  @brief 每个用户都拥有独立的CoreData数据库
- *
+ * @brief  每个用户都拥有独立的PrivateCoreData实例
+ */
+@interface PPMPrivateCoreData : NSObject
+
+/**
  *  @param userID 
- *
- *  @return
  */
 - (instancetype)initWithUserID:(NSString *)userID;
 
 - (void)fetchUserInformationWithUserID:(NSString *)userID
-                       completionBlock:(PPMCoreDataUserInformationFetchCompletionBlock)completionBlock;
+                       completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserInformationItem *)newUserInformationItem;
 
