@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^PPMAccountManagerFindAccountItemsCompletionBlock)(NSArray *items);
+
 @interface PPMAccountManager : NSObject
+
++ (PPMAccountManager *)sharedManager;
+
+- (void)findAccountItemsWithCompletionBlock:(PPMAccountManagerFindAccountItemsCompletionBlock)completionBlock;
 
 @end

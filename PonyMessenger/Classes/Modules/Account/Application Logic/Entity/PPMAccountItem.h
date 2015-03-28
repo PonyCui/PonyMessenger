@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPMManagedAccountItem;
+
 @interface PPMAccountItem : NSObject
+
+@property (nonatomic, strong) NSNumber *userID;
+
+@property (nonatomic, copy) NSString *email;
+
+@property (nonatomic, copy) NSString *sessionToken;
+
+- (instancetype)initWithManagedAccountItem:(PPMManagedAccountItem *)managedItem;
 
 @end

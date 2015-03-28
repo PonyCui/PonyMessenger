@@ -7,7 +7,17 @@
 //
 
 #import "PPMAccountItem.h"
+#import "PPMManagedAccountItem.h"
 
 @implementation PPMAccountItem
+
+- (instancetype)initWithManagedAccountItem:(PPMManagedAccountItem *)managedItem {
+    self = [super init];
+    if (self && [managedItem isKindOfClass:[PPMManagedAccountItem class]]) {
+        self.userID = managedItem.user_id;
+        self.email = managedItem.email;
+    }
+    return self;
+}
 
 @end

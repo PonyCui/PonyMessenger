@@ -10,6 +10,8 @@
 #import <XCTest/XCTest.h>
 #import "PPMPublicCoreData.h"
 #import "PPMManagedAccountItem.h"
+#import "PPMAccountManager.h"
+#import "PPMAccountItem.h"
 
 @interface PPMAccountTests : XCTestCase
 
@@ -45,10 +47,20 @@
     [[PPMPublicCoreData sharedCoreData] save];
     
     [[PPMPublicCoreData sharedCoreData] fetchAccountItemsWithCompletionBlock:^(NSArray *items) {
-        XCTAssert([[[items firstObject] user_id] isEqualToNumber:@1], @"Pass");
-        XCTAssert([[[items lastObject] user_id] isEqualToNumber:@2], @"Pass");
+        XCTAssertTrue([[[items firstObject] user_id] isEqualToNumber:@1], @"Pass");
+        XCTAssertTrue([[[items lastObject] user_id] isEqualToNumber:@2], @"Pass");
     }];
+    [self continueTestAccountManager];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+}
+
+- (void)continueTestAccountManager {
+    [[PPMAccountManager sharedManager] findAccountItemsWithCompletionBlock:^(NSArray *items) {
+        XCTAssertTrue([items count] == 2, @"Pass");
+        XCTAssertTrue([[items firstObject] isKindOfClass:[PPMAccountItem class]], @"Pass");
+        XCTAssertTrue([[[items firstObject] userID] isEqualToNumber:@1], @"Pass");
+        XCTAssertTrue([[[items firstObject] email] isEqualToString:@"ponycui@me.com"], @"Pass");
+    }];
 }
 
 @end
