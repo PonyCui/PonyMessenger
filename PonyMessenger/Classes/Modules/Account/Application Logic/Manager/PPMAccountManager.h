@@ -8,12 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPMPrivateCoreData;
+
 typedef void(^PPMAccountManagerFindAccountItemsCompletionBlock)(NSArray *items);
+
+typedef void(^PPMAccountManagerSignupCompletionBlock)();
+
+typedef void(^PPMAccountManagerSignupFailureBlock)(NSError *error);
+
+typedef void(^PPMAccountManagerSigninCompletionBlock)();
+
+typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
+
+@class PPMAccountItem;
 
 @interface PPMAccountManager : NSObject
 
 + (PPMAccountManager *)sharedManager;
 
+@property (nonatomic, readonly) PPMPrivateCoreData *userStore;
+
 - (void)findAccountItemsWithCompletionBlock:(PPMAccountManagerFindAccountItemsCompletionBlock)completionBlock;
+
+- (void)signupWithAccountItem:(PPMAccountItem *)accountItem
+              accountPassword:(NSString *)accountPassword
+              completionBlock:(PPMAccountManagerSignupCompletionBlock)completionBlock
+                 failureBlock:(PPMAccountManagerSignupFailureBlock)failureBlock;
+
+- (void)signinWithAccountItem:(PPMAccountItem *)accountItem
+              accountPassword:(NSString *)accountPassword
+              completionBlock:(PPMAccountManagerSigninCompletionBlock)completionBlock
+                 failureBlock:(PPMAccountManagerSigninFailureBlock)failureBlock;
+
+- (void)signout;
 
 @end

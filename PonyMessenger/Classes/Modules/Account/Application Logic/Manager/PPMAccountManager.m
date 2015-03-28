@@ -53,4 +53,22 @@
     }];
 }
 
+- (void)signupWithAccountItem:(PPMAccountItem *)accountItem
+              accountPassword:(NSString *)accountPassword
+              completionBlock:(PPMAccountManagerSignupCompletionBlock)completionBlock
+                 failureBlock:(PPMAccountManagerSignupFailureBlock)failureBlock {
+    
+}
+
+- (void)signinWithAccountItem:(PPMAccountItem *)accountItem
+              accountPassword:(NSString *)accountPassword
+              completionBlock:(PPMAccountManagerSigninCompletionBlock)completionBlock
+                 failureBlock:(PPMAccountManagerSigninFailureBlock)failureBlock {
+    
+}
+
+- (void)signout {
+    
+}
+
 @end
