@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F1066" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="UserInformation" representedClassName="PPMManagedUserInformationItem" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
