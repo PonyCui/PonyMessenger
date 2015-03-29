@@ -58,6 +58,21 @@
     }];
 }
 
+- (void)findActiveAccountItemWithCompletionBlock:(PPMAccountManagerFindActiveAccountItemCompletionBlock)completionBlock {
+    [self findAccountItemsWithCompletionBlock:^(NSArray *items) {
+        __block PPMAccountItem *item;
+        [items enumerateObjectsUsingBlock:^(PPMManagedAccountItem *obj, NSUInteger idx, BOOL *stop) {
+            NSString *password = [SSKeychain passwordForService:@"PPM.Account" account:[obj.user_id stringValue]];
+            if (password != nil) {
+                item = [[PPMAccountItem alloc] initWithManagedAccountItem:obj];
+                item.sessionToken = password;
+                *stop = YES;
+            }
+        }];
+        completionBlock(item);
+    }];
+}
+
 - (void)signupWithAccountItem:(PPMAccountItem *)accountItem
               accountPassword:(NSString *)accountPassword
               completionBlock:(PPMAccountManagerSignupCompletionBlock)completionBlock

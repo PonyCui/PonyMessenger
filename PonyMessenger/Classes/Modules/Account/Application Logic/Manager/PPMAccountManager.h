@@ -12,6 +12,8 @@
 
 typedef void(^PPMAccountManagerFindAccountItemsCompletionBlock)(NSArray *items);
 
+typedef void(^PPMAccountManagerFindActiveAccountItemCompletionBlock)(PPMAccountItem *item);
+
 typedef void(^PPMAccountManagerSignupCompletionBlock)(PPMAccountItem *item);
 
 typedef void(^PPMAccountManagerSignupFailureBlock)(NSError *error);
@@ -29,6 +31,8 @@ typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
 @property (nonatomic, readonly) PPMPrivateCoreData *userStore;
 
 - (void)findAccountItemsWithCompletionBlock:(PPMAccountManagerFindAccountItemsCompletionBlock)completionBlock;
+
+- (void)findActiveAccountItemWithCompletionBlock:(PPMAccountManagerFindActiveAccountItemCompletionBlock)completionBlock;
 
 - (void)signupWithAccountItem:(PPMAccountItem *)accountItem
               accountPassword:(NSString *)accountPassword
