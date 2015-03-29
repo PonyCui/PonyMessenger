@@ -15,6 +15,15 @@
     return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/signup"];
 }
 
+- (NSDictionary *)signupResponseEagerTypes {
+    return @{
+             @"data": @"NSDictionary",
+             @"user_id": @"NSNumber",
+             @"session_token": @"NSString",
+             @"session_access": @"NSString"
+             };
+}
+
 - (NSString *)signinURLString {
     return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/signin"];
 }

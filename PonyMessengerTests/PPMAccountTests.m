@@ -69,11 +69,11 @@
     [[PPMAccountManager sharedManager]
      signupWithAccountItem:newAccount
      accountPassword:@"123456"
-     completionBlock:^{
-        
-    } failureBlock:^(NSError *error) {
-        
-    }];
+     completionBlock:^(PPMAccountItem *item) {
+         XCTAssertNotNil(item.sessionToken);
+     } failureBlock:^(NSError *error) {
+         XCTAssertNotNil(error);
+     }];
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
 }
 

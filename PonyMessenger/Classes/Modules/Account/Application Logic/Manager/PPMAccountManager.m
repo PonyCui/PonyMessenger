@@ -11,6 +11,7 @@
 #import "PPMPrivateCoreData.h"
 #import "PPMAccountItem.h"
 #import "PPMDefine.h"
+#import "PPMOutputHelper.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface PPMAccountManager ()
@@ -75,7 +76,22 @@
      POST:URLString
      parameters:params
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+         PPMOutputHelper *output = [[PPMOutputHelper alloc]
+                                    initWithJSONObject:responseObject
+                                    eagerTypes:[PPMDefine sharedDefine].account.signupResponseEagerTypes];
+         if (output.error == nil) {
+             [output requestDataObjectWithCompletionBlock:^(id dataObject) {
+                 accountItem.sessionToken = dataObject[@"session_token"];
+                 if (completionBlock) {
+                     completionBlock(accountItem);
+                 }
+             }];
+         }
+         else {
+             if (failureBlock) {
+                 failureBlock(output.error);
+             }
+         }
     }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          if (failureBlock) {

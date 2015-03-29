@@ -8,19 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMPrivateCoreData;
+@class PPMPrivateCoreData, PPMAccountItem;
 
 typedef void(^PPMAccountManagerFindAccountItemsCompletionBlock)(NSArray *items);
 
-typedef void(^PPMAccountManagerSignupCompletionBlock)();
+typedef void(^PPMAccountManagerSignupCompletionBlock)(PPMAccountItem *item);
 
 typedef void(^PPMAccountManagerSignupFailureBlock)(NSError *error);
 
 typedef void(^PPMAccountManagerSigninCompletionBlock)();
 
 typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
-
-@class PPMAccountItem;
 
 @interface PPMAccountManager : NSObject
 

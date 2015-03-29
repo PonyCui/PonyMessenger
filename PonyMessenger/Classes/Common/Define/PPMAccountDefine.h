@@ -12,6 +12,8 @@
 
 @property (nonatomic, readonly) NSString *signupURLString;
 
+@property (nonatomic, readonly) NSDictionary *signupResponseEagerTypes;
+
 @property (nonatomic, readonly) NSString *signinURLString;
 
 @end
