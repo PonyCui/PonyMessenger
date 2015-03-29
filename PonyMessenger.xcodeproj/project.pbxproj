@@ -19,6 +19,9 @@
 		F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE01AC7A2C7007CF88C /* PPMProtocolHelper.m */; };
 		F023EFE41AC7A733007CF88C /* PPMValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE31AC7A733007CF88C /* PPMValueFormatter.m */; };
 		F023EFE61AC7AF7C007CF88C /* PPMOutputHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */; };
+		F029766F1AC842C500C7C37B /* PPMAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F029766E1AC842C500C7C37B /* PPMAccount.storyboard */; };
+		F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02976711AC843CB00C7C37B /* PPMAccountSigninViewController.m */; };
+		F02976751AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02976741AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m */; };
 		F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBD81AC6EA16004E860F /* PPMDefine.m */; };
 		F05BFBDC1AC6EAF3004E860F /* PPMAccountDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBDB1AC6EAF3004E860F /* PPMAccountDefine.m */; };
 		F05BFBDF1AC6EE63004E860F /* PPMManagedAccountItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBDE1AC6EE63004E860F /* PPMManagedAccountItem.m */; };
@@ -88,6 +91,11 @@
 		F023EFE21AC7A733007CF88C /* PPMValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMValueFormatter.h; sourceTree = "<group>"; };
 		F023EFE31AC7A733007CF88C /* PPMValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMValueFormatter.m; sourceTree = "<group>"; };
 		F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMOutputHelperTests.m; sourceTree = "<group>"; };
+		F029766E1AC842C500C7C37B /* PPMAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPMAccount.storyboard; sourceTree = "<group>"; };
+		F02976701AC843CB00C7C37B /* PPMAccountSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSigninViewController.h; sourceTree = "<group>"; };
+		F02976711AC843CB00C7C37B /* PPMAccountSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSigninViewController.m; sourceTree = "<group>"; };
+		F02976731AC84A4800C7C37B /* PPMAccountActiveSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountActiveSigninViewController.h; sourceTree = "<group>"; };
+		F02976741AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountActiveSigninViewController.m; sourceTree = "<group>"; };
 		F05BFBD71AC6EA16004E860F /* PPMDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMDefine.h; sourceTree = "<group>"; };
 		F05BFBD81AC6EA16004E860F /* PPMDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMDefine.m; sourceTree = "<group>"; };
 		F05BFBDA1AC6EAF3004E860F /* PPMAccountDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountDefine.h; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 			children = (
 				F00392E81AB87596002EF72B /* PPMChat.storyboard */,
 				F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */,
+				F029766E1AC842C500C7C37B /* PPMAccount.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -309,6 +318,25 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		F029766C1AC842AE00C7C37B /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				F029766D1AC842AE00C7C37B /* View */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		F029766D1AC842AE00C7C37B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F02976701AC843CB00C7C37B /* PPMAccountSigninViewController.h */,
+				F02976711AC843CB00C7C37B /* PPMAccountSigninViewController.m */,
+				F02976731AC84A4800C7C37B /* PPMAccountActiveSigninViewController.h */,
+				F02976741AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F05BFBD61AC6EA0C004E860F /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +442,7 @@
 		F0E154701AC5A24C00E46E48 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				F029766C1AC842AE00C7C37B /* User Interface */,
 				F0E154711AC5A24C00E46E48 /* Application Logic */,
 			);
 			path = Account;
@@ -585,6 +614,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F029766F1AC842C500C7C37B /* PPMAccount.storyboard in Resources */,
 				F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */,
 				F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */,
 				F08A3DD11AB8859100A5E6AA /* PPMChat.xcassets in Resources */,
@@ -642,6 +672,7 @@
 			files = (
 				F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */,
 				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
+				F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
 				F08A3DDD1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m in Sources */,
 				F08A3DE51AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m in Sources */,
@@ -655,6 +686,7 @@
 				F05BFBDF1AC6EE63004E860F /* PPMManagedAccountItem.m in Sources */,
 				F00392F41AB87790002EF72B /* PPMApplication.m in Sources */,
 				F08A3DE81AB9D6DB00A5E6AA /* PPMChatRecentListPresenter.m in Sources */,
+				F02976751AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m in Sources */,
 				F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */,
 				F08A3DEE1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m in Sources */,
 				F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */,
