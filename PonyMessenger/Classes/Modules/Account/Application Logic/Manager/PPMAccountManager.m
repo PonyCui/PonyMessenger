@@ -69,6 +69,7 @@
                 *stop = YES;
             }
         }];
+        [self setActiveAccount:item];
         completionBlock(item);
     }];
 }
