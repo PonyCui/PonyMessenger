@@ -10,12 +10,15 @@
 		48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */; };
 		F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00392E81AB87596002EF72B /* PPMChat.storyboard */; };
 		F00392F41AB87790002EF72B /* PPMApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392F31AB87790002EF72B /* PPMApplication.m */; };
-		F00392F71AB877BF002EF72B /* PPMDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392F61AB877BF002EF72B /* PPMDefines.m */; };
 		F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392FA1AB8784C002EF72B /* PPMCore.m */; };
 		F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F00392FD1AB878F8002EF72B /* PPMChatCore.m */; };
 		F00393021AB87D63002EF72B /* PPMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F00393011AB87D63002EF72B /* PPMTabBarController.m */; };
 		F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F00393041AB87E35002EF72B /* PPMNavigationController.m */; };
 		F00393091AB87FB2002EF72B /* PPMWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = F00393081AB87FB2002EF72B /* PPMWireframe.m */; };
+		F023EFDE1AC7A2BA007CF88C /* PPMOutputHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFDD1AC7A2BA007CF88C /* PPMOutputHelper.m */; };
+		F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE01AC7A2C7007CF88C /* PPMProtocolHelper.m */; };
+		F023EFE41AC7A733007CF88C /* PPMValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE31AC7A733007CF88C /* PPMValueFormatter.m */; };
+		F023EFE61AC7AF7C007CF88C /* PPMOutputHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */; };
 		F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBD81AC6EA16004E860F /* PPMDefine.m */; };
 		F05BFBDC1AC6EAF3004E860F /* PPMAccountDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBDB1AC6EAF3004E860F /* PPMAccountDefine.m */; };
 		F05BFBDF1AC6EE63004E860F /* PPMManagedAccountItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BFBDE1AC6EE63004E860F /* PPMManagedAccountItem.m */; };
@@ -68,8 +71,6 @@
 		F00392E81AB87596002EF72B /* PPMChat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPMChat.storyboard; sourceTree = "<group>"; };
 		F00392F21AB87790002EF72B /* PPMApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMApplication.h; sourceTree = "<group>"; };
 		F00392F31AB87790002EF72B /* PPMApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMApplication.m; sourceTree = "<group>"; };
-		F00392F51AB877BF002EF72B /* PPMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMDefines.h; sourceTree = "<group>"; };
-		F00392F61AB877BF002EF72B /* PPMDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMDefines.m; sourceTree = "<group>"; };
 		F00392F91AB8784C002EF72B /* PPMCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMCore.h; sourceTree = "<group>"; };
 		F00392FA1AB8784C002EF72B /* PPMCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMCore.m; sourceTree = "<group>"; };
 		F00392FC1AB878F8002EF72B /* PPMChatCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatCore.h; sourceTree = "<group>"; };
@@ -80,6 +81,13 @@
 		F00393041AB87E35002EF72B /* PPMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMNavigationController.m; sourceTree = "<group>"; };
 		F00393071AB87FB2002EF72B /* PPMWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMWireframe.h; sourceTree = "<group>"; };
 		F00393081AB87FB2002EF72B /* PPMWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMWireframe.m; sourceTree = "<group>"; };
+		F023EFDC1AC7A2BA007CF88C /* PPMOutputHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMOutputHelper.h; sourceTree = "<group>"; };
+		F023EFDD1AC7A2BA007CF88C /* PPMOutputHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMOutputHelper.m; sourceTree = "<group>"; };
+		F023EFDF1AC7A2C7007CF88C /* PPMProtocolHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMProtocolHelper.h; sourceTree = "<group>"; };
+		F023EFE01AC7A2C7007CF88C /* PPMProtocolHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMProtocolHelper.m; sourceTree = "<group>"; };
+		F023EFE21AC7A733007CF88C /* PPMValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMValueFormatter.h; sourceTree = "<group>"; };
+		F023EFE31AC7A733007CF88C /* PPMValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMValueFormatter.m; sourceTree = "<group>"; };
+		F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMOutputHelperTests.m; sourceTree = "<group>"; };
 		F05BFBD71AC6EA16004E860F /* PPMDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMDefine.h; sourceTree = "<group>"; };
 		F05BFBD81AC6EA16004E860F /* PPMDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMDefine.m; sourceTree = "<group>"; };
 		F05BFBDA1AC6EAF3004E860F /* PPMAccountDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountDefine.h; sourceTree = "<group>"; };
@@ -196,8 +204,6 @@
 				F00392E71AB874F2002EF72B /* Modules */,
 				F00392F21AB87790002EF72B /* PPMApplication.h */,
 				F00392F31AB87790002EF72B /* PPMApplication.m */,
-				F00392F51AB877BF002EF72B /* PPMDefines.h */,
-				F00392F61AB877BF002EF72B /* PPMDefines.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 		F00392E61AB874F2002EF72B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F023EFDB1AC7A230007CF88C /* Helper */,
 				F05BFBD61AC6EA0C004E860F /* Define */,
 				F0E1546F1AC5A24500E46E48 /* Store */,
 				F00393061AB87F98002EF72B /* Wireframe */,
@@ -287,6 +294,19 @@
 				F00393081AB87FB2002EF72B /* PPMWireframe.m */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		F023EFDB1AC7A230007CF88C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F023EFE21AC7A733007CF88C /* PPMValueFormatter.h */,
+				F023EFE31AC7A733007CF88C /* PPMValueFormatter.m */,
+				F023EFDC1AC7A2BA007CF88C /* PPMOutputHelper.h */,
+				F023EFDD1AC7A2BA007CF88C /* PPMOutputHelper.m */,
+				F023EFDF1AC7A2C7007CF88C /* PPMProtocolHelper.h */,
+				F023EFE01AC7A2C7007CF88C /* PPMProtocolHelper.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F05BFBD61AC6EA0C004E860F /* Define */ = {
@@ -468,6 +488,7 @@
 			children = (
 				F0F6471C1AB869D700CACCA2 /* PonyMessengerTests.m */,
 				F05BFBEB1AC6F3EE004E860F /* PPMAccountTests.m */,
+				F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */,
 				F0F6471A1AB869D700CACCA2 /* Supporting Files */,
 			);
 			path = PonyMessengerTests;
@@ -620,11 +641,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */,
+				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
 				F08A3DDD1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m in Sources */,
 				F08A3DE51AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m in Sources */,
 				F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */,
 				F0E1547B1AC5A59300E46E48 /* PPMManagedUserInformationItem.m in Sources */,
+				F023EFE41AC7A733007CF88C /* PPMValueFormatter.m in Sources */,
+				F023EFDE1AC7A2BA007CF88C /* PPMOutputHelper.m in Sources */,
 				F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */,
 				F08A3DE21AB9D6B500A5E6AA /* PPMChatRecentListInteractor.m in Sources */,
 				F06782711AC0684E009E8C5B /* PPMChatSessionPresenter.m in Sources */,
@@ -651,7 +675,6 @@
 				F05BFBE71AC6EF94004E860F /* PPMAccountManager.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
-				F00392F71AB877BF002EF72B /* PPMDefines.m in Sources */,
 				F0E154781AC5A2F800E46E48 /* PPMPrivateCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +685,7 @@
 			files = (
 				F0F6471D1AB869D700CACCA2 /* PonyMessengerTests.m in Sources */,
 				F05BFBEC1AC6F3EE004E860F /* PPMAccountTests.m in Sources */,
+				F023EFE61AC7AF7C007CF88C /* PPMOutputHelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

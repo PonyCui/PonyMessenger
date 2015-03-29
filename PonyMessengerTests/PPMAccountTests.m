@@ -63,4 +63,18 @@
     }];
 }
 
+- (void)testSignup {
+    PPMAccountItem *newAccount = [[PPMAccountItem alloc] init];
+    newAccount.email = [NSString stringWithFormat:@"%u@test.com", arc4random()];
+    [[PPMAccountManager sharedManager]
+     signupWithAccountItem:newAccount
+     accountPassword:@"123456"
+     completionBlock:^{
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+}
+
 @end

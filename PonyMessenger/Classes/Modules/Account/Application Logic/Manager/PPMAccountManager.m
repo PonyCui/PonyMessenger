@@ -10,6 +10,8 @@
 #import "PPMPublicCoreData.h"
 #import "PPMPrivateCoreData.h"
 #import "PPMAccountItem.h"
+#import "PPMDefine.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface PPMAccountManager ()
 
@@ -57,7 +59,29 @@
               accountPassword:(NSString *)accountPassword
               completionBlock:(PPMAccountManagerSignupCompletionBlock)completionBlock
                  failureBlock:(PPMAccountManagerSignupFailureBlock)failureBlock {
-    
+    if (accountItem.email == nil || accountPassword == nil || !accountPassword.length) {
+        NSError *error = [NSError errorWithDomain:@"PPM.Account" code:NSIntegerMin userInfo:nil];
+        if (failureBlock) {
+            failureBlock(error);
+        }
+        return ;
+    }
+    NSString *URLString = [[[PPMDefine sharedDefine] account] signupURLString];
+    NSDictionary *params = @{
+                             @"email": accountItem.email,
+                             @"password": accountPassword
+                             };
+    [[AFHTTPRequestOperationManager manager]
+     POST:URLString
+     parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failureBlock) {
+             failureBlock(error);
+         }
+    }];
 }
 
 - (void)signinWithAccountItem:(PPMAccountItem *)accountItem

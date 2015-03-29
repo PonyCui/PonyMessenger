@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PPMDefines.h"
 #import "PPMCore.h"
 
 @interface PPMApplication : NSObject
