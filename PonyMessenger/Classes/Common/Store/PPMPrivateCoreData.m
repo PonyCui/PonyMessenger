@@ -19,7 +19,7 @@
 
 @implementation PPMPrivateCoreData
 
-- (instancetype)initWithUserID:(NSString *)userID
+- (instancetype)initWithUserID:(NSNumber *)userID
 {
     self = [super init];
     if (self) {
@@ -47,7 +47,7 @@
     return self;
 }
 
-- (void)fetchUserInformationWithUserID:(NSString *)userID completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock {
+- (void)fetchUserInformationWithUserID:(NSNumber *)userID completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserInformation"];
     [request setPredicate:[NSPredicate predicateWithFormat:@"user_id = %@", userID]];
     [self.managedObjectContext performBlock:^{

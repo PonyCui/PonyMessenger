@@ -28,4 +28,14 @@
     return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/signin"];
 }
 
+- (NSDictionary *)signinResponseEagerTypes {
+    return @{
+             @"data": @"NSDictionary",
+             @"user_id": @"NSNumber",
+             @"session_token": @"NSString",
+             @"session_access": @"NSString"
+             };
+}
+
+
 @end

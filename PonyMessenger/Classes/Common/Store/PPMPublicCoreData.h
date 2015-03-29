@@ -12,6 +12,8 @@
 
 typedef void(^PPMPublicCoreDataAccountItemsFetchingCompletionBlock)(NSArray *items);
 
+typedef void(^PPMPublicCoreDataAccountItemFetchingCompletionBlock)(PPMManagedAccountItem *item);
+
 /**
  *  每个应用只拥有一个PublicCoreData实例
  */
@@ -20,6 +22,11 @@ typedef void(^PPMPublicCoreDataAccountItemsFetchingCompletionBlock)(NSArray *ite
 + (PPMPublicCoreData *)sharedCoreData;
 
 - (void)fetchAccountItemsWithCompletionBlock:(PPMPublicCoreDataAccountItemsFetchingCompletionBlock)completionBlock;
+
+- (void)fetchAccountItemWithUserID:(NSNumber *)userID
+                    comletionBlock:(PPMPublicCoreDataAccountItemFetchingCompletionBlock)completionBlock;
+
+- (void)deleteAccountItem:(PPMManagedAccountItem *)item;
 
 - (PPMManagedAccountItem *)newAccountItem;
 

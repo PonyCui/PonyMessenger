@@ -24,6 +24,8 @@ typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
 
 + (PPMAccountManager *)sharedManager;
 
+@property (nonatomic, readonly) PPMAccountItem *activeAccount;
+
 @property (nonatomic, readonly) PPMPrivateCoreData *userStore;
 
 - (void)findAccountItemsWithCompletionBlock:(PPMAccountManagerFindAccountItemsCompletionBlock)completionBlock;

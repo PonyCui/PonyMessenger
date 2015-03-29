@@ -20,9 +20,9 @@ typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedU
 /**
  *  @param userID 
  */
-- (instancetype)initWithUserID:(NSString *)userID;
+- (instancetype)initWithUserID:(NSNumber *)userID;
 
-- (void)fetchUserInformationWithUserID:(NSString *)userID
+- (void)fetchUserInformationWithUserID:(NSNumber *)userID
                        completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserInformationItem *)newUserInformationItem;

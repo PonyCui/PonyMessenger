@@ -8,11 +8,13 @@
 
 #import "PPMAccountManager.h"
 #import "PPMPublicCoreData.h"
+#import "PPMManagedAccountItem.h"
 #import "PPMPrivateCoreData.h"
 #import "PPMAccountItem.h"
 #import "PPMDefine.h"
 #import "PPMOutputHelper.h"
 #import <AFNetworking/AFNetworking.h>
+#import <SSKeychain/SSKeychain.h>
 
 @interface PPMAccountManager ()
 
@@ -81,7 +83,9 @@
                                     eagerTypes:[PPMDefine sharedDefine].account.signupResponseEagerTypes];
          if (output.error == nil) {
              [output requestDataObjectWithCompletionBlock:^(id dataObject) {
+                 accountItem.userID = dataObject[@"user_id"];
                  accountItem.sessionToken = dataObject[@"session_token"];
+                 [self setActiveAccount:accountItem];
                  if (completionBlock) {
                      completionBlock(accountItem);
                  }
@@ -104,11 +108,93 @@
               accountPassword:(NSString *)accountPassword
               completionBlock:(PPMAccountManagerSigninCompletionBlock)completionBlock
                  failureBlock:(PPMAccountManagerSigninFailureBlock)failureBlock {
-    
+    if (accountItem.email == nil || accountPassword == nil || !accountPassword.length) {
+        NSError *error = [NSError errorWithDomain:@"PPM.Account" code:NSIntegerMin userInfo:nil];
+        if (failureBlock) {
+            failureBlock(error);
+        }
+        return ;
+    }
+    NSString *URLString = [[[PPMDefine sharedDefine] account] signinURLString];
+    NSDictionary *params = @{
+                             @"email": accountItem.email,
+                             @"password": accountPassword
+                             };
+    [[AFHTTPRequestOperationManager manager]
+     POST:URLString
+     parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         PPMOutputHelper *output = [[PPMOutputHelper alloc]
+                                    initWithJSONObject:responseObject
+                                    eagerTypes:[PPMDefine sharedDefine].account.signinResponseEagerTypes];
+         if (output.error == nil) {
+             [output requestDataObjectWithCompletionBlock:^(id dataObject) {
+                 accountItem.userID = dataObject[@"user_id"];
+                 accountItem.sessionToken = dataObject[@"session_token"];
+                 [self setActiveAccount:accountItem];
+                 if (completionBlock) {
+                     completionBlock(accountItem);
+                 }
+             }];
+         }
+         else {
+             if (failureBlock) {
+                 failureBlock(output.error);
+             }
+         }
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failureBlock) {
+             failureBlock(error);
+         }
+     }];
+}
+
+- (void)setActiveAccount:(PPMAccountItem *)activeAccount {
+    _activeAccount = activeAccount;
+    [self configureKeychainWithAccountItem:activeAccount];
+    [self configureUserStoreWithAccountItem:activeAccount];
+}
+
+- (void)addAccountToApplicationStore:(PPMAccountItem *)accountItem {
+    [self.applicationStore fetchAccountItemWithUserID:accountItem.userID comletionBlock:^(PPMManagedAccountItem *item) {
+        if (item != nil) {
+            item.email = accountItem.email;
+        }
+        else {
+            PPMManagedAccountItem *managedAccountItem = [self.applicationStore newAccountItem];
+            managedAccountItem.user_id = accountItem.userID;
+            managedAccountItem.email = accountItem.email;
+        }
+        [self.applicationStore save];
+    }];
+}
+
+- (void)deleteAccountFromApplicationStore:(PPMAccountItem *)accountItem {
+    [self.applicationStore fetchAccountItemWithUserID:accountItem.userID comletionBlock:^(PPMManagedAccountItem *item) {
+        if (item != nil) {
+            [self.applicationStore deleteAccountItem:item];
+        }
+    }];
+    NSURL *applicationDocumentsDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *storeURL = [applicationDocumentsDirectory
+                       URLByAppendingPathComponent:[NSString stringWithFormat:@"PPM.%@.sqlite", accountItem.userID]];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:NULL];
+}
+
+- (void)configureKeychainWithAccountItem:(PPMAccountItem *)accountItem {
+    [SSKeychain setPassword:accountItem.sessionToken
+                 forService:@"PPM.Account"
+                    account:[accountItem.userID stringValue]];
+}
+
+- (void)configureUserStoreWithAccountItem:(PPMAccountItem *)accountItem {
+    self.userStore = [[PPMPrivateCoreData alloc] initWithUserID:accountItem.userID];
 }
 
 - (void)signout {
-    
+    [SSKeychain deletePasswordForService:@"PPM.Account" account:[self.activeAccount.userID stringValue]];
+    self.userStore = nil;
 }
 
 @end

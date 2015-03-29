@@ -8,6 +8,7 @@
 
 #import "PPMPublicCoreData.h"
 #import <CoreData/CoreData.h>
+#import "PPMManagedAccountItem.h"
 
 @interface PPMPublicCoreData ()
 
@@ -61,6 +62,21 @@
     [self.managedObjectContext performBlock:^{
         NSArray *items = [self.managedObjectContext executeFetchRequest:request error:NULL];
         completionBlock(items);
+    }];
+}
+
+- (void)fetchAccountItemWithUserID:(NSNumber *)userID comletionBlock:(PPMPublicCoreDataAccountItemFetchingCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Account"];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"user_id = %@", userID]];
+    [self.managedObjectContext performBlock:^{
+        NSArray *items = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock([items firstObject]);
+    }];
+}
+
+- (void)deleteAccountItem:(PPMManagedAccountItem *)item {
+    [self.managedObjectContext performBlock:^{
+        [self.managedObjectContext deleteObject:item];
     }];
 }
 
