@@ -16,4 +16,6 @@
 
 - (UINavigationController *)standardNavigationController;
 
+- (UITabBarController *)standardTabBarController;
+
 @end

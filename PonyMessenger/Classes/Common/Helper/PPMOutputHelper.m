@@ -27,9 +27,13 @@
     self = [super init];
     if (self && [JSONObject isKindOfClass:[NSDictionary class]]) {
         if ([JSONObject[@"error_code"] integerValue] != 0) {
+            NSString *errorDescription = JSONObject[@"error_description"];
+            if (errorDescription == nil) {
+                errorDescription = @"";
+            }
             self.error = [NSError errorWithDomain:@"PPM.outputHelper"
                                              code:[JSONObject[@"error_code"] integerValue]
-                                         userInfo:JSONObject[@"error_description"]];
+                                         userInfo:@{NSLocalizedDescriptionKey: errorDescription}];
         }
         self.JSONObject = JSONObject;
         self.eagerTypes = eagerTypes;

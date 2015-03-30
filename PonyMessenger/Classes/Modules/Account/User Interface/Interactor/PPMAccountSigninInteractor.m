@@ -13,10 +13,6 @@
 @implementation PPMAccountSigninInteractor
 
 - (void)signinWithEmail:(NSString *)email password:(NSString *)password {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.error = [NSError errorWithDomain:@"A" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Hello"}];
-    });
-    return;
     PPMAccountItem *accountItem = [[PPMAccountItem alloc] init];
     accountItem.email = email;
     [[AccountCore accountManager]
@@ -24,6 +20,7 @@
      accountPassword:password
      completionBlock:^{
          self.isSignin = YES;
+         self.error = nil;
     }
      failureBlock:^(NSError *error) {
          self.isSignin = NO;

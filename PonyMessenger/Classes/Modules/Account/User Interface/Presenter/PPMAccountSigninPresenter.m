@@ -9,6 +9,7 @@
 #import "PPMAccountSigninPresenter.h"
 #import "PPMAccountSigninInteractor.h"
 #import "PPMAccountSigninViewController.h"
+#import "PPMDefine.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface PPMAccountSigninPresenter ()
@@ -40,15 +41,20 @@
     @weakify(self);
     [RACObserve(self, signinInteractor.isSignin) subscribeNext:^(id x) {
         @strongify(self);
-        if (self.signinInteractor.isSignin) {
-            NSLog(@"isSignin");
-        }
-        [self.userInterface hideLoadingHUD];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.signinInteractor.isSignin) {
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:kPPMAccountSigninCompletionNotification object:nil];
+            }
+            [self.userInterface hideLoadingHUD];
+        });
     }];
     [RACObserve(self, signinInteractor.error) subscribeNext:^(id x) {
         @strongify(self);
-        [self.userInterface showErrorWithDescription:self.signinInteractor.error.localizedDescription];
-        [self.userInterface hideLoadingHUD];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.userInterface showErrorWithDescription:self.signinInteractor.error.localizedDescription];
+            [self.userInterface hideLoadingHUD];
+        });
     }];
 }
 

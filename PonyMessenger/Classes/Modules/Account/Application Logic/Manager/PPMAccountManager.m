@@ -120,7 +120,7 @@
               completionBlock:(PPMAccountManagerSigninCompletionBlock)completionBlock
                  failureBlock:(PPMAccountManagerSigninFailureBlock)failureBlock {
     if (accountItem.email == nil || accountPassword == nil || !accountPassword.length) {
-        NSError *error = [NSError errorWithDomain:@"PPM.Account" code:NSIntegerMin userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"PPM.Account" code:NSIntegerMin userInfo:@{NSLocalizedDescriptionKey: @"Need email and password."}];
         if (failureBlock) {
             failureBlock(error);
         }

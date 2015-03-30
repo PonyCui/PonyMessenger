@@ -8,6 +8,7 @@
 
 #import "PPMWireframe.h"
 #import "PPMNavigationController.h"
+#import "PPMTabBarController.h"
 
 @implementation PPMWireframe
 
@@ -29,11 +30,20 @@
     return [self navigationController];
 }
 
+- (UITabBarController *)standardTabBarController {
+    return [self tabBarController];
+}
+
 #pragma mark - Getter
 
 - (PPMNavigationController *)navigationController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     return [storyBoard instantiateViewControllerWithIdentifier:@"PPMNavigationController"];
+}
+
+- (PPMTabBarController *)tabBarController {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [storyBoard instantiateViewControllerWithIdentifier:@"PPMTabBarController"];
 }
 
 @end

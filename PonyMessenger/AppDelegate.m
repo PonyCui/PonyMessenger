@@ -17,6 +17,18 @@
 
 @implementation AppDelegate
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePPMAccountSigninCompletionNotification)
+                                                     name:kPPMAccountSigninCompletionNotification
+                                                   object:nil];
+    }
+    return self;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     [self configureApplicationAccounts];
@@ -45,6 +57,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Events
+
+- (void)handlePPMAccountSigninCompletionNotification {
+    [self configureApplicationMainFrame];
+}
+
 #pragma mark - Account
 
 - (void)configureApplicationAccounts {
@@ -70,15 +88,11 @@
 #pragma mark - MainFrame
 
 - (void)configureApplicationMainFrame {
-//    if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
-//        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-//        [tabBarController setViewControllers:@[]];
-//        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-//         presentRecentViewControllerToTabBarController:tabBarController];
-//        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-//         presentContactViewControllerToTabBarController:tabBarController];
-//    }
-//    [self configureSender];
+    UITabBarController *tabBarController = [[[[PPMApplication sharedApplication] core] wireframe] standardTabBarController];
+    [tabBarController setViewControllers:@[] animated:NO];
+    [[ChatCore wireframe] presentRecentViewControllerToTabBarController:tabBarController];
+    [[ChatCore wireframe] presentContactViewControllerToTabBarController:tabBarController];
+    [self.window setRootViewController:tabBarController];
 }
 
 - (void)configureSender {

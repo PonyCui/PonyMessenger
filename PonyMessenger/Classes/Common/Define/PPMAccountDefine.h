@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kPPMAccountSigninCompletionNotification @"PPMAccountSigninCompletionNotification"
+
 @interface PPMAccountDefine : NSObject
 
 @property (nonatomic, readonly) NSString *signupURLString;
