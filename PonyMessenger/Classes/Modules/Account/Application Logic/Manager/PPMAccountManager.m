@@ -26,15 +26,6 @@
 
 @implementation PPMAccountManager
 
-+ (PPMAccountManager *)sharedManager {
-    static PPMAccountManager *manager;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        manager = [[PPMAccountManager alloc] init];
-    });
-    return manager;
-}
-
 - (instancetype)init
 {
     self = [super init];
@@ -61,10 +52,10 @@
 - (void)findActiveAccountItemWithCompletionBlock:(PPMAccountManagerFindActiveAccountItemCompletionBlock)completionBlock {
     [self findAccountItemsWithCompletionBlock:^(NSArray *items) {
         __block PPMAccountItem *item;
-        [items enumerateObjectsUsingBlock:^(PPMManagedAccountItem *obj, NSUInteger idx, BOOL *stop) {
-            NSString *password = [SSKeychain passwordForService:@"PPM.Account" account:[obj.user_id stringValue]];
+        [items enumerateObjectsUsingBlock:^(PPMAccountItem *obj, NSUInteger idx, BOOL *stop) {
+            NSString *password = [SSKeychain passwordForService:@"PPM.Account" account:[obj.userID stringValue]];
             if (password != nil) {
-                item = [[PPMAccountItem alloc] initWithManagedAccountItem:obj];
+                item = obj;
                 item.sessionToken = password;
                 *stop = YES;
             }
@@ -72,6 +63,10 @@
         [self setActiveAccount:item];
         completionBlock(item);
     }];
+}
+
+- (void)findLastActiveAccountItemWithCompletionBlock:(PPMAccountManagerFindActiveAccountItemCompletionBlock)completionBlock {
+    
 }
 
 - (void)signupWithAccountItem:(PPMAccountItem *)accountItem
@@ -209,8 +204,24 @@
 }
 
 - (void)signout {
+    [self configureLastActiveAccountItem:self.activeAccount];
     [SSKeychain deletePasswordForService:@"PPM.Account" account:[self.activeAccount.userID stringValue]];
     self.userStore = nil;
+}
+
+- (PPMAccountItem *)lastActiveAccount {
+    NSData *lastActiveAccountData = [[NSUserDefaults standardUserDefaults] valueForKey:@"PPM.Account.LastActive"];
+    if (lastActiveAccountData != nil) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:lastActiveAccountData];
+    }
+    return nil;
+}
+
+- (void)configureLastActiveAccountItem:(PPMAccountItem *)accountItem {
+    NSData *lastActiveAccountData = [NSKeyedArchiver archivedDataWithRootObject:accountItem];
+    if (lastActiveAccountData != nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:lastActiveAccountData forKey:@"PPM.Account.LastActive"];
+    }
 }
 
 @end

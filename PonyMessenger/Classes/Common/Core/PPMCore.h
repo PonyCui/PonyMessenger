@@ -10,6 +10,11 @@
 #import "PPMWireframe.h"
 #import "PPMChatCore.h"
 #import "PPMAccountCore.h"
+#import "PPMDefine.h"
+
+#define ChatCore [[[PPMApplication sharedApplication] core] chatCore]
+
+#define AccountCore [[[PPMApplication sharedApplication] core] accountCore]
 
 @interface PPMCore : NSObject
 

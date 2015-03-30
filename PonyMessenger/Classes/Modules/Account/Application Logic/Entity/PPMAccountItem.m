@@ -20,4 +20,19 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.userID = [coder decodeObjectForKey:@"userID"];
+        self.email = [coder decodeObjectForKey:@"email"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.userID forKey:@"userID"];
+    [aCoder encodeObject:self.email forKey:@"email"];
+}
+
 @end

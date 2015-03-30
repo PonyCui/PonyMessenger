@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "PPMAccountWireframe.h"
+#import "PPMAccountManager.h"
 
 @interface PPMAccountCore : NSObject
 
 @property (nonatomic, readonly) PPMAccountWireframe *wireframe;
+
+@property (nonatomic, readonly) PPMAccountManager *accountManager;
 
 @end

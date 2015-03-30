@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _wireframe = [[PPMAccountWireframe alloc] init];
+        _accountManager = [[PPMAccountManager alloc] init];
     }
     return self;
 }

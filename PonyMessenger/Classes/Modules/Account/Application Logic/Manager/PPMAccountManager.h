@@ -24,8 +24,6 @@ typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
 
 @interface PPMAccountManager : NSObject
 
-+ (PPMAccountManager *)sharedManager;
-
 @property (nonatomic, readonly) PPMAccountItem *activeAccount;
 
 @property (nonatomic, readonly) PPMPrivateCoreData *userStore;
@@ -45,5 +43,7 @@ typedef void(^PPMAccountManagerSigninFailureBlock)(NSError *error);
                  failureBlock:(PPMAccountManagerSigninFailureBlock)failureBlock;
 
 - (void)signout;
+
+- (PPMAccountItem *)lastActiveAccount;
 
 @end

@@ -10,7 +10,7 @@
 
 @class PPMManagedAccountItem;
 
-@interface PPMAccountItem : NSObject
+@interface PPMAccountItem : NSObject<NSCoding>
 
 @property (nonatomic, strong) NSNumber *userID;
 

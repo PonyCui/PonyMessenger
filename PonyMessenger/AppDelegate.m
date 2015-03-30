@@ -17,28 +17,10 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-        [tabBarController setViewControllers:@[]];
-        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-         presentRecentViewControllerToTabBarController:tabBarController];
-        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-         presentContactViewControllerToTabBarController:tabBarController];
-    }
-    [self configureSender];
-    [[[[[PPMApplication sharedApplication] core] accountCore] wireframe] presentSigninViewControllerToWindow:self.window];
+    [self configureApplicationAccounts];
     return YES;
-}
-
-- (void)configureSender {
-    PCUSender *sender = [[PCUSender alloc] init];
-    sender.identifier = @"1";
-    sender.thumbURLString = @"http://tp3.sinaimg.cn/1642351362/180/5708018784/0";
-    sender.title = @"Pony";
-    [PCUApplication setSender:sender];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -61,6 +43,51 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Account
+
+- (void)configureApplicationAccounts {
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [[AccountCore accountManager] findActiveAccountItemWithCompletionBlock:^(PPMAccountItem *item) {
+            if (item == nil) {
+                //Need signin
+                if ([[AccountCore accountManager] lastActiveAccount] != nil) {
+                    [[AccountCore wireframe] presentActiveSigninViewControllerToWindow:self.window];
+                }
+                else {
+                    [[AccountCore wireframe] presentSigninViewControllerToWindow:self.window];
+                }
+            }
+            else {
+                //Goto Chating Main Frame
+                [self configureApplicationMainFrame];
+            }
+        }];
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.5]];
+    });
+}
+
+#pragma mark - MainFrame
+
+- (void)configureApplicationMainFrame {
+//    if ([self.window.rootViewController isKindOfClass:[UITabBarController class]]) {
+//        UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+//        [tabBarController setViewControllers:@[]];
+//        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
+//         presentRecentViewControllerToTabBarController:tabBarController];
+//        [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
+//         presentContactViewControllerToTabBarController:tabBarController];
+//    }
+//    [self configureSender];
+}
+
+- (void)configureSender {
+    PCUSender *sender = [[PCUSender alloc] init];
+    sender.identifier = @"1";
+    sender.thumbURLString = @"http://tp3.sinaimg.cn/1642351362/180/5708018784/0";
+    sender.title = @"Pony";
+    [PCUApplication setSender:sender];
 }
 
 @end

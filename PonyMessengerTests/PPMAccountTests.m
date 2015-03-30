@@ -55,7 +55,7 @@
 }
 
 - (void)continueTestAccountManager {
-    [[PPMAccountManager sharedManager] findAccountItemsWithCompletionBlock:^(NSArray *items) {
+    [[[PPMAccountManager alloc] init] findAccountItemsWithCompletionBlock:^(NSArray *items) {
         XCTAssertTrue([items count] == 2, @"Pass");
         XCTAssertTrue([[items firstObject] isKindOfClass:[PPMAccountItem class]], @"Pass");
         XCTAssertTrue([[[items firstObject] userID] isEqualToNumber:@1], @"Pass");
@@ -66,7 +66,7 @@
 - (void)testSignup {
     PPMAccountItem *newAccount = [[PPMAccountItem alloc] init];
     newAccount.email = [NSString stringWithFormat:@"%u@test.com", arc4random()];
-    [[PPMAccountManager sharedManager]
+    [[[PPMAccountManager alloc] init]
      signupWithAccountItem:newAccount
      accountPassword:@"123456"
      completionBlock:^(PPMAccountItem *item) {
