@@ -256,7 +256,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="注册" id="BTx-2c-922">
                             <connections>
-                                <segue destination="w12-OA-FLn" kind="push" id="7NX-yw-SFR"/>
+                                <action selector="handleSignupButtonTapped:" destination="xdY-AB-kiw" id="UE9-dO-U4Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -478,6 +478,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="handleActionButtonTapped:" destination="xdY-AB-kiw" eventType="touchUpInside" id="3Ee-HC-1hG"/>
+                                                    <action selector="handleActionButtonTapped:" destination="w12-OA-FLn" eventType="touchUpInside" id="V4C-cv-Rdv"/>
                                                 </connections>
                                             </button>
                                         </subviews>

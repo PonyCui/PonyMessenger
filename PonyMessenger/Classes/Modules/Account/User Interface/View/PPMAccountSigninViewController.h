@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) PPMAccountSigninPresenter *eventHandler;
 
-#pragma mark - IBOutlet
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 

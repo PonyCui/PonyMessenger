@@ -110,6 +110,9 @@
     [self.eventHandler signin];
 }
 
+- (IBAction)handleSignupButtonTapped:(id)sender {
+    [self.eventHandler signup];
+}
 
 #pragma mark - actionButton
 

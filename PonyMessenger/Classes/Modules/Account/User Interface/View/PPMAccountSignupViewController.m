@@ -7,8 +7,12 @@
 //
 
 #import "PPMAccountSignupViewController.h"
+#import "PPMAccountSignupPresenter.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface PPMAccountSignupViewController ()<UITextFieldDelegate>
+
+@property (nonatomic, strong) MBProgressHUD *loadingHUD;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewWidthConstraint;
@@ -16,11 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *emailView;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UIView *passwordConfirmView;
-
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordConfirmTextField;
 
 @end
 
@@ -89,10 +89,11 @@
     else if (textField == self.passwordTextField) {
         [self.passwordConfirmTextField becomeFirstResponder];
     }
-    else if (textField == self.passwordTextField &&
+    else if (textField == self.passwordConfirmTextField &&
              self.emailTextField.text.length &&
-             self.passwordTextField.text.length) {
-//        [self.eventHandler signin];
+             self.passwordTextField.text.length &&
+             self.passwordConfirmTextField.text.length) {
+        [self.eventHandler signup];
     }
     return YES;
 }
@@ -128,6 +129,29 @@
 
 - (IBAction)handleViewTapped:(id)sender {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
+- (IBAction)handleActionButtonTapped:(id)sender {
+    [self.eventHandler signup];
+}
+
+#pragma mark - HUD
+
+- (void)showLoadingHUD {
+    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+- (void)hideLoadingHUD {
+    [self.loadingHUD hide:YES];
+}
+
+- (void)showErrorWithDescription:(NSString *)description {
+    if (description.length) {
+        MBProgressHUD *errorHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [errorHUD setMode:MBProgressHUDModeText];
+        [errorHUD setLabelText:description];
+        [errorHUD hide:YES afterDelay:1.5];
+    }
 }
 
 @end

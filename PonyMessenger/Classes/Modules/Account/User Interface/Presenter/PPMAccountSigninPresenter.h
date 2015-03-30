@@ -16,4 +16,6 @@
 
 - (void)signin;
 
+- (void)signup;
+
 @end

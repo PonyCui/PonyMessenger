@@ -17,4 +17,6 @@
 
 - (void)presentSigninViewControllerToViewController:(UIViewController *)viewController;
 
+- (void)presentSignupViewControllerToNavigationController:(UINavigationController *)navigationController;
+
 @end

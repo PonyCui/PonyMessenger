@@ -11,6 +11,8 @@
 		63C08D011AC9223000106601 /* PPMAccountSigninPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */; };
 		63C08D041AC9223F00106601 /* PPMAccountSigninInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */; };
 		63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */; };
+		63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D091AC94BB600106601 /* PPMAccountSignupPresenter.m */; };
+		63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D0C1AC94BC300106601 /* PPMAccountSignupInteractor.m */; };
 		63EADC471AC8ECDE00750DD2 /* PPMAccountWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */; };
 		63EADC4B1AC8ED1B00750DD2 /* PPMAccountCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC4A1AC8ED1B00750DD2 /* PPMAccountCore.m */; };
 		F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00392E81AB87596002EF72B /* PPMChat.storyboard */; };
@@ -79,6 +81,10 @@
 		63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSigninInteractor.m; sourceTree = "<group>"; };
 		63C08D051AC9461B00106601 /* PPMAccountSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSignupViewController.h; sourceTree = "<group>"; };
 		63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupViewController.m; sourceTree = "<group>"; };
+		63C08D081AC94BB600106601 /* PPMAccountSignupPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSignupPresenter.h; sourceTree = "<group>"; };
+		63C08D091AC94BB600106601 /* PPMAccountSignupPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupPresenter.m; sourceTree = "<group>"; };
+		63C08D0B1AC94BC300106601 /* PPMAccountSignupInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSignupInteractor.h; sourceTree = "<group>"; };
+		63C08D0C1AC94BC300106601 /* PPMAccountSignupInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupInteractor.m; sourceTree = "<group>"; };
 		63EADC451AC8ECDE00750DD2 /* PPMAccountWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountWireframe.h; sourceTree = "<group>"; };
 		63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountWireframe.m; sourceTree = "<group>"; };
 		63EADC491AC8ED1B00750DD2 /* PPMAccountCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountCore.h; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 			children = (
 				63C08CFF1AC9223000106601 /* PPMAccountSigninPresenter.h */,
 				63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */,
+				63C08D081AC94BB600106601 /* PPMAccountSignupPresenter.h */,
+				63C08D091AC94BB600106601 /* PPMAccountSignupPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -225,6 +233,8 @@
 			children = (
 				63C08D021AC9223F00106601 /* PPMAccountSigninInteractor.h */,
 				63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */,
+				63C08D0B1AC94BC300106601 /* PPMAccountSignupInteractor.h */,
+				63C08D0C1AC94BC300106601 /* PPMAccountSignupInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -761,12 +771,14 @@
 				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
 				F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */,
 				F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */,
+				63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */,
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
 				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,
 				F08A3DEB1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m in Sources */,
 				63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */,
 				F05BFBE71AC6EF94004E860F /* PPMAccountManager.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
+				63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
 				63C08D041AC9223F00106601 /* PPMAccountSigninInteractor.m in Sources */,
 				F0E154781AC5A2F800E46E48 /* PPMPrivateCoreData.m in Sources */,

@@ -10,6 +10,8 @@
 #import "PPMAccountActiveSigninViewController.h"
 #import "PPMAccountSigninViewController.h"
 #import "PPMAccountSigninPresenter.h"
+#import "PPMAccountSignupViewController.h"
+#import "PPMAccountSignupPresenter.h"
 #import "PPMApplication.h"
 
 @implementation PPMAccountWireframe
@@ -34,6 +36,10 @@
     [viewController presentViewController:navigationController animated:YES completion:nil];
 }
 
+- (void)presentSignupViewControllerToNavigationController:(UINavigationController *)navigationController {
+    [navigationController pushViewController:[self signupViewController] animated:YES];
+}
+
 #pragma mark - Getter
 
 - (PPMAccountActiveSigninViewController *)activeSigninViewController {
@@ -46,6 +52,15 @@
     PPMAccountSigninViewController *viewController =
     [storyBoard instantiateViewControllerWithIdentifier:@"PPMAccountSigninViewController"];
     viewController.eventHandler = [[PPMAccountSigninPresenter alloc] init];
+    viewController.eventHandler.userInterface = viewController;
+    return viewController;
+}
+
+- (PPMAccountSignupViewController *)signupViewController {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMAccount" bundle:nil];
+    PPMAccountSignupViewController *viewController =
+    [storyBoard instantiateViewControllerWithIdentifier:@"PPMAccountSignupViewController"];
+    viewController.eventHandler = [[PPMAccountSignupPresenter alloc] init];
     viewController.eventHandler.userInterface = viewController;
     return viewController;
 }

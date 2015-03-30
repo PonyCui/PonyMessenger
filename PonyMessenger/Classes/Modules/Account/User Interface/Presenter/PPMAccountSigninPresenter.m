@@ -9,7 +9,7 @@
 #import "PPMAccountSigninPresenter.h"
 #import "PPMAccountSigninInteractor.h"
 #import "PPMAccountSigninViewController.h"
-#import "PPMDefine.h"
+#import "PPMApplication.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface PPMAccountSigninPresenter ()
@@ -35,6 +35,10 @@
     [self.userInterface showLoadingHUD];
     [self.signinInteractor signinWithEmail:self.userInterface.emailTextField.text
                                   password:self.userInterface.passwordTextField.text];
+}
+
+- (void)signup {
+    [[AccountCore wireframe] presentSignupViewControllerToNavigationController:self.userInterface.navigationController];
 }
 
 - (void)configureReactiveCocoa {
