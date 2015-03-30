@@ -93,6 +93,7 @@
     [[ChatCore wireframe] presentRecentViewControllerToTabBarController:tabBarController];
     [[ChatCore wireframe] presentContactViewControllerToTabBarController:tabBarController];
     [self.window setRootViewController:tabBarController];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)configureSender {

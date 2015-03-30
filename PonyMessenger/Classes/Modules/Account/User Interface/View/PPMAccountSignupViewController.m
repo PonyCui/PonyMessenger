@@ -1,29 +1,30 @@
 //
-//  PPMAccountSigninViewController.m
+//  PPMAccountSignupViewController.m
 //  PonyMessenger
 //
-//  Created by 崔 明辉 on 15-3-29.
+//  Created by 崔 明辉 on 15/3/30.
 //  Copyright (c) 2015年 崔 明辉. All rights reserved.
 //
 
-#import "PPMAccountSigninViewController.h"
-#import "PPMAccountSigninPresenter.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+#import "PPMAccountSignupViewController.h"
 
-@interface PPMAccountSigninViewController ()<UITextFieldDelegate>
-
-@property (nonatomic, strong) MBProgressHUD *loadingHUD;
+@interface PPMAccountSignupViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet UIView *emailView;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
+@property (weak, nonatomic) IBOutlet UIView *passwordConfirmView;
+
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordConfirmTextField;
 
 @end
 
-@implementation PPMAccountSigninViewController
+@implementation PPMAccountSignupViewController
 
 - (void)dealloc
 {
@@ -62,9 +63,15 @@
     self.passwordView.layer.cornerRadius = 6.0;
     self.passwordView.layer.borderWidth = 1.0f;
     self.passwordView.layer.borderColor = [UIColor colorWithRed:214.0/255.0
-                                                       green:214.0/255.0
-                                                        blue:214.0/255.0
-                                                       alpha:1.0].CGColor;
+                                                          green:214.0/255.0
+                                                           blue:214.0/255.0
+                                                          alpha:1.0].CGColor;
+    self.passwordConfirmView.layer.cornerRadius = 6.0;
+    self.passwordConfirmView.layer.borderWidth = 1.0f;
+    self.passwordConfirmView.layer.borderColor = [UIColor colorWithRed:214.0/255.0
+                                                                 green:214.0/255.0
+                                                                  blue:214.0/255.0
+                                                                 alpha:1.0].CGColor;
     self.actionButton.layer.cornerRadius = 6.0;
     self.actionButton.layer.borderWidth = 1.0f;
     self.actionButton.layer.borderColor = [UIColor colorWithRed:78.0/255.0
@@ -79,37 +86,25 @@
     if (textField == self.emailTextField) {
         [self.passwordTextField becomeFirstResponder];
     }
+    else if (textField == self.passwordTextField) {
+        [self.passwordConfirmTextField becomeFirstResponder];
+    }
     else if (textField == self.passwordTextField &&
              self.emailTextField.text.length &&
              self.passwordTextField.text.length) {
-        [self.eventHandler signin];
+//        [self.eventHandler signin];
     }
     return YES;
 }
 
 - (void)handldUITextFieldTextDidChangeNotification {
-    if (self.emailTextField.text.length && self.passwordTextField.text.length) {
+    if (self.emailTextField.text.length && self.passwordTextField.text.length && self.passwordConfirmTextField.text.length) {
         [self setActionButtonEnabled:YES];
     }
     else {
         [self setActionButtonEnabled:NO];
     }
 }
-
-#pragma mark - Events
-
-- (IBAction)handleViewTapped:(id)sender {
-    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-}
-
-- (IBAction)handleCancelButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)handleActionButtonTapped:(id)sender {
-    [self.eventHandler signin];
-}
-
 
 #pragma mark - actionButton
 
@@ -129,23 +124,10 @@
     }
 }
 
-#pragma mark - HUD
+#pragma mark - Events
 
-- (void)showLoadingHUD {
-    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-}
-
-- (void)hideLoadingHUD {
-    [self.loadingHUD hide:YES];
-}
-
-- (void)showErrorWithDescription:(NSString *)description {
-    if (description.length) {
-        MBProgressHUD *errorHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [errorHUD setMode:MBProgressHUDModeText];
-        [errorHUD setLabelText:description];
-        [errorHUD hide:YES afterDelay:1.5];
-    }
+- (IBAction)handleViewTapped:(id)sender {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
 @end

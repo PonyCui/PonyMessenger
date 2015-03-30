@@ -10,6 +10,7 @@
 		48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */; };
 		63C08D011AC9223000106601 /* PPMAccountSigninPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */; };
 		63C08D041AC9223F00106601 /* PPMAccountSigninInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */; };
+		63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */; };
 		63EADC471AC8ECDE00750DD2 /* PPMAccountWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */; };
 		63EADC4B1AC8ED1B00750DD2 /* PPMAccountCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC4A1AC8ED1B00750DD2 /* PPMAccountCore.m */; };
 		F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00392E81AB87596002EF72B /* PPMChat.storyboard */; };
@@ -76,6 +77,8 @@
 		63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSigninPresenter.m; sourceTree = "<group>"; };
 		63C08D021AC9223F00106601 /* PPMAccountSigninInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSigninInteractor.h; sourceTree = "<group>"; };
 		63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSigninInteractor.m; sourceTree = "<group>"; };
+		63C08D051AC9461B00106601 /* PPMAccountSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSignupViewController.h; sourceTree = "<group>"; };
+		63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupViewController.m; sourceTree = "<group>"; };
 		63EADC451AC8ECDE00750DD2 /* PPMAccountWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountWireframe.h; sourceTree = "<group>"; };
 		63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountWireframe.m; sourceTree = "<group>"; };
 		63EADC491AC8ED1B00750DD2 /* PPMAccountCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountCore.h; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				F02976711AC843CB00C7C37B /* PPMAccountSigninViewController.m */,
 				F02976731AC84A4800C7C37B /* PPMAccountActiveSigninViewController.h */,
 				F02976741AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m */,
+				63C08D051AC9461B00106601 /* PPMAccountSignupViewController.h */,
+				63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
 				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,
 				F08A3DEB1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m in Sources */,
+				63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */,
 				F05BFBE71AC6EF94004E860F /* PPMAccountManager.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
