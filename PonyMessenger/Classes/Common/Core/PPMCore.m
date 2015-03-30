@@ -17,6 +17,7 @@
         _wireframe = [[PPMWireframe alloc] init];
         _chatCore = [[PPMChatCore alloc] init];
         _accountCore = [[PPMAccountCore alloc] init];
+        _userCore = [[PPMUserCore alloc] init];
     }
     return self;
 }

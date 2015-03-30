@@ -10,11 +10,14 @@
 #import "PPMWireframe.h"
 #import "PPMChatCore.h"
 #import "PPMAccountCore.h"
+#import "PPMUserCore.h"
 #import "PPMDefine.h"
 
 #define ChatCore [[[PPMApplication sharedApplication] core] chatCore]
 
 #define AccountCore [[[PPMApplication sharedApplication] core] accountCore]
+
+#define UserCore [[[PPMApplication sharedApplication] core] userCore]
 
 @interface PPMCore : NSObject
 
@@ -23,5 +26,7 @@
 @property (nonatomic, readonly) PPMChatCore *chatCore;
 
 @property (nonatomic, readonly) PPMAccountCore *accountCore;
+
+@property (nonatomic, readonly) PPMUserCore *userCore;
 
 @end

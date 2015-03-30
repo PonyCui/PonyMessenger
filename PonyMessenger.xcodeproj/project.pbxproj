@@ -13,6 +13,9 @@
 		63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */; };
 		63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D091AC94BB600106601 /* PPMAccountSignupPresenter.m */; };
 		63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D0C1AC94BC300106601 /* PPMAccountSignupInteractor.m */; };
+		63C08D151AC95C8300106601 /* PPMUserCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D141AC95C8300106601 /* PPMUserCore.m */; };
+		63C08D181AC95D4200106601 /* PPMUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D171AC95D4200106601 /* PPMUserItem.m */; };
+		63C08D1B1AC95D4D00106601 /* PPMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D1A1AC95D4D00106601 /* PPMUserManager.m */; };
 		63EADC471AC8ECDE00750DD2 /* PPMAccountWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */; };
 		63EADC4B1AC8ED1B00750DD2 /* PPMAccountCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EADC4A1AC8ED1B00750DD2 /* PPMAccountCore.m */; };
 		F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F00392E81AB87596002EF72B /* PPMChat.storyboard */; };
@@ -85,6 +88,12 @@
 		63C08D091AC94BB600106601 /* PPMAccountSignupPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupPresenter.m; sourceTree = "<group>"; };
 		63C08D0B1AC94BC300106601 /* PPMAccountSignupInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSignupInteractor.h; sourceTree = "<group>"; };
 		63C08D0C1AC94BC300106601 /* PPMAccountSignupInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSignupInteractor.m; sourceTree = "<group>"; };
+		63C08D131AC95C8300106601 /* PPMUserCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserCore.h; sourceTree = "<group>"; };
+		63C08D141AC95C8300106601 /* PPMUserCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserCore.m; sourceTree = "<group>"; };
+		63C08D161AC95D4200106601 /* PPMUserItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserItem.h; sourceTree = "<group>"; };
+		63C08D171AC95D4200106601 /* PPMUserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserItem.m; sourceTree = "<group>"; };
+		63C08D191AC95D4D00106601 /* PPMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserManager.h; sourceTree = "<group>"; };
+		63C08D1A1AC95D4D00106601 /* PPMUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserManager.m; sourceTree = "<group>"; };
 		63EADC451AC8ECDE00750DD2 /* PPMAccountWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountWireframe.h; sourceTree = "<group>"; };
 		63EADC461AC8ECDE00750DD2 /* PPMAccountWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountWireframe.m; sourceTree = "<group>"; };
 		63EADC491AC8ED1B00750DD2 /* PPMAccountCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountCore.h; sourceTree = "<group>"; };
@@ -239,6 +248,51 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		63C08D0E1AC95C5200106601 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				63C08D0F1AC95C5200106601 /* Application Logic */,
+				63C08D101AC95C5200106601 /* Module Interface */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		63C08D0F1AC95C5200106601 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				63C08D111AC95C7700106601 /* Manager */,
+				63C08D121AC95C7700106601 /* Entity */,
+			);
+			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		63C08D101AC95C5200106601 /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				63C08D131AC95C8300106601 /* PPMUserCore.h */,
+				63C08D141AC95C8300106601 /* PPMUserCore.m */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		63C08D111AC95C7700106601 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				63C08D191AC95D4D00106601 /* PPMUserManager.h */,
+				63C08D1A1AC95D4D00106601 /* PPMUserManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		63C08D121AC95C7700106601 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				63C08D161AC95D4200106601 /* PPMUserItem.h */,
+				63C08D171AC95D4200106601 /* PPMUserItem.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		63EADC441AC8ECCE00750DD2 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +348,7 @@
 		F00392E71AB874F2002EF72B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				63C08D0E1AC95C5200106601 /* User */,
 				F0E154701AC5A24C00E46E48 /* Account */,
 				F00392EE1AB87755002EF72B /* Chat */,
 			);
@@ -738,6 +793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */,
+				63C08D181AC95D4200106601 /* PPMUserItem.m in Sources */,
 				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
 				F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
@@ -768,7 +824,9 @@
 				F08A3DF11ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m in Sources */,
 				F05BFBE41AC6EF7D004E860F /* PPMAccountItem.m in Sources */,
 				F067826E1AC06832009E8C5B /* PPMChatSessionViewController.m in Sources */,
+				63C08D151AC95C8300106601 /* PPMUserCore.m in Sources */,
 				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
+				63C08D1B1AC95D4D00106601 /* PPMUserManager.m in Sources */,
 				F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */,
 				F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */,
 				63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */,
