@@ -17,6 +17,8 @@ typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedU
  */
 @interface PPMPrivateCoreData : NSObject
 
+@property (nonatomic, readonly) NSUserDefaults *cacheStore;
+
 /**
  *  @param userID 
  */

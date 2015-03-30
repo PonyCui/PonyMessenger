@@ -43,6 +43,8 @@
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
         _managedObjectContext.undoManager = nil;
+        _cacheStore = [[NSUserDefaults alloc]
+                       initWithSuiteName:[NSString stringWithFormat:@"PPM.%@.userDefaults", userID]];
     }
     return self;
 }

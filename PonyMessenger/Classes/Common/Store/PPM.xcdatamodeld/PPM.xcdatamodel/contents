@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D113c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F1066" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="PPMManagedAccountItem" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-    </entity>
-    <entity name="Cache" syncable="YES">
-        <attribute name="cache_key" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="cache_value" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="expires" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="UserInformation" representedClassName="PPMManagedUserInformationItem" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,6 +12,5 @@
     <elements>
         <element name="Account" positionX="0" positionY="27" width="128" height="73"/>
         <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="Cache" positionX="0" positionY="27" width="128" height="88"/>
     </elements>
 </model>
