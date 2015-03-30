@@ -29,6 +29,7 @@
          presentContactViewControllerToTabBarController:tabBarController];
     }
     [self configureSender];
+    [[[[[PPMApplication sharedApplication] core] accountCore] wireframe] presentSigninViewControllerToWindow:self.window];
     return YES;
 }
 

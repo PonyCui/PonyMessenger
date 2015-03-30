@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "PPMWireframe.h"
 #import "PPMChatCore.h"
+#import "PPMAccountCore.h"
 
 @interface PPMCore : NSObject
 
 @property (nonatomic, readonly) PPMWireframe *wireframe;
 
 @property (nonatomic, readonly) PPMChatCore *chatCore;
+
+@property (nonatomic, readonly) PPMAccountCore *accountCore;
 
 @end

@@ -25,6 +25,10 @@
     [tabBarController setViewControllers:[viewControllers copy]];
 }
 
+- (UINavigationController *)standardNavigationController {
+    return [self navigationController];
+}
+
 #pragma mark - Getter
 
 - (PPMNavigationController *)navigationController {

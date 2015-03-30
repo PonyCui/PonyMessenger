@@ -16,6 +16,7 @@
     if (self) {
         _wireframe = [[PPMWireframe alloc] init];
         _chatCore = [[PPMChatCore alloc] init];
+        _accountCore = [[PPMAccountCore alloc] init];
     }
     return self;
 }

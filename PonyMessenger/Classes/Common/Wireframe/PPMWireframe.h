@@ -14,4 +14,6 @@
 - (void)presentViewController:(UIViewController *)viewController
            toTabBarController:(UITabBarController *)tabBarController;
 
+- (UINavigationController *)standardNavigationController;
+
 @end
