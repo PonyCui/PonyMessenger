@@ -7,7 +7,18 @@
 //
 
 #import "PPMUserManager.h"
+#import "PPMUserItem.h"
 
 @implementation PPMUserManager
+
+- (void)fetchUserInformationWithUserID:(NSNumber *)userID
+                       completionBlock:(PPMUserManagerFetchUserInformationCompletionBlock)completionBlock {
+    
+}
+
+- (void)fetchUserInformationWithUserIDArray:(NSArray *)userIDArray
+                            completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock {
+    
+}
 
 @end

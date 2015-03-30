@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PPMUserManager.h"
 
 @interface PPMUserCore : NSObject
+
+@property (nonatomic, readonly) PPMUserManager *userManager;
 
 @end

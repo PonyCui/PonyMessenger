@@ -7,7 +7,18 @@
 //
 
 #import "PPMUserItem.h"
+#import "PPMManagedUserInformationItem.h"
 
 @implementation PPMUserItem
+
+- (instancetype)initWithManagedItem:(PPMManagedUserInformationItem *)managedItem {
+    self = [super init];
+    if (self && [managedItem isKindOfClass:[PPMManagedUserInformationItem class]]) {
+        self.userID = managedItem.user_id;
+        self.nickname = managedItem.nickname;
+        self.avatarURLString = managedItem.avatar;
+    }
+    return self;
+}
 
 @end

@@ -10,4 +10,13 @@
 
 @implementation PPMUserCore
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _userManager = [[PPMUserManager alloc] init];
+    }
+    return self;
+}
+
 @end

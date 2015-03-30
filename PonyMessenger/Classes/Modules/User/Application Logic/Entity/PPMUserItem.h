@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPMManagedUserInformationItem;
+
 @interface PPMUserItem : NSObject
+
+@property (nonatomic, strong) NSNumber *userID;
+
+@property (nonatomic, copy) NSString *nickname;
+
+@property (nonatomic, copy) NSString *avatarURLString;
+
+- (instancetype)initWithManagedItem:(PPMManagedUserInformationItem *)managedItem;
 
 @end
