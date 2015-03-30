@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMAccountSigninPresenter;
+
 @interface PPMAccountSigninViewController : UIViewController
+
+@property (nonatomic, strong) PPMAccountSigninPresenter *eventHandler;
+
+#pragma mark - IBOutlet
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (void)showLoadingHUD;
+
+- (void)hideLoadingHUD;
+
+- (void)showErrorWithDescription:(NSString *)description;
 
 @end

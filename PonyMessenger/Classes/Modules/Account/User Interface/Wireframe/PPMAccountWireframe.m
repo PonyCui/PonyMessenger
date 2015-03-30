@@ -9,6 +9,7 @@
 #import "PPMAccountWireframe.h"
 #import "PPMAccountActiveSigninViewController.h"
 #import "PPMAccountSigninViewController.h"
+#import "PPMAccountSigninPresenter.h"
 #import "PPMApplication.h"
 
 @implementation PPMAccountWireframe
@@ -42,7 +43,11 @@
 
 - (PPMAccountSigninViewController *)signinViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMAccount" bundle:nil];
-    return [storyBoard instantiateViewControllerWithIdentifier:@"PPMAccountSigninViewController"];
+    PPMAccountSigninViewController *viewController =
+    [storyBoard instantiateViewControllerWithIdentifier:@"PPMAccountSigninViewController"];
+    viewController.eventHandler = [[PPMAccountSigninPresenter alloc] init];
+    viewController.eventHandler.userInterface = viewController;
+    return viewController;
 }
 
 @end

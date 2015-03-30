@@ -191,7 +191,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-1F-lMW" userLabel="Action Button">
-                                                <rect key="frame" x="12" y="130" width="296" height="48"/>
+                                                <rect key="frame" x="12" y="136" width="296" height="48"/>
                                                 <color key="backgroundColor" red="0.39215686274509803" green="0.82745098039215681" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="s6a-DK-Xa4"/>
@@ -202,6 +202,9 @@
                                                 <state key="disabled">
                                                     <color key="titleColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handleActionButtonTapped:" destination="xdY-AB-kiw" eventType="touchUpInside" id="pgn-lO-tZN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -211,7 +214,7 @@
                                             <constraint firstAttribute="height" constant="568" id="H8Q-9O-hKF"/>
                                             <constraint firstItem="Pvc-ZD-aU4" firstAttribute="leading" secondItem="NzC-fj-iMB" secondAttribute="leading" constant="12" id="Kby-OJ-YOQ"/>
                                             <constraint firstItem="m1b-sK-jy9" firstAttribute="width" secondItem="vEQ-Lp-HL4" secondAttribute="width" id="OoO-fq-cjd"/>
-                                            <constraint firstItem="YbH-1F-lMW" firstAttribute="top" secondItem="Pvc-ZD-aU4" secondAttribute="bottom" constant="6" id="QLC-hU-SPh"/>
+                                            <constraint firstItem="YbH-1F-lMW" firstAttribute="top" secondItem="Pvc-ZD-aU4" secondAttribute="bottom" constant="12" id="QLC-hU-SPh"/>
                                             <constraint firstAttribute="width" constant="320" id="RHo-vf-gyV"/>
                                             <constraint firstItem="Pvc-ZD-aU4" firstAttribute="top" secondItem="m1b-sK-jy9" secondAttribute="bottom" id="Y6j-np-0Rm"/>
                                             <constraint firstItem="m1b-sK-jy9" firstAttribute="leading" secondItem="NzC-fj-iMB" secondAttribute="leading" constant="12" id="YIc-UL-o0B"/>

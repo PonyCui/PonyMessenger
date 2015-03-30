@@ -48,24 +48,23 @@
 #pragma mark - Account
 
 - (void)configureApplicationAccounts {
-    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [[AccountCore accountManager] findActiveAccountItemWithCompletionBlock:^(PPMAccountItem *item) {
-            if (item == nil) {
-                //Need signin
-                if ([[AccountCore accountManager] lastActiveAccount] != nil) {
-                    [[AccountCore wireframe] presentActiveSigninViewControllerToWindow:self.window];
-                }
-                else {
-                    [[AccountCore wireframe] presentSigninViewControllerToWindow:self.window];
-                }
+    [[AccountCore accountManager] findActiveAccountItemWithCompletionBlock:^(PPMAccountItem *item) {
+        if (item == nil) {
+            //Need signin
+            if ([[AccountCore accountManager] lastActiveAccount] != nil) {
+                [[AccountCore wireframe] presentActiveSigninViewControllerToWindow:self.window];
+                [self.window makeKeyAndVisible];
             }
             else {
-                //Goto Chating Main Frame
-                [self configureApplicationMainFrame];
+                [[AccountCore wireframe] presentSigninViewControllerToWindow:self.window];
+                [self.window makeKeyAndVisible];
             }
-        }];
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:1.5]];
-    });
+        }
+        else {
+            //Goto Chating Main Frame
+            [self configureApplicationMainFrame];
+        }
+    }];
 }
 
 #pragma mark - MainFrame
