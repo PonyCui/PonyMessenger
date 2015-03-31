@@ -12,6 +12,7 @@
 #import "PPMPrivateCoreData.h"
 #import "PPMOutputHelper.h"
 #import "PPMManagedUserInformationItem.h"
+#import "PPMUserRelationItem.h"
 #import <AFNetworking/AFNetworking.h>
 
 @implementation PPMUserManager
@@ -101,11 +102,33 @@
 
 - (void)fetchUserRelationToUserID:(NSNumber *)userID
                   completionBlock:(PPMUserManagerFetchUserRelationCompletionBlock)completionBlock {
-    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to_user_id=%@", userID];
+    [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
+        if (completionBlock) {
+            if ([results firstObject] != nil) {
+                PPMUserRelationItem *relationItem = [[PPMUserRelationItem alloc]
+                                                     initWithManagedItem:[results firstObject]];
+                completionBlock(relationItem);
+            }
+            else {
+                completionBlock(nil);
+            }
+        }
+    }];
 }
 
 - (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock {
-    
+    [UserStore fetchUserRelationWithPredicate:nil completionBlock:^(NSArray *results) {
+        if (completionBlock) {
+            NSMutableArray *relationItems = [NSMutableArray array];
+            [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                PPMUserRelationItem *relationItem = [[PPMUserRelationItem alloc]
+                                                     initWithManagedItem:obj];
+                [relationItems addObject:relationItem];
+            }];
+            completionBlock([relationItems copy]);
+        }
+    }];
 }
 
 - (BOOL)isUserInformationValidForUserID:(NSNumber *)userID {

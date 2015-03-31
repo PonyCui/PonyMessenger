@@ -10,11 +10,11 @@
         <attribute name="user_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="UserRelation" representedClassName="PPMManagedUserRelationItem" syncable="YES">
-        <attribute name="to_user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="to_user_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Account" positionX="0" positionY="27" width="128" height="73"/>
         <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="UserRelation" positionX="0" positionY="27" width="128" height="58"/>
+        <element name="UserRelation" positionX="0" positionY="27" width="128" height="60"/>
     </elements>
 </model>

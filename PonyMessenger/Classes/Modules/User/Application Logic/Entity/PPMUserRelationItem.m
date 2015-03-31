@@ -7,7 +7,16 @@
 //
 
 #import "PPMUserRelationItem.h"
+#import "PPMManagedUserRelationItem.h"
 
 @implementation PPMUserRelationItem
+
+- (instancetype)initWithManagedItem:(PPMManagedUserRelationItem *)managedItem {
+    self = [super init];
+    if (self && [managedItem isKindOfClass:[PPMManagedUserRelationItem class]]) {
+        self.toUserID = managedItem.to_user_id;
+    }
+    return self;
+}
 
 @end

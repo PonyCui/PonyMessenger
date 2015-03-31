@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPMManagedUserRelationItem;
+
 @interface PPMUserRelationItem : NSObject
 
 /**
  *  @brief 关系用户ID
  */
 @property (nonatomic, strong) NSNumber *toUserID;
+
+- (instancetype)initWithManagedItem:(PPMManagedUserRelationItem *)managedItem;
 
 @end
