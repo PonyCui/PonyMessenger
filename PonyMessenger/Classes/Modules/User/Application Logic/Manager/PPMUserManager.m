@@ -99,6 +99,15 @@
     }];
 }
 
+- (void)fetchUserRelationToUserID:(NSNumber *)userID
+                  completionBlock:(PPMUserManagerFetchUserRelationCompletionBlock)completionBlock {
+    
+}
+
+- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock {
+    
+}
+
 - (BOOL)isUserInformationValidForUserID:(NSNumber *)userID {
     NSString *cacheKey = [NSString stringWithFormat:@"PPM.UserInformation.ExpiredsTime.%@", userID];
     NSDate *cacheValue = [[[[AccountCore accountManager] userStore] cacheStore] valueForKey:cacheKey];

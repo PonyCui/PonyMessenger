@@ -64,7 +64,25 @@
     PPMManagedUserInformationItem *newEntry = (PPMManagedUserInformationItem *)[[NSManagedObject alloc]
                                                                                 initWithEntity:entityDescription
                                                                 insertIntoManagedObjectContext:self.managedObjectContext];
-    
+    return newEntry;
+}
+
+- (void)fetchUserRelationWithPredicate:(NSPredicate *)predicate
+                     completionBlock:(PPMPrivateCoreDataUserRelationFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserRelation"];
+    [request setPredicate:predicate];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
+- (PPMManagedUserRelationItem *)newUserRelationItem {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"UserRelation"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    PPMManagedUserRelationItem *newEntry = (PPMManagedUserRelationItem *)[[NSManagedObject alloc]
+                                                                                initWithEntity:entityDescription
+                                                                                insertIntoManagedObjectContext:self.managedObjectContext];
     return newEntry;
 }
 

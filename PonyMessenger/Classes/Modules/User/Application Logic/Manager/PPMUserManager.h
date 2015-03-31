@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMUserItem;
+@class PPMUserItem, PPMUserRelationItem;
 
 typedef void(^PPMUserManagerFetchUserInformationCompletionBlock)(PPMUserItem *item);
 
 typedef void(^PPMUserManagerFetchUserInformationsCompletionBlock)(NSArray *items);
+
+typedef void(^PPMUserManagerFetchUserRelationCompletionBlock)(PPMUserRelationItem *item);
+
+typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
 
 @interface PPMUserManager : NSObject
 
@@ -32,10 +36,26 @@ typedef void(^PPMUserManagerFetchUserInformationsCompletionBlock)(NSArray *items
  *
  *  @param userIDArray     
  *  @param forceUpdate     强制从服务器获取数据，并更新缓存，这样只会回调一次
- *  @param completionBlock 若数据需要更新，则会触发两次回调
+ *  @param completionBlock 若数据需要更新，则会触发两次回调，数据是无序返回的
  */
 - (void)fetchUserInformationWithUserIDArray:(NSArray *)userIDArray
                                 forceUpdate:(BOOL)forceUpdate
                             completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock;
+
+/**
+ *  @brief 获取单个用户关系
+ *
+ *  @param userID
+ *  @param completionBlock 可能回调两次
+ */
+- (void)fetchUserRelationToUserID:(NSNumber *)userID
+                  completionBlock:(PPMUserManagerFetchUserRelationCompletionBlock)completionBlock;
+
+/**
+ *  @brief 获取所有用户关系
+ *
+ *  @param completionBlock 可能回调两次
+ */
+- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock;
 
 @end

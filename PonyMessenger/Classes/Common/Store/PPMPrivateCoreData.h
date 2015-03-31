@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMManagedUserInformationItem;
+@class PPMManagedUserInformationItem, PPMManagedUserRelationItem;
 
 typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedUserInformationItem *item);
+
+/**
+ *  @param results NSArray -> PPMManagedUserRelationItem
+ */
+typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *results);
 
 /**
  * @brief  每个用户都拥有独立的PrivateCoreData实例
@@ -28,6 +33,11 @@ typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedU
                        completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserInformationItem *)newUserInformationItem;
+
+- (void)fetchUserRelationWithPredicate:(NSPredicate *)predicate
+                     completionBlock:(PPMPrivateCoreDataUserRelationFetchCompletionBlock)completionBlock;
+
+- (PPMManagedUserRelationItem *)newUserRelationItem;
 
 - (void)save;
 
