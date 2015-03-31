@@ -23,4 +23,8 @@
 
 @property (nonatomic, readonly) NSDictionary *infosResponseEagerTypes;
 
+@property (nonatomic, readonly) NSString *relationsURLString;
+
+@property (nonatomic, readonly) NSDictionary *relationsResponseEagerTypes;
+
 @end

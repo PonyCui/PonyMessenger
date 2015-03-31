@@ -42,4 +42,16 @@
              };
 }
 
+- (NSString *)relationsURLString {
+    return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/relation"];
+}
+
+- (NSDictionary *)relationsResponseEagerTypes {
+    return @{
+             @"data": @"NSArray",
+             @"data[]": @"NSDictionary",
+             @"to_user_id": @"NSNumber"
+             };
+}
+
 @end

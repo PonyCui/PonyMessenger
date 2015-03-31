@@ -19,4 +19,6 @@
 
 - (instancetype)initWithManagedItem:(PPMManagedUserRelationItem *)managedItem;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

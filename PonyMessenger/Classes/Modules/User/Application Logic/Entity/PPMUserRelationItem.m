@@ -19,4 +19,21 @@
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self && [dictionary isKindOfClass:[NSDictionary class]]) {
+        self.toUserID = dictionary[@"to_user_id"];
+    }
+    return self;
+}
+
+- (NSUInteger)hash {
+    return [self.toUserID hash];
+}
+
+- (BOOL)isEqual:(id)object {
+    return [object isKindOfClass:[self class]] &&
+           [self.toUserID isEqualToNumber:[(PPMUserRelationItem *)object toUserID]];
+}
+
 @end

@@ -38,6 +38,11 @@
         self.JSONObject = JSONObject;
         self.eagerTypes = eagerTypes;
     }
+    else if (self) {
+        self.error = [NSError errorWithDomain:@"PPM.outputHelper"
+                                         code:-1
+                                     userInfo:@{NSLocalizedDescriptionKey: @"invalid response."}];
+    }
     return self;
 }
 

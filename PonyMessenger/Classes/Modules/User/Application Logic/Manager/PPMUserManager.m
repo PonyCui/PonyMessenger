@@ -183,6 +183,46 @@
     }];
 }
 
+- (void)updateRelations {
+    [UserStore fetchUserRelationWithPredicate:nil completionBlock:^(NSArray *results) {
+        NSMutableSet *storeItems = [NSMutableSet set];
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            PPMUserRelationItem *item = [[PPMUserRelationItem alloc] initWithManagedItem:obj];
+            [storeItems addObject:item];
+        }];
+        NSString *URLString = [[[PPMDefine sharedDefine] user] relationsURLString];
+        [[AFHTTPRequestOperationManager manager]
+         GET:URLString
+         parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                          initWithJSONObject:responseObject
+                                          eagerTypes:[PPMDefine sharedDefine].user.relationsResponseEagerTypes];
+             if (opHelper.error == nil) {
+                 [opHelper requestDataObjectWithCompletionBlock:^(NSArray *dataObject) {
+                     NSMutableSet *responseItems = [NSMutableSet set];
+                     [dataObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                         PPMUserRelationItem *item = [[PPMUserRelationItem alloc] initWithDictionary:obj];
+                         [responseItems addObject:item];
+                     }];
+                     {
+                         NSMutableSet *deleteItems = [storeItems mutableCopy];
+                         [deleteItems minusSet:responseItems];
+                         [[deleteItems copy] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                             [self deleteUserRelationWithRelationItem:obj];
+                         }];
+                     }
+                     {
+                         [responseItems enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+                             [self updateUserRelationWithRelationItem:obj];
+                         }];
+                     }
+                 }];
+             }
+        } failure:nil];
+    }];
+}
+
 - (void)updateUserRelationWithRelationItem:(PPMUserRelationItem *)relationItem {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to_user_id = %@", relationItem.toUserID];
     [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
@@ -199,6 +239,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
 }
 
-
+- (void)deleteUserRelationWithRelationItem:(PPMUserRelationItem *)relationItem {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to_user_id = %@", relationItem.toUserID];
+    [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
+        if ([results count] > 0) {
+            [UserStore deleteManagedItem:[results firstObject]];
+        }
+    }];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
+}
 
 @end

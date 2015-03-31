@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMManagedUserInformationItem, PPMManagedUserRelationItem;
+@class PPMManagedUserInformationItem, PPMManagedUserRelationItem, NSManagedObject;
 
 /**
  *  @param item NSArray -> PPMManagedUserInformationItem
@@ -43,5 +43,7 @@ typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *resul
 - (PPMManagedUserRelationItem *)newUserRelationItem;
 
 - (void)save;
+
+- (void)deleteManagedItem:(NSManagedObject *)managedItem;
 
 @end
