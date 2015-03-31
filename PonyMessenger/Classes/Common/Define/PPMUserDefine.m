@@ -11,6 +11,10 @@
 
 @implementation PPMUserDefine
 
+- (NSTimeInterval)infoCacheTimeout {
+    return 3600;
+}
+
 - (NSString *)infoURLString {
     return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/info"];
 }

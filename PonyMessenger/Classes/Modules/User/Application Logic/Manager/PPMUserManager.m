@@ -93,6 +93,9 @@
         item.nickname = userItem.nickname;
         item.avatar = userItem.avatarURLString;
         [UserStore save];
+        NSString *cacheKey = [NSString stringWithFormat:@"PPM.UserInformation.ExpiredsTime.%@", userItem.userID];
+        NSDate *expiredDate = [NSDate dateWithTimeIntervalSinceNow:[[[PPMDefine sharedDefine] user] infoCacheTimeout]];
+        [[UserStore cacheStore] setValue:expiredDate forKey:cacheKey];
     }];
 }
 

@@ -10,6 +10,8 @@
 
 @interface PPMUserDefine : NSObject
 
+@property (nonatomic, readonly) NSTimeInterval infoCacheTimeout;
+
 @property (nonatomic, readonly) NSString *infoURLString;
 
 @property (nonatomic, readonly) NSDictionary *infoResponseEagerTypes;

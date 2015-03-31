@@ -11,8 +11,8 @@
 #import "PPMManagedAccountItem.h"
 #import "PPMPrivateCoreData.h"
 #import "PPMAccountItem.h"
-#import "PPMDefine.h"
 #import "PPMOutputHelper.h"
+#import "PPMApplication.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SSKeychain/SSKeychain.h>
 
