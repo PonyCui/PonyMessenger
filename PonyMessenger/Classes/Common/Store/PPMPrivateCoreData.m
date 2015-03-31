@@ -54,9 +54,7 @@
     [request setPredicate:[NSPredicate predicateWithFormat:@"user_id = %@", userID]];
     [self.managedObjectContext performBlock:^{
         NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
-        if ([result count] > 0) {
-            completionBlock([result firstObject]);
-        }
+        completionBlock([result firstObject]);
     }];
 }
 

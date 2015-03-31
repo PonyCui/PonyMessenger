@@ -10,6 +10,9 @@
 #import "PPMUserItem.h"
 #import "PPMApplication.h"
 #import "PPMPrivateCoreData.h"
+#import "PPMOutputHelper.h"
+#import "PPMManagedUserInformationItem.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation PPMUserManager
 
@@ -57,7 +60,40 @@
 
 - (void)updateUserInformationWithUserID:(NSNumber *)userID
                         completionBlock:(void (^)(PPMUserItem *item))completionBlock {
-    
+    NSString *URLString = [[[PPMDefine sharedDefine] user] infoURLString];
+    NSDictionary *params = @{
+                             @"user_id": [userID stringValue]
+                             };
+    [[AFHTTPRequestOperationManager manager]
+     GET:URLString
+     parameters:params
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                      initWithJSONObject:responseObject
+                                      eagerTypes:[[[PPMDefine sharedDefine] user] infoResponseEagerTypes]];
+         if (opHelper.error == nil) {
+             [opHelper requestDataObjectWithCompletionBlock:^(id dataObject) {
+                 PPMUserItem *userItem = [[PPMUserItem alloc] initWithDictionary:dataObject];
+                 [self updateUserStoreWithUserItem:userItem];
+                 if (completionBlock) {
+                     completionBlock(userItem);
+                 }
+             }];
+         }
+    }
+     failure:nil];
+}
+
+- (void)updateUserStoreWithUserItem:(PPMUserItem *)userItem {
+    [UserStore fetchUserInformationWithUserID:userItem.userID completionBlock:^(PPMManagedUserInformationItem *item) {
+        if (item == nil) {
+            item = [UserStore newUserInformationItem];
+        }
+        item.user_id = userItem.userID;
+        item.nickname = userItem.nickname;
+        item.avatar = userItem.avatarURLString;
+        [UserStore save];
+    }];
 }
 
 - (BOOL)isUserInformationValidForUserID:(NSNumber *)userID {

@@ -19,6 +19,8 @@
 
 #define UserCore [[[PPMApplication sharedApplication] core] userCore]
 
+#define UserStore [[AccountCore accountManager] userStore]
+
 @interface PPMCore : NSObject
 
 @property (nonatomic, readonly) PPMWireframe *wireframe;

@@ -21,4 +21,14 @@
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self && [dictionary isKindOfClass:[NSDictionary class]]) {
+        self.userID = dictionary[@"user_id"];
+        self.nickname = dictionary[@"nickname"];
+        self.avatarURLString = dictionary[@"avatar"];
+    }
+    return self;
+}
+
 @end

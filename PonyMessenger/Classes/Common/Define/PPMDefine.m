@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         _account = [[PPMAccountDefine alloc] init];
+        _user = [[PPMUserDefine alloc] init];
     }
     return self;
 }

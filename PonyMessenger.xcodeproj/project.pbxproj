@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */; };
+		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
+		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
 		63C08D011AC9223000106601 /* PPMAccountSigninPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */; };
 		63C08D041AC9223F00106601 /* PPMAccountSigninInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D031AC9223F00106601 /* PPMAccountSigninInteractor.m */; };
 		63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C08D061AC9461B00106601 /* PPMAccountSignupViewController.m */; };
@@ -78,6 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
+		6345254D1ACA38F700B9D137 /* PPMUserDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserDefine.m; sourceTree = "<group>"; };
+		634525521ACA407400B9D137 /* PPMUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserTests.m; sourceTree = "<group>"; };
 		63C08CFF1AC9223000106601 /* PPMAccountSigninPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSigninPresenter.h; sourceTree = "<group>"; };
 		63C08D001AC9223000106601 /* PPMAccountSigninPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMAccountSigninPresenter.m; sourceTree = "<group>"; };
 		63C08D021AC9223F00106601 /* PPMAccountSigninInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMAccountSigninInteractor.h; sourceTree = "<group>"; };
@@ -465,6 +470,8 @@
 				F05BFBD81AC6EA16004E860F /* PPMDefine.m */,
 				F05BFBDA1AC6EAF3004E860F /* PPMAccountDefine.h */,
 				F05BFBDB1AC6EAF3004E860F /* PPMAccountDefine.m */,
+				6345254C1ACA38F700B9D137 /* PPMUserDefine.h */,
+				6345254D1ACA38F700B9D137 /* PPMUserDefine.m */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -640,6 +647,7 @@
 				F0F6471C1AB869D700CACCA2 /* PonyMessengerTests.m */,
 				F05BFBEB1AC6F3EE004E860F /* PPMAccountTests.m */,
 				F023EFE51AC7AF7C007CF88C /* PPMOutputHelperTests.m */,
+				634525521ACA407400B9D137 /* PPMUserTests.m */,
 				F0F6471A1AB869D700CACCA2 /* Supporting Files */,
 			);
 			path = PonyMessengerTests;
@@ -824,6 +832,7 @@
 				F08A3DF11ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m in Sources */,
 				F05BFBE41AC6EF7D004E860F /* PPMAccountItem.m in Sources */,
 				F067826E1AC06832009E8C5B /* PPMChatSessionViewController.m in Sources */,
+				6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */,
 				63C08D151AC95C8300106601 /* PPMUserCore.m in Sources */,
 				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
 				63C08D1B1AC95D4D00106601 /* PPMUserManager.m in Sources */,
@@ -847,6 +856,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634525531ACA407400B9D137 /* PPMUserTests.m in Sources */,
 				F0F6471D1AB869D700CACCA2 /* PonyMessengerTests.m in Sources */,
 				F05BFBEC1AC6F3EE004E860F /* PPMAccountTests.m in Sources */,
 				F023EFE61AC7AF7C007CF88C /* PPMOutputHelperTests.m in Sources */,

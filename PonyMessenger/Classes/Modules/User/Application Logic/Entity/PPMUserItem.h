@@ -20,4 +20,6 @@
 
 - (instancetype)initWithManagedItem:(PPMManagedUserInformationItem *)managedItem;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 @end

@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "PPMAccountDefine.h"
+#import "PPMUserDefine.h"
 
 @interface PPMDefine : NSObject
 
 + (PPMDefine *)sharedDefine;
 
 @property (nonatomic, readonly) PPMAccountDefine *account;
+
+@property (nonatomic, readonly) PPMUserDefine *user;
 
 @property (nonatomic, readonly) NSString *apiAbsolutePath;
 
