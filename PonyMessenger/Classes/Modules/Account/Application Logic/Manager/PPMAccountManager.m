@@ -163,9 +163,11 @@
 
 - (void)setActiveAccount:(PPMAccountItem *)activeAccount {
     _activeAccount = activeAccount;
-    [self addAccountToApplicationStore:activeAccount];
-    [self configureKeychainWithAccountItem:activeAccount];
-    [self configureUserStoreWithAccountItem:activeAccount];
+    if (activeAccount != nil) {
+        [self addAccountToApplicationStore:activeAccount];
+        [self configureKeychainWithAccountItem:activeAccount];
+        [self configureUserStoreWithAccountItem:activeAccount];
+    }
 }
 
 - (void)addAccountToApplicationStore:(PPMAccountItem *)accountItem {
