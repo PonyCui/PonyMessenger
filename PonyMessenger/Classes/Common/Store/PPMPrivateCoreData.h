@@ -10,7 +10,10 @@
 
 @class PPMManagedUserInformationItem, PPMManagedUserRelationItem;
 
-typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(PPMManagedUserInformationItem *item);
+/**
+ *  @param item NSArray -> PPMManagedUserInformationItem
+ */
+typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(NSArray *results);
 
 /**
  *  @param results NSArray -> PPMManagedUserRelationItem
@@ -29,8 +32,8 @@ typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *resul
  */
 - (instancetype)initWithUserID:(NSNumber *)userID;
 
-- (void)fetchUserInformationWithUserID:(NSNumber *)userID
-                       completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock;
+- (void)fetchUserInformationWithPredicate:(NSPredicate *)predicate
+                          completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserInformationItem *)newUserInformationItem;
 

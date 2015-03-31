@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define kPPMUserInformationUpdatedNotification @"PPMUserInformationUpdatedNotification"
+#define kPPMUserRelationUpdatedNotification @"PPMUserRelationUpdatedNotification"
+
 @interface PPMUserDefine : NSObject
 
 @property (nonatomic, readonly) NSTimeInterval infoCacheTimeout;

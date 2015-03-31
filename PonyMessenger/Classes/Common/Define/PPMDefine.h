@@ -20,4 +20,6 @@
 
 @property (nonatomic, readonly) NSString *apiAbsolutePath;
 
+@property (nonatomic, readonly) NSDictionary *appParams;
+
 @end

@@ -49,12 +49,13 @@
     return self;
 }
 
-- (void)fetchUserInformationWithUserID:(NSNumber *)userID completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock {
+- (void)fetchUserInformationWithPredicate:(NSPredicate *)predicate
+                          completionBlock:(PPMPrivateCoreDataUserInformationFetchCompletionBlock)completionBlock {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"UserInformation"];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"user_id = %@", userID]];
+    [request setPredicate:predicate];
     [self.managedObjectContext performBlock:^{
         NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
-        completionBlock([result firstObject]);
+        completionBlock(result);
     }];
 }
 

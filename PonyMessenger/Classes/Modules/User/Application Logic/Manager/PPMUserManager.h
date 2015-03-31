@@ -24,8 +24,8 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  *  @brief 获取单个用户信息
  *
  *  @param userID
- *  @param forceUpdate 强制从服务器获取数据，并更新缓存，这样只会回调一次
- *  @param completionBlock 若数据需要更新，则会触发两次回调
+ *  @param forceUpdate      强制更新数据
+ *  @param completionBlock
  */
 - (void)fetchUserInformationWithUserID:(NSNumber *)userID
                            forceUpdate:(BOOL)forceUpdate
@@ -35,8 +35,8 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  *  @brief 获取多个用户信息
  *
  *  @param userIDArray     
- *  @param forceUpdate     强制从服务器获取数据，并更新缓存，这样只会回调一次
- *  @param completionBlock 若数据需要更新，则会触发两次回调，数据是无序返回的
+ *  @param forceUpdate     强制更新数据
+ *  @param completionBlock
  */
 - (void)fetchUserInformationWithUserIDArray:(NSArray *)userIDArray
                                 forceUpdate:(BOOL)forceUpdate
@@ -46,7 +46,7 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  *  @brief 获取单个用户关系
  *
  *  @param userID
- *  @param completionBlock 可能回调两次
+ *  @param completionBlock
  */
 - (void)fetchUserRelationToUserID:(NSNumber *)userID
                   completionBlock:(PPMUserManagerFetchUserRelationCompletionBlock)completionBlock;
@@ -54,7 +54,7 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
 /**
  *  @brief 获取所有用户关系
  *
- *  @param completionBlock 可能回调两次
+ *  @param completionBlock
  */
 - (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock;
 
