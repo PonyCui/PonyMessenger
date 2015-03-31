@@ -213,7 +213,7 @@
                          }];
                      }
                      {
-                         [responseItems enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+                         [[responseItems copy] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                              [self updateUserRelationWithRelationItem:obj];
                          }];
                      }

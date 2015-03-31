@@ -94,6 +94,7 @@
 - (void)deleteManagedItem:(NSManagedObject *)managedItem {
     [self.managedObjectContext performBlock:^{
         [self.managedObjectContext deleteObject:managedItem];
+        [self.managedObjectContext save:NULL];
     }];
 }
 

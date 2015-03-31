@@ -9,6 +9,8 @@
 #import "PPMChatContactListPresenter.h"
 #import "PPMChatContactListInteractor.h"
 #import "PPMChatContactViewController.h"
+#import "PPMApplication.h"
+#import "PPMUserManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation PPMChatContactListPresenter

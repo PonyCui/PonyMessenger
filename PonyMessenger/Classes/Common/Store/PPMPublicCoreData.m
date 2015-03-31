@@ -77,6 +77,7 @@
 - (void)deleteAccountItem:(PPMManagedAccountItem *)item {
     [self.managedObjectContext performBlock:^{
         [self.managedObjectContext deleteObject:item];
+        [self.managedObjectContext save:NULL];
     }];
 }
 

@@ -7,8 +7,26 @@
 //
 
 #import "PPMChatContactListInteractor.h"
+#import "PPMApplication.h"
 
 @implementation PPMChatContactListInteractor
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(findContacts)
+                                                     name:kPPMUserRelationUpdatedNotification
+                                                   object:nil];
+    }
+    return self;
+}
 
 - (void)findContacts {
     

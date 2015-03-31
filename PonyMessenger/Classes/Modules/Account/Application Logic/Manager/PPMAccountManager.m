@@ -167,6 +167,7 @@
         [self addAccountToApplicationStore:activeAccount];
         [self configureKeychainWithAccountItem:activeAccount];
         [self configureUserStoreWithAccountItem:activeAccount];
+        [self configureUserCookieWithAccountItem:activeAccount];
     }
 }
 
@@ -206,9 +207,41 @@
     self.userStore = [[PPMPrivateCoreData alloc] initWithUserID:accountItem.userID];
 }
 
+- (void)configureUserCookieWithAccountItem:(PPMAccountItem *)accountItem {
+    NSURL *apiURL = [NSURL URLWithString:[PPMDefine sharedDefine].apiAbsolutePath];
+    {
+        NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:
+                                @{
+                                  NSHTTPCookieName: @"user_id",
+                                  NSHTTPCookieValue: [accountItem.userID stringValue],
+                                  NSHTTPCookieDomain:apiURL.host,
+                                  NSHTTPCookieExpires:[NSDate dateWithTimeIntervalSinceNow:86400 * 31],
+                                  NSHTTPCookiePath: @"/",
+                                  NSHTTPCookieVersion: @"0"
+                                  }];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    }
+    {
+        NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:
+                                @{
+                                  NSHTTPCookieName: @"session_token",
+                                  NSHTTPCookieValue: accountItem.sessionToken,
+                                  NSHTTPCookieDomain:apiURL.host,
+                                  NSHTTPCookieExpires:[NSDate dateWithTimeIntervalSinceNow:86400 * 31],
+                                  NSHTTPCookiePath: @"/",
+                                  NSHTTPCookieVersion: @"0"
+                                  }];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    }
+}
+
 - (void)signout {
     [self configureLastActiveAccountItem:self.activeAccount];
     [SSKeychain deletePasswordForService:@"PPM.Account" account:[self.activeAccount.userID stringValue]];
+    NSURL *apiURL = [NSURL URLWithString:[PPMDefine sharedDefine].apiAbsolutePath];
+    [[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:apiURL] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:obj];
+    }];
     self.userStore = nil;
 }
 

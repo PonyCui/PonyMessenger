@@ -58,4 +58,9 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  */
 - (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock;
 
+/**
+ *  @brief 更新所有用户关系
+ */
+- (void)updateRelations;
+
 @end
