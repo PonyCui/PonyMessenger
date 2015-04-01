@@ -11,6 +11,7 @@
 #import "PPMChatCore.h"
 #import "PPMAccountCore.h"
 #import "PPMUserCore.h"
+#import "PPMSyncCore.h"
 #import "PPMDefine.h"
 
 #define ChatCore [[[PPMApplication sharedApplication] core] chatCore]
@@ -21,6 +22,8 @@
 
 #define UserStore [[AccountCore accountManager] userStore]
 
+#define SyncCore [[[PPMApplication sharedApplication] core] syncCore]
+
 @interface PPMCore : NSObject
 
 @property (nonatomic, readonly) PPMWireframe *wireframe;
@@ -30,5 +33,7 @@
 @property (nonatomic, readonly) PPMAccountCore *accountCore;
 
 @property (nonatomic, readonly) PPMUserCore *userCore;
+
+@property (nonatomic, readonly) PPMSyncCore *syncCore;
 
 @end

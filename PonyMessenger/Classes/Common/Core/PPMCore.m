@@ -18,6 +18,7 @@
         _chatCore = [[PPMChatCore alloc] init];
         _accountCore = [[PPMAccountCore alloc] init];
         _userCore = [[PPMUserCore alloc] init];
+        _syncCore = [[PPMSyncCore alloc] init];
     }
     return self;
 }

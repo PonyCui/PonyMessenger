@@ -27,6 +27,7 @@
     if (self) {
         _account = [[PPMAccountDefine alloc] init];
         _user = [[PPMUserDefine alloc] init];
+        _sync = [[PPMSyncDefine alloc] init];
     }
     return self;
 }

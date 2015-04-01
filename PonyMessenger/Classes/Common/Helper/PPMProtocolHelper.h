@@ -10,4 +10,16 @@
 
 @interface PPMProtocolHelper : NSObject
 
+@property (nonatomic, strong) NSError *error;
+
+@property (nonatomic, copy) NSString *service;
+
+@property (nonatomic, copy) NSString *method;
+
+@property (nonatomic, strong) id params;
+
+- (instancetype)initWithMessageString:(NSString *)messageString;
+
++ (NSString *)messageWithService:(NSString *)service method:(NSString *)method params:(id)params;
+
 @end

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		48521C126F8F75C87EA56841 /* libPods-PonyMessenger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B392287A4E310850C25CD927 /* libPods-PonyMessenger.a */; };
+		63173D211ACB885400646C58 /* PPMSyncCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D201ACB885400646C58 /* PPMSyncCore.m */; };
+		63173D241ACB8AF900646C58 /* PPMSyncItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D231ACB8AF900646C58 /* PPMSyncItem.m */; };
+		63173D271ACB8EB800646C58 /* PPMSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D261ACB8EB800646C58 /* PPMSyncManager.m */; };
+		63173D2D1ACB931F00646C58 /* PPMSyncDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D2C1ACB931F00646C58 /* PPMSyncDefine.m */; };
+		63173D331ACB96A800646C58 /* PPMSyncSocketServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D321ACB96A800646C58 /* PPMSyncSocketServiceManager.m */; };
+		63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D361ACB97B300646C58 /* PPMSyncConnService.m */; };
+		63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D391ACB97C700646C58 /* PPMSyncSubService.m */; };
+		63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
 		634525591ACA6E5500B9D137 /* PPMManagedUserRelationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525581ACA6E5500B9D137 /* PPMManagedUserRelationItem.m */; };
@@ -82,6 +90,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63173D1F1ACB885400646C58 /* PPMSyncCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncCore.h; sourceTree = "<group>"; };
+		63173D201ACB885400646C58 /* PPMSyncCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncCore.m; sourceTree = "<group>"; };
+		63173D221ACB8AF900646C58 /* PPMSyncItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncItem.h; sourceTree = "<group>"; };
+		63173D231ACB8AF900646C58 /* PPMSyncItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncItem.m; sourceTree = "<group>"; };
+		63173D251ACB8EB800646C58 /* PPMSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncManager.h; sourceTree = "<group>"; };
+		63173D261ACB8EB800646C58 /* PPMSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncManager.m; sourceTree = "<group>"; };
+		63173D2B1ACB931F00646C58 /* PPMSyncDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncDefine.h; sourceTree = "<group>"; };
+		63173D2C1ACB931F00646C58 /* PPMSyncDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncDefine.m; sourceTree = "<group>"; };
+		63173D311ACB96A800646C58 /* PPMSyncSocketServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncSocketServiceManager.h; sourceTree = "<group>"; };
+		63173D321ACB96A800646C58 /* PPMSyncSocketServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncSocketServiceManager.m; sourceTree = "<group>"; };
+		63173D351ACB97B300646C58 /* PPMSyncConnService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncConnService.h; sourceTree = "<group>"; };
+		63173D361ACB97B300646C58 /* PPMSyncConnService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncConnService.m; sourceTree = "<group>"; };
+		63173D381ACB97C700646C58 /* PPMSyncSubService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncSubService.h; sourceTree = "<group>"; };
+		63173D391ACB97C700646C58 /* PPMSyncSubService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncSubService.m; sourceTree = "<group>"; };
+		63173D3B1ACB97D600646C58 /* PPMSyncTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncTestService.h; sourceTree = "<group>"; };
+		63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncTestService.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
 		6345254D1ACA38F700B9D137 /* PPMUserDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserDefine.m; sourceTree = "<group>"; };
 		634525521ACA407400B9D137 /* PPMUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserTests.m; sourceTree = "<group>"; };
@@ -237,6 +261,67 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		63173D1A1ACB87D200646C58 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				63173D1B1ACB87D200646C58 /* Application Logic */,
+				63173D1E1ACB87D200646C58 /* Module Interface */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		63173D1B1ACB87D200646C58 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				63173D341ACB979C00646C58 /* Service */,
+				63173D1C1ACB87D200646C58 /* Entity */,
+				63173D1D1ACB87D200646C58 /* Manager */,
+			);
+			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		63173D1C1ACB87D200646C58 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				63173D221ACB8AF900646C58 /* PPMSyncItem.h */,
+				63173D231ACB8AF900646C58 /* PPMSyncItem.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		63173D1D1ACB87D200646C58 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				63173D251ACB8EB800646C58 /* PPMSyncManager.h */,
+				63173D261ACB8EB800646C58 /* PPMSyncManager.m */,
+				63173D311ACB96A800646C58 /* PPMSyncSocketServiceManager.h */,
+				63173D321ACB96A800646C58 /* PPMSyncSocketServiceManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		63173D1E1ACB87D200646C58 /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				63173D1F1ACB885400646C58 /* PPMSyncCore.h */,
+				63173D201ACB885400646C58 /* PPMSyncCore.m */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		63173D341ACB979C00646C58 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				63173D351ACB97B300646C58 /* PPMSyncConnService.h */,
+				63173D361ACB97B300646C58 /* PPMSyncConnService.m */,
+				63173D381ACB97C700646C58 /* PPMSyncSubService.h */,
+				63173D391ACB97C700646C58 /* PPMSyncSubService.m */,
+				63173D3B1ACB97D600646C58 /* PPMSyncTestService.h */,
+				63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		63C08CFD1AC9221600106601 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +446,7 @@
 		F00392E71AB874F2002EF72B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				63173D1A1ACB87D200646C58 /* Sync */,
 				63C08D0E1AC95C5200106601 /* User */,
 				F0E154701AC5A24C00E46E48 /* Account */,
 				F00392EE1AB87755002EF72B /* Chat */,
@@ -480,6 +566,8 @@
 				F05BFBDB1AC6EAF3004E860F /* PPMAccountDefine.m */,
 				6345254C1ACA38F700B9D137 /* PPMUserDefine.h */,
 				6345254D1ACA38F700B9D137 /* PPMUserDefine.m */,
+				63173D2B1ACB931F00646C58 /* PPMSyncDefine.h */,
+				63173D2C1ACB931F00646C58 /* PPMSyncDefine.m */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -812,15 +900,19 @@
 			files = (
 				F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */,
 				63C08D181AC95D4200106601 /* PPMUserItem.m in Sources */,
+				63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */,
 				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
 				F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */,
+				63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
 				F08A3DDD1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m in Sources */,
 				F08A3DE51AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m in Sources */,
 				F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */,
 				F0E1547B1AC5A59300E46E48 /* PPMManagedUserInformationItem.m in Sources */,
 				F023EFE41AC7A733007CF88C /* PPMValueFormatter.m in Sources */,
+				63173D271ACB8EB800646C58 /* PPMSyncManager.m in Sources */,
 				F023EFDE1AC7A2BA007CF88C /* PPMOutputHelper.m in Sources */,
+				63173D211ACB885400646C58 /* PPMSyncCore.m in Sources */,
 				F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */,
 				F08A3DE21AB9D6B500A5E6AA /* PPMChatRecentListInteractor.m in Sources */,
 				F06782711AC0684E009E8C5B /* PPMChatSessionPresenter.m in Sources */,
@@ -846,16 +938,20 @@
 				F067826E1AC06832009E8C5B /* PPMChatSessionViewController.m in Sources */,
 				6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */,
 				63C08D151AC95C8300106601 /* PPMUserCore.m in Sources */,
+				63173D2D1ACB931F00646C58 /* PPMSyncDefine.m in Sources */,
 				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
 				63C08D1B1AC95D4D00106601 /* PPMUserManager.m in Sources */,
 				F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */,
 				F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */,
+				63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */,
 				63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */,
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
+				63173D331ACB96A800646C58 /* PPMSyncSocketServiceManager.m in Sources */,
 				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,
 				F08A3DEB1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m in Sources */,
 				63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */,
 				F05BFBE71AC6EF94004E860F /* PPMAccountManager.m in Sources */,
+				63173D241ACB8AF900646C58 /* PPMSyncItem.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
 				63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,

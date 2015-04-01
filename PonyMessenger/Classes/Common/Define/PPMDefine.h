@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PPMAccountDefine.h"
 #import "PPMUserDefine.h"
+#import "PPMSyncDefine.h"
 
 @interface PPMDefine : NSObject
 
@@ -17,6 +18,8 @@
 @property (nonatomic, readonly) PPMAccountDefine *account;
 
 @property (nonatomic, readonly) PPMUserDefine *user;
+
+@property (nonatomic, readonly) PPMSyncDefine *sync;
 
 @property (nonatomic, readonly) NSString *apiAbsolutePath;
 
