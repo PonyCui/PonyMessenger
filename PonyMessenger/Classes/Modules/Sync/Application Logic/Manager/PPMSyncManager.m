@@ -38,4 +38,8 @@
     }];
 }
 
+- (PPMSyncItem *)itemForSyncID:(NSString *)syncID {
+    return self.syncItems[syncID];
+}
+
 @end

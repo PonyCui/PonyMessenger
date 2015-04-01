@@ -31,7 +31,7 @@
     self.relationSyncItem = [[PPMSyncItem alloc] init];
     self.relationSyncItem.syncID = @"PPM.User.Relation";
     [self.relationSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
-        
+        [[UserCore userManager] updateRelations];
     }];
     [[SyncCore syncManager] addItem:self.relationSyncItem];
 }

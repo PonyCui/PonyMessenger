@@ -16,4 +16,6 @@
 
 - (void)performSyncActions;
 
+- (PPMSyncItem *)itemForSyncID:(NSString *)syncID;
+
 @end
