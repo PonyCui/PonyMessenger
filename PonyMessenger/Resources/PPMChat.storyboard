@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-3r-Elh">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="74" id="G5D-aR-bDM" customClass="PPMChatRecentTableViewCell">
@@ -124,6 +124,33 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="qPI-0E-Ryw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxj-2a-kEq">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="BY5-W7-HUz"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0位联系人" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIq-nW-aRC">
+                                            <rect key="frame" x="121" y="11" width="78" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Bxj-2a-kEq" secondAttribute="trailing" id="0oq-eX-cji"/>
+                                        <constraint firstAttribute="centerY" secondItem="LIq-nW-aRC" secondAttribute="centerY" constant="0.5" id="2gw-gr-8H2"/>
+                                        <constraint firstItem="Bxj-2a-kEq" firstAttribute="top" secondItem="qPI-0E-Ryw" secondAttribute="top" id="X2X-IH-7gL"/>
+                                        <constraint firstAttribute="centerX" secondItem="LIq-nW-aRC" secondAttribute="centerX" id="yir-Kg-m6r"/>
+                                        <constraint firstItem="Bxj-2a-kEq" firstAttribute="leading" secondItem="qPI-0E-Ryw" secondAttribute="leading" id="yyo-xa-DND"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="5ug-Gd-3nw" customClass="PPMChatContactTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -164,7 +191,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hyY-4w-7MW" firstAttribute="bottom" secondItem="1G4-Ta-qgV" secondAttribute="bottom" id="EZh-jc-5UL"/>
                             <constraint firstAttribute="trailing" secondItem="1G4-Ta-qgV" secondAttribute="trailing" id="d4A-vD-8tG"/>
@@ -177,6 +204,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableFooterViewTextLabel" destination="LIq-nW-aRC" id="KWl-1J-X7h"/>
                         <outlet property="tableView" destination="1G4-Ta-qgV" id="UXw-iu-mAC"/>
                     </connections>
                 </viewController>

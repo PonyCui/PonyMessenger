@@ -61,7 +61,15 @@
                 PPMChatContactCellInteractor *cellInteractor = [[PPMChatContactCellInteractor alloc] initWithUserItem:obj];
                 [contacts addObject:cellInteractor];
             }];
-            self.contacts = contacts;
+            self.contacts = [contacts sortedArrayWithOptions:kNilOptions
+                                             usingComparator:^NSComparisonResult(PPMChatContactCellInteractor *obj1, PPMChatContactCellInteractor *obj2) {
+                                                 if ([obj1.letter isEqualToString:obj2.letter]) {
+                                                     return NSOrderedSame;
+                                                 }
+                                                 else {
+                                                     return obj1.letter.hash > obj2.letter.hash ? NSOrderedDescending : NSOrderedAscending;
+                                                 }
+            }];
         }];
     }];
 }

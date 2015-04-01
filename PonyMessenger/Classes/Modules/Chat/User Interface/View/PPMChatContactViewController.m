@@ -8,10 +8,20 @@
 
 #import "PPMChatContactViewController.h"
 #import "PPMChatContactListPresenter.h"
+#import "PPMChatContactListInteractor.h"
+#import "PPMChatContactCellInteractor.h"
+#import "PPMChatContactCellPresenter.h"
+#import "PPMChatContactTableViewCell.h"
 
 @interface PPMChatContactViewController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, copy) NSArray *sectionIndexTitles;
+
+@property (nonatomic, copy) NSArray *sectionCells;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UILabel *tableFooterViewTextLabel;
 
 @end
 
@@ -33,30 +43,61 @@
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return [self.sectionIndexTitles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (section < [self.sectionCells count]) {
+        return [self.sectionCells[section] count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    PPMChatContactTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (indexPath.section < [self.sectionCells count] &&
+        indexPath.row < [self.sectionCells[indexPath.section] count]) {
+        PPMChatContactCellInteractor *cellInteractor = self.sectionCells[indexPath.section][indexPath.row];
+        cell.eventHandler.cellInteractor = cellInteractor;
+    }
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section % 2 ? @"B" : @"A";
+    if (section < [self.sectionIndexTitles count]) {
+        return self.sectionIndexTitles[section];
+    }
+    return nil;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return @[@"A", @"B", @"A", @"B", @"A", @"B", @"A", @"B", @"A", @"B"];
+    return self.sectionIndexTitles;
 }
 
 #pragma mark - Events
 
 - (void)reloadTableView {
+    NSMutableArray *sectionIndexTitles = [NSMutableArray array];
+    NSMutableArray *sectionCells = [NSMutableArray array];
+    __block NSMutableArray *currentSectionCells = nil;
+    [self.eventHandler.listInteractor.contacts
+     enumerateObjectsUsingBlock:^(PPMChatContactCellInteractor *obj, NSUInteger idx, BOOL *stop) {
+         if ([sectionIndexTitles indexOfObject:obj.letter] == NSNotFound) {
+             [sectionIndexTitles addObject:obj.letter];
+             if (currentSectionCells != nil) {
+                 [sectionCells addObject:currentSectionCells];
+             }
+             currentSectionCells = [NSMutableArray array];
+         }
+         [currentSectionCells addObject:obj];
+    }];
+    if ([currentSectionCells count] > 0) {
+        [sectionCells addObject:currentSectionCells];
+    }
+    self.sectionIndexTitles = sectionIndexTitles;
+    self.sectionCells = sectionCells;
+    self.tableFooterViewTextLabel.text = [NSString stringWithFormat:@"%lu位联系人", (unsigned long)[self.eventHandler.listInteractor.contacts count]];
     [self.tableView reloadData];
 }
 

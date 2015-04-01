@@ -7,6 +7,7 @@
 //
 
 #import "PPMChatContactTableViewCell.h"
+#import "PPMChatContactCellPresenter.h"
 
 @interface PPMChatContactTableViewCell ()
 
@@ -17,6 +18,16 @@
 @end
 
 @implementation PPMChatContactTableViewCell
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.eventHandler = [[PPMChatContactCellPresenter alloc] init];
+        self.eventHandler.userInterface = self;
+    }
+    return self;
+}
 
 - (void)awakeFromNib {
     // Initialization code
