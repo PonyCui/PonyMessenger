@@ -10,6 +10,7 @@
 #import "PPMChatRecentViewController.h"
 #import "PPMChatRecentListPresenter.h"
 #import "PPMChatContactViewController.h"
+#import "PPMChatContactListPresenter.h"
 #import "PPMChatSessionViewController.h"
 #import "PPMChatSessionPresenter.h"
 #import "PPMChatSessionInteractor.h"
@@ -48,7 +49,11 @@
 
 - (PPMChatContactViewController *)contactViewController {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
-    return [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatContactViewController"];
+    PPMChatContactViewController *viewController =
+    [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatContactViewController"];
+    viewController.eventHandler = [[PPMChatContactListPresenter alloc] init];
+    viewController.eventHandler.userInterface = viewController;
+    return viewController;
 }
 
 - (PPMChatSessionViewController *)sessionViewController {

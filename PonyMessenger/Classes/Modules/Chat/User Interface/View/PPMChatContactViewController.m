@@ -7,6 +7,7 @@
 //
 
 #import "PPMChatContactViewController.h"
+#import "PPMChatContactListPresenter.h"
 
 @interface PPMChatContactViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -20,6 +21,7 @@
     [super viewDidLoad];
     self.parentViewController.title = @"通讯录";
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_contactsHL"];
+    [self.eventHandler updateView];
     // Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class PPMUserItem;
+
 @interface PPMChatContactCellInteractor : NSObject
 
 /**
@@ -25,5 +27,7 @@
  *  @brief 头像
  */
 @property (nonatomic, strong) UIImage *iconImage;
+
+- (instancetype)initWithUserItem:(PPMUserItem *)userItem;
 
 @end

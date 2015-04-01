@@ -19,6 +19,7 @@
 {
     self = [super init];
     if (self) {
+        _listInteractor = [[PPMChatContactListInteractor alloc] init];
         [self configureReactiveCocoa];
     }
     return self;

@@ -31,4 +31,15 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[PPMManagedUserInformationItem class]]) {
+        if ([self.userID isEqualToNumber:[(PPMManagedUserInformationItem *)object user_id]] &&
+            [self.nickname isEqualToString:[(PPMManagedUserInformationItem *)object nickname]] &&
+            [self.avatarURLString isEqualToString:[(PPMManagedUserInformationItem *)object avatar]]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end

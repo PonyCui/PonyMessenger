@@ -45,6 +45,8 @@
 - (void)fetchUserInformationWithUserIDArray:(NSArray *)userIDArray
                                 forceUpdate:(BOOL)forceUpdate
                             completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock {
+    NSSet *requestUserIDSet = [NSSet setWithArray:userIDArray];
+    NSMutableSet *storeUserIDSet = [NSMutableSet set];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"user_id IN %@", userIDArray];
     [[[AccountCore accountManager] userStore] fetchUserInformationWithPredicate:predicate completionBlock:^(NSArray *results) {
         NSMutableArray *beUpdateduserIDArray = [NSMutableArray array];
@@ -52,12 +54,20 @@
         [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             PPMUserItem *userItem = [[PPMUserItem alloc] initWithManagedItem:obj];
             [userItems addObject:userItem];
+            [storeUserIDSet addObject:userItem.userID];
             if (forceUpdate || ![self isUserInformationValidForUserID:userItem.userID]) {
                 if (userItem.userID != nil) {
                     [beUpdateduserIDArray addObject:userItem.userID];
                 }
             }
         }];
+        {
+            NSMutableSet *minusSet = [requestUserIDSet mutableCopy];
+            [minusSet minusSet:storeUserIDSet];
+            [minusSet enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+                [beUpdateduserIDArray addObject:obj];
+            }];
+        }
         if (completionBlock) {
             completionBlock([userItems copy]);
         }
@@ -121,7 +131,7 @@
         if (item == nil) {
             item = [UserStore newUserInformationItem];
         }
-        else if ([item isEqual:userItem]) {
+        else if ([userItem isEqual:item]) {
             return ;//完全一致，无须入库
         }
         item.user_id = userItem.userID;
@@ -230,7 +240,7 @@
         if (managedItem == nil) {
             managedItem = [UserStore newUserRelationItem];
         }
-        else if ([managedItem isEqual:relationItem]) {
+        else if ([relationItem isEqual:managedItem]) {
             return ;
         }
         managedItem.to_user_id = relationItem.toUserID;

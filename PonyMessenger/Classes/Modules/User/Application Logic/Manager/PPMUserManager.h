@@ -36,7 +36,7 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  *
  *  @param userIDArray     
  *  @param forceUpdate     强制更新数据
- *  @param completionBlock
+ *  @param completionBlock NSArray -> PPMUserItem
  */
 - (void)fetchUserInformationWithUserIDArray:(NSArray *)userIDArray
                                 forceUpdate:(BOOL)forceUpdate
@@ -54,7 +54,7 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
 /**
  *  @brief 获取所有用户关系
  *
- *  @param completionBlock
+ *  @param completionBlock NSArray -> PPMUserRelationItem
  */
 - (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock;
 
