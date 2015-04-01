@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 崔 明辉. All rights reserved.
 //
 
+#warning - FIXME:好乱，必须重构
+
 #import "PPMAccountManager.h"
 #import "PPMPublicCoreData.h"
 #import "PPMManagedAccountItem.h"
@@ -63,10 +65,6 @@
         [self setActiveAccount:item];
         completionBlock(item);
     }];
-}
-
-- (void)findLastActiveAccountItemWithCompletionBlock:(PPMAccountManagerFindActiveAccountItemCompletionBlock)completionBlock {
-    
 }
 
 - (void)signupWithAccountItem:(PPMAccountItem *)accountItem
@@ -162,13 +160,17 @@
 }
 
 - (void)setActiveAccount:(PPMAccountItem *)activeAccount {
-    _activeAccount = activeAccount;
     if (activeAccount != nil) {
         [self addAccountToApplicationStore:activeAccount];
         [self configureKeychainWithAccountItem:activeAccount];
         [self configureUserStoreWithAccountItem:activeAccount];
         [self configureUserCookieWithAccountItem:activeAccount];
     }
+    else {
+        [self deactiveAccount:_activeAccount];
+    }
+    _activeAccount = activeAccount;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPPMAccountChangedNotification object:nil];
 }
 
 - (void)addAccountToApplicationStore:(PPMAccountItem *)accountItem {
@@ -236,13 +238,26 @@
 }
 
 - (void)signout {
-    [self configureLastActiveAccountItem:self.activeAccount];
-    [SSKeychain deletePasswordForService:@"PPM.Account" account:[self.activeAccount.userID stringValue]];
-    NSURL *apiURL = [NSURL URLWithString:[PPMDefine sharedDefine].apiAbsolutePath];
-    [[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:apiURL] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:obj];
-    }];
-    self.userStore = nil;
+    self.activeAccount = nil;
+}
+
+- (void)deactiveAccount:(PPMAccountItem *)accountItem {
+    {
+        //Reset UserStore
+        self.userStore = nil;
+    }
+    {
+        //Reset Cookie
+        NSURL *apiURL = [NSURL URLWithString:[PPMDefine sharedDefine].apiAbsolutePath];
+        [[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:apiURL]
+         enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+             [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:obj];
+         }];
+    }
+    if (accountItem != nil) {
+        [self configureLastActiveAccountItem:accountItem];
+        [SSKeychain deletePasswordForService:@"PPM.Account" account:[accountItem.userID stringValue]];
+    }
 }
 
 - (PPMAccountItem *)lastActiveAccount {

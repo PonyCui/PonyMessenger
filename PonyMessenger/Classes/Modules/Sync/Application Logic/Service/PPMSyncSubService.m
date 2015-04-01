@@ -11,6 +11,7 @@
 #import "PPMSyncConnService.h"
 #import "PPMProtocolHelper.h"
 #import "PPMValueFormatter.h"
+#import "PPMAccountItem.h"
 
 @interface PPMSyncSubService ()
 
@@ -23,9 +24,12 @@
 @implementation PPMSyncSubService
 
 - (void)addObserver {
+    NSString *userID = TOString([[[AccountCore accountManager] activeAccount] userID]);
+    NSString *sessionToken = TOString([[[AccountCore accountManager] activeAccount] sessionToken]);
     NSString *message = [PPMProtocolHelper messageWithService:@"sub"
                                                        method:@"addObserver"
-                                                       params:@{@"user_id":@"1", @"session_token":@"testToken"}];
+                                                       params:@{@"user_id":userID,
+                                                                @"session_token":sessionToken}];
     [[[SyncCore socketServiceManager] conn] sendMessage:message];
 }
 

@@ -27,15 +27,28 @@
 - (void)dealloc
 {
     self.webSocketConnection.delegate = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [self connect];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePPMAccountChangedNotification)
+                                                     name:kPPMAccountChangedNotification
+                                                   object:nil];
     }
     return self;
+}
+
+- (void)handlePPMAccountChangedNotification {
+    if ([[AccountCore accountManager] activeAccount] == nil) {
+        [self disconnect];
+    }
+    else {
+        [self connect];
+    }
 }
 
 - (void)requestWebSocketURLStringWithCompletionBlock:(void (^)())completionBlock {
@@ -59,6 +72,9 @@
 }
 
 - (void)connect {
+    if ([[AccountCore accountManager] activeAccount] == nil) {
+        return;
+    }
     if (self.webSocketURLString == nil) {
         [self requestWebSocketURLStringWithCompletionBlock:^{
             [self connect];
@@ -84,6 +100,7 @@
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
     if (self.retryCount < 10) {
+        NSLog(@"Will reconnect after 5s.");
         self.retryCount++;
         [self performSelector:@selector(connect) withObject:nil afterDelay:5.0];
     }
