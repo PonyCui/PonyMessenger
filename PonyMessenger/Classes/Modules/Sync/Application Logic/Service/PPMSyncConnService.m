@@ -68,6 +68,11 @@
                  }
              }
          }
+         else {
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [self requestWebSocketURLStringWithCompletionBlock:completionBlock];
+             });
+         }
     }];
 }
 
@@ -132,7 +137,9 @@
 #pragma GCC diagnostic pop
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
-    [self connect];
+    [self requestWebSocketURLStringWithCompletionBlock:^{
+        [self connect];
+    }];
 }
 
 @end
