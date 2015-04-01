@@ -1,5 +1,5 @@
 //
-//  PPMSyncManager.h
+//  PPMSyncUserService.h
 //  PonyMessenger
 //
 //  Created by 崔 明辉 on 15/4/1.
@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMSyncItem;
-
-@interface PPMSyncManager : NSObject
-
-- (void)addItem:(PPMSyncItem *)item;
-
-- (void)performSyncActions;
+@interface PPMSyncUserService : NSObject
 
 @end

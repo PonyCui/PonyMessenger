@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMSyncConnService, PPMSyncSubService, PPMSyncTestService;
+@class PPMSyncConnService, PPMSyncSubService, PPMSyncTestService, PPMSyncUserService;
 
 @interface PPMSyncSocketServiceManager : NSObject
 
@@ -17,5 +17,7 @@
 @property (nonatomic, readonly) PPMSyncSubService *sub;
 
 @property (nonatomic, readonly) PPMSyncTestService *test;
+
+@property (nonatomic, readonly) PPMSyncUserService *user;
 
 @end

@@ -16,6 +16,7 @@
 		63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D361ACB97B300646C58 /* PPMSyncConnService.m */; };
 		63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D391ACB97C700646C58 /* PPMSyncSubService.m */; };
 		63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */; };
+		6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
 		634525591ACA6E5500B9D137 /* PPMManagedUserRelationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525581ACA6E5500B9D137 /* PPMManagedUserRelationItem.m */; };
@@ -106,6 +107,8 @@
 		63173D391ACB97C700646C58 /* PPMSyncSubService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncSubService.m; sourceTree = "<group>"; };
 		63173D3B1ACB97D600646C58 /* PPMSyncTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncTestService.h; sourceTree = "<group>"; };
 		63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncTestService.m; sourceTree = "<group>"; };
+		6335D4281ACBD7E600C46430 /* PPMSyncUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncUserService.h; sourceTree = "<group>"; };
+		6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncUserService.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
 		6345254D1ACA38F700B9D137 /* PPMUserDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserDefine.m; sourceTree = "<group>"; };
 		634525521ACA407400B9D137 /* PPMUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserTests.m; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				63173D391ACB97C700646C58 /* PPMSyncSubService.m */,
 				63173D3B1ACB97D600646C58 /* PPMSyncTestService.h */,
 				63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */,
+				6335D4281ACBD7E600C46430 /* PPMSyncUserService.h */,
+				6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
 				63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
+				6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */,
 				63C08D041AC9223F00106601 /* PPMAccountSigninInteractor.m in Sources */,
 				F0E154781AC5A2F800E46E48 /* PPMPrivateCoreData.m in Sources */,
 			);

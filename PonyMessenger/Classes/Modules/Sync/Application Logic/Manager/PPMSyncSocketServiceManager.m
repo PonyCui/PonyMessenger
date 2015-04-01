@@ -10,6 +10,7 @@
 #import "PPMSyncConnService.h"
 #import "PPMSyncSubService.h"
 #import "PPMSyncTestService.h"
+#import "PPMSyncUserService.h"
 
 @implementation PPMSyncSocketServiceManager
 
@@ -20,6 +21,7 @@
         _conn = [[PPMSyncConnService alloc] init];
         _sub = [[PPMSyncSubService alloc] init];
         _test = [[PPMSyncTestService alloc] init];
+        _user = [[PPMSyncUserService alloc] init];
     }
     return self;
 }

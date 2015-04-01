@@ -32,4 +32,10 @@
     self.syncItems = syncItems;
 }
 
+- (void)performSyncActions {
+    [self.syncItems enumerateKeysAndObjectsUsingBlock:^(id key, PPMSyncItem *obj, BOOL *stop) {
+        [obj doSync];
+    }];
+}
+
 @end

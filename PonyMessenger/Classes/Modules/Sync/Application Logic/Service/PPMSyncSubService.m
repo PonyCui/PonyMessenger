@@ -50,6 +50,7 @@
 
 - (void)didAddObserver {
     NSLog(@"didAddObserver");
+    [[SyncCore syncManager] performSyncActions];
     [self.heartBeatTimer invalidate];
     self.heartBeatTimer = [NSTimer scheduledTimerWithTimeInterval:60.0
                                                            target:self

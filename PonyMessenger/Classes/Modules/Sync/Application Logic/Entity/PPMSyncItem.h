@@ -30,6 +30,8 @@ typedef void(^PPMSyncItemSyncingBlock)(PPMSyncItem *syncItem);
  */
 @property (nonatomic, copy) NSString *eTag;
 
+- (void)setSyncingBlock:(PPMSyncItemSyncingBlock)syncingBlock;
+
 - (void)doSync;
 
 @end

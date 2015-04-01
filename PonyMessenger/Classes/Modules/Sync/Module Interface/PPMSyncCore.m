@@ -10,6 +10,10 @@
 
 @interface PPMSyncCore ()
 
+@property (nonatomic, readwrite) PPMSyncManager *syncManager;
+
+@property (nonatomic, readwrite) PPMSyncSocketServiceManager *socketServiceManager;
+
 @end
 
 @implementation PPMSyncCore
@@ -18,10 +22,22 @@
 {
     self = [super init];
     if (self) {
-        _syncManager = [[PPMSyncManager alloc] init];
-        _socketServiceManager = [[PPMSyncSocketServiceManager alloc] init];
     }
     return self;
+}
+
+- (PPMSyncManager *)syncManager {
+    if (_syncManager == nil) {
+        _syncManager = [[PPMSyncManager alloc] init];
+    }
+    return _syncManager;
+}
+
+- (PPMSyncSocketServiceManager *)socketServiceManager {
+    if (_socketServiceManager == nil) {
+        _socketServiceManager = [[PPMSyncSocketServiceManager alloc] init];
+    }
+    return _socketServiceManager;
 }
 
 @end

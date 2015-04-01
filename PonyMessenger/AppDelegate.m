@@ -31,6 +31,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    
+    {
+        //需要显式初始化的模块
+        [[[PPMApplication sharedApplication] core] loadAccountCore];
+        [[[PPMApplication sharedApplication] core] loadSyncCore];
+    }
+    
     [self configureApplicationAccounts];
     return YES;
 }

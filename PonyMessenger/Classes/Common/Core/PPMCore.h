@@ -36,4 +36,14 @@
 
 @property (nonatomic, readonly) PPMSyncCore *syncCore;
 
+/**
+ *  @brief 显式加载Account模块
+ */
+- (void)loadAccountCore;
+
+/**
+ *  @brief 显式加载Sync模块
+ */
+- (void)loadSyncCore;
+
 @end
