@@ -245,8 +245,8 @@
         }
         managedItem.to_user_id = relationItem.toUserID;
         [UserStore save];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
 }
 
 - (void)deleteUserRelationWithRelationItem:(PPMUserRelationItem *)relationItem {
@@ -254,9 +254,9 @@
     [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
         if ([results count] > 0) {
             [UserStore deleteManagedItem:[results firstObject]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
         }
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
 }
 
 @end
