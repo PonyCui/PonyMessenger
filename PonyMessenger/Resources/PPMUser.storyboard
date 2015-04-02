@@ -86,11 +86,43 @@
                                         <constraint firstAttribute="height" constant="60" id="iy0-PQ-glB"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmV-lZ-mw7" userLabel="Start Talk Button View">
+                                    <rect key="frame" x="0.0" y="60" width="320" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-EN-ROc">
+                                            <rect key="frame" x="12" y="7" width="296" height="46"/>
+                                            <color key="backgroundColor" red="0.0" green="0.81176470590000005" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="46" id="64m-v2-BGU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="发消息">
+                                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="6"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="02R-kU-Dr2"/>
+                                        <constraint firstItem="aoY-EN-ROc" firstAttribute="leading" secondItem="gmV-lZ-mw7" secondAttribute="leading" constant="12" id="4T6-Yg-Juc"/>
+                                        <constraint firstAttribute="centerY" secondItem="aoY-EN-ROc" secondAttribute="centerY" id="fvf-9O-jqV"/>
+                                        <constraint firstAttribute="trailing" secondItem="aoY-EN-ROc" secondAttribute="trailing" constant="12" id="rgs-df-KmX"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="aSb-do-6Ie" firstAttribute="top" secondItem="1FT-cs-0bY" secondAttribute="top" id="GS1-PR-Aaq"/>
+                                <constraint firstItem="gmV-lZ-mw7" firstAttribute="leading" secondItem="1FT-cs-0bY" secondAttribute="leading" id="IQb-8O-qEe"/>
+                                <constraint firstItem="gmV-lZ-mw7" firstAttribute="top" secondItem="aSb-do-6Ie" secondAttribute="bottom" id="gCY-dr-NM4"/>
                                 <constraint firstAttribute="trailing" secondItem="aSb-do-6Ie" secondAttribute="trailing" id="oKg-I3-Rcc"/>
+                                <constraint firstAttribute="trailing" secondItem="gmV-lZ-mw7" secondAttribute="trailing" id="sob-u2-Hqg"/>
                                 <constraint firstItem="aSb-do-6Ie" firstAttribute="leading" secondItem="1FT-cs-0bY" secondAttribute="leading" id="xxv-g3-3n2"/>
                             </constraints>
                         </view>
@@ -162,6 +194,7 @@
                     <connections>
                         <outlet property="addContactButtonView" destination="aSb-do-6Ie" id="8w4-OV-jxf"/>
                         <outlet property="avatarImageView" destination="Akp-DS-eWe" id="Iv4-0F-S2w"/>
+                        <outlet property="startTalkButtonView" destination="gmV-lZ-mw7" id="fk9-oZ-OOf"/>
                         <outlet property="titleLabel" destination="3eP-kj-DXc" id="03e-bs-z6V"/>
                     </connections>
                 </tableViewController>

@@ -22,6 +22,11 @@ typedef NS_ENUM(NSInteger, PPMUserInformationIcon) {
 @property (nonatomic, strong) NSNumber *userID;
 
 /**
+ *  @brief YES 已经是好友
+ */
+@property (nonatomic, assign) BOOL isFriend;
+
+/**
  *  @brief 用户头像
  */
 @property (nonatomic, strong) UIImage *avatarImage;

@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *addContactButtonView;
 
+@property (weak, nonatomic) IBOutlet UIView *startTalkButtonView;
+
 @end
 
 @implementation PPMUserInformationViewController
@@ -43,7 +45,7 @@
 - (void)setAddContactButtonHidden:(BOOL)isHidden {
     __block NSLayoutConstraint *heightConstraint;
     [self.addContactButtonView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *obj, NSUInteger idx, BOOL *stop) {
-        if (obj.constant == 60.0) {
+        if (obj.firstAttribute == NSLayoutAttributeHeight) {
             heightConstraint = obj;
         }
     }];
@@ -52,7 +54,24 @@
         heightConstraint.constant = 0.0;
     }
     else {
-        self.addContactButtonView.hidden = YES;
+        self.addContactButtonView.hidden = NO;
+        heightConstraint.constant = 60.0;
+    }
+}
+
+- (void)setStartTalkButtonHidden:(BOOL)isHidden {
+    __block NSLayoutConstraint *heightConstraint;
+    [self.startTalkButtonView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *obj, NSUInteger idx, BOOL *stop) {
+        if (obj.firstAttribute == NSLayoutAttributeHeight) {
+            heightConstraint = obj;
+        }
+    }];
+    if (isHidden) {
+        self.startTalkButtonView.hidden = YES;
+        heightConstraint.constant = 0.0;
+    }
+    else {
+        self.startTalkButtonView.hidden = NO;
         heightConstraint.constant = 60.0;
     }
 }

@@ -22,4 +22,6 @@
 
 - (void)setAddContactButtonHidden:(BOOL)isHidden;
 
+- (void)setStartTalkButtonHidden:(BOOL)isHidden;
+
 @end

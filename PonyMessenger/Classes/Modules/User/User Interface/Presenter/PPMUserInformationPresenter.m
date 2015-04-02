@@ -47,6 +47,19 @@
             [self.userInterface setTitleText:self.informationInteractor.titleString];
         });
     }];
+    [RACObserve(self, informationInteractor.isFriend) subscribeNext:^(id x) {
+        @strongify(self);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.informationInteractor.isFriend) {
+                [self.userInterface setAddContactButtonHidden:YES];
+                [self.userInterface setStartTalkButtonHidden:NO];
+            }
+            else {
+                [self.userInterface setAddContactButtonHidden:NO];
+                [self.userInterface setStartTalkButtonHidden:YES];
+            }
+        });
+    }];
 }
 
 @end

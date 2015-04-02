@@ -51,10 +51,13 @@
 
 - (void)requestUserInformation {
     [[UserCore userManager] fetchUserInformationWithUserID:self.userID forceUpdate:YES completionBlock:^(PPMUserItem *item) {
-        self.userItem = item;
-        self.titleString = item.nickname;
-        self.descriptionString = @"";
-        [self requestIconImage];
+        if (item != nil) {
+            self.userItem = item;
+            self.titleString = item.nickname;
+            self.descriptionString = @"";
+            [self requestIconImage];
+            [self requestRelation];
+        }
     }];
 }
 
@@ -70,6 +73,12 @@
         }
     } failure:nil];
     [[[AFHTTPRequestOperationManager manager] operationQueue] addOperation:operation];
+}
+
+- (void)requestRelation {
+    [[UserCore userManager] fetchUserRelationToUserID:self.userID completionBlock:^(PPMUserRelationItem *item) {
+        self.isFriend = item != nil;
+    }];
 }
 
 @end
