@@ -75,6 +75,15 @@
     return self.sectionIndexTitles;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section < [self.sectionCells count] &&
+        indexPath.row < [self.sectionCells[indexPath.section] count]) {
+        PPMChatContactCellInteractor *cellInteractor = self.sectionCells[indexPath.section][indexPath.row];
+        [self.eventHandler enterUserInformationViewControllerWithCellInteractor:cellInteractor];
+    }
+}
+
 #pragma mark - Events
 
 #warning - FIXME:重构，搬到Interactor里面！

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMChatContactViewController, PPMChatContactListInteractor;
+@class PPMChatContactViewController, PPMChatContactListInteractor, PPMChatContactCellInteractor;
 
 @interface PPMChatContactListPresenter : NSObject
 
@@ -19,5 +19,7 @@
 - (void)updateView;
 
 - (void)addContact;
+
+- (void)enterUserInformationViewControllerWithCellInteractor:(PPMChatContactCellInteractor *)cellInteractor;
 
 @end

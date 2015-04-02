@@ -14,6 +14,11 @@
 @interface PPMChatContactCellInteractor : NSObject
 
 /**
+ *  @brief ...
+ */
+@property (nonatomic, strong) NSNumber *userID;
+
+/**
  *  @brief 分类字母
  */
 @property (nonatomic, copy) NSString *letter;

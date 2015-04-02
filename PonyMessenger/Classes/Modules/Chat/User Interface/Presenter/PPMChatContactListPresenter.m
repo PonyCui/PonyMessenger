@@ -9,6 +9,7 @@
 #import "PPMChatContactListPresenter.h"
 #import "PPMChatContactListInteractor.h"
 #import "PPMChatContactViewController.h"
+#import "PPMChatContactCellInteractor.h"
 #import "PPMApplication.h"
 #import "PPMUserManager.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -31,6 +32,10 @@
 
 - (void)addContact {
     [[ChatCore wireframe] presentAddContactViewControllerToNavigationController:self.userInterface.navigationController];
+}
+
+- (void)enterUserInformationViewControllerWithCellInteractor:(PPMChatContactCellInteractor *)cellInteractor {
+    [[UserCore wireframe] presentUserInformationViewControllerToNavigationController:self.userInterface.navigationController withUserID:cellInteractor.userID];
 }
 
 - (void)configureReactiveCocoa {

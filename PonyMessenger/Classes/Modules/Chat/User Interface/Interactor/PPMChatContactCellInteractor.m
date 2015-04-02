@@ -23,6 +23,7 @@
     self = [super init];
     if (self && [userItem isKindOfClass:[PPMUserItem class]]) {
         self.userItem = userItem;
+        self.userID = userItem.userID;
         self.nickname = userItem.nickname;
         [self requestIconImage];
         [self reqeustLetter];
