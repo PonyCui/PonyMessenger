@@ -240,7 +240,7 @@
             PPMUserRelationItem *item = [[PPMUserRelationItem alloc] initWithManagedItem:obj];
             [storeItems addObject:item];
         }];
-        NSString *URLString = [[[PPMDefine sharedDefine] user] relationsURLString];
+        NSString *URLString = [PPMDefine sharedDefine].user.relationsURLString;
         [[AFHTTPRequestOperationManager manager]
          GET:URLString
          parameters:nil
@@ -269,7 +269,11 @@
                      }
                  }];
              }
-        } failure:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if ([error.localizedDescription isEqualToString:@"The request timed out."]) {
+                [self performSelector:@selector(updateRelations) withObject:nil afterDelay:15.0];
+            }
+        }];
     }];
 }
 

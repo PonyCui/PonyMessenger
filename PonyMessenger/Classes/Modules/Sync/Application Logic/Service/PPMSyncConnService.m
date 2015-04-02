@@ -80,7 +80,7 @@
     if ([[AccountCore accountManager] activeAccount] == nil) {
         return;
     }
-    if (self.webSocketURLString == nil) {
+    if (self.webSocketURLString == nil || ![self.webSocketURLString hasPrefix:@"ws://"]) {
         [self requestWebSocketURLStringWithCompletionBlock:^{
             [self connect];
         }];
