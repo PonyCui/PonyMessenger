@@ -22,6 +22,8 @@
 		6317993A1ACD1BB30052C566 /* PPMUserWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 631799391ACD1BB30052C566 /* PPMUserWireframe.m */; };
 		6317993D1ACD22850052C566 /* PPMChatAddContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317993C1ACD22850052C566 /* PPMChatAddContactPresenter.m */; };
 		631799401ACD23620052C566 /* PPMChatAddContactInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317993F1ACD23620052C566 /* PPMChatAddContactInteractor.m */; };
+		631799451ACD33770052C566 /* PPMUserInformationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 631799441ACD33770052C566 /* PPMUserInformationPresenter.m */; };
+		631799481ACD33820052C566 /* PPMUserInformationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 631799471ACD33820052C566 /* PPMUserInformationInteractor.m */; };
 		6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
@@ -124,6 +126,10 @@
 		6317993C1ACD22850052C566 /* PPMChatAddContactPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactPresenter.m; sourceTree = "<group>"; };
 		6317993E1ACD23620052C566 /* PPMChatAddContactInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatAddContactInteractor.h; sourceTree = "<group>"; };
 		6317993F1ACD23620052C566 /* PPMChatAddContactInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactInteractor.m; sourceTree = "<group>"; };
+		631799431ACD33770052C566 /* PPMUserInformationPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserInformationPresenter.h; sourceTree = "<group>"; };
+		631799441ACD33770052C566 /* PPMUserInformationPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserInformationPresenter.m; sourceTree = "<group>"; };
+		631799461ACD33820052C566 /* PPMUserInformationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserInformationInteractor.h; sourceTree = "<group>"; };
+		631799471ACD33820052C566 /* PPMUserInformationInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserInformationInteractor.m; sourceTree = "<group>"; };
 		6335D4281ACBD7E600C46430 /* PPMSyncUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncUserService.h; sourceTree = "<group>"; };
 		6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncUserService.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
@@ -347,6 +353,8 @@
 		631799321ACD12220052C566 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				631799411ACD33070052C566 /* Presenter */,
+				631799421ACD33070052C566 /* Interactor */,
 				631799331ACD12220052C566 /* View */,
 				631799341ACD12220052C566 /* Wireframe */,
 			);
@@ -369,6 +377,24 @@
 				631799391ACD1BB30052C566 /* PPMUserWireframe.m */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		631799411ACD33070052C566 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				631799431ACD33770052C566 /* PPMUserInformationPresenter.h */,
+				631799441ACD33770052C566 /* PPMUserInformationPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		631799421ACD33070052C566 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				631799461ACD33820052C566 /* PPMUserInformationInteractor.h */,
+				631799471ACD33820052C566 /* PPMUserInformationInteractor.m */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		63C08CFD1AC9221600106601 /* Presenter */ = {
@@ -957,6 +983,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */,
+				631799481ACD33820052C566 /* PPMUserInformationInteractor.m in Sources */,
 				63C08D181AC95D4200106601 /* PPMUserItem.m in Sources */,
 				63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */,
 				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
@@ -1014,6 +1041,7 @@
 				F08A3DEB1AB9D6E600A5E6AA /* PPMChatRecentCellPresenter.m in Sources */,
 				63C08D071AC9461B00106601 /* PPMAccountSignupViewController.m in Sources */,
 				F05BFBE71AC6EF94004E860F /* PPMAccountManager.m in Sources */,
+				631799451ACD33770052C566 /* PPMUserInformationPresenter.m in Sources */,
 				63173D241ACB8AF900646C58 /* PPMSyncItem.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
 				63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */,

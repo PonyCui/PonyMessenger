@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMUserInformationPresenter;
+
 @interface PPMUserInformationViewController : UITableViewController
+
+@property (nonatomic, strong) PPMUserInformationPresenter *eventHandler;
+
+@property (nonatomic, strong) NSNumber *userID;
+
+- (void)setAvatarImage:(UIImage *)image;
+
+- (void)setTitleText:(NSString *)text;
 
 @end

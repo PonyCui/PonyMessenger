@@ -159,6 +159,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="详细资料" id="nYB-fu-WJF"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="Akp-DS-eWe" id="Iv4-0F-S2w"/>
+                        <outlet property="titleLabel" destination="3eP-kj-DXc" id="03e-bs-z6V"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzN-Il-ld8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
