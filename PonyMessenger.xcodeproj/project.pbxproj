@@ -16,6 +16,7 @@
 		63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D361ACB97B300646C58 /* PPMSyncConnService.m */; };
 		63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D391ACB97C700646C58 /* PPMSyncSubService.m */; };
 		63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */; };
+		6317992F1ACCDE310052C566 /* PPMChatAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317992E1ACCDE310052C566 /* PPMChatAddContactViewController.m */; };
 		6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
@@ -107,6 +108,8 @@
 		63173D391ACB97C700646C58 /* PPMSyncSubService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncSubService.m; sourceTree = "<group>"; };
 		63173D3B1ACB97D600646C58 /* PPMSyncTestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncTestService.h; sourceTree = "<group>"; };
 		63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncTestService.m; sourceTree = "<group>"; };
+		6317992D1ACCDE310052C566 /* PPMChatAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatAddContactViewController.h; sourceTree = "<group>"; };
+		6317992E1ACCDE310052C566 /* PPMChatAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactViewController.m; sourceTree = "<group>"; };
 		6335D4281ACBD7E600C46430 /* PPMSyncUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncUserService.h; sourceTree = "<group>"; };
 		6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncUserService.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
@@ -608,6 +611,8 @@
 				F08A3DDC1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m */,
 				F067826C1AC06832009E8C5B /* PPMChatSessionViewController.h */,
 				F067826D1AC06832009E8C5B /* PPMChatSessionViewController.m */,
+				6317992D1ACCDE310052C566 /* PPMChatAddContactViewController.h */,
+				6317992E1ACCDE310052C566 /* PPMChatAddContactViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -917,6 +922,7 @@
 				F023EFE41AC7A733007CF88C /* PPMValueFormatter.m in Sources */,
 				63173D271ACB8EB800646C58 /* PPMSyncManager.m in Sources */,
 				F023EFDE1AC7A2BA007CF88C /* PPMOutputHelper.m in Sources */,
+				6317992F1ACCDE310052C566 /* PPMChatAddContactViewController.m in Sources */,
 				63173D211ACB885400646C58 /* PPMSyncCore.m in Sources */,
 				F00392FE1AB878F8002EF72B /* PPMChatCore.m in Sources */,
 				F08A3DE21AB9D6B500A5E6AA /* PPMChatRecentListInteractor.m in Sources */,

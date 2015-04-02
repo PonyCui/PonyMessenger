@@ -29,6 +29,10 @@
     [self.listInteractor findContacts];
 }
 
+- (void)addContact {
+    [[ChatCore wireframe] presentAddContactViewControllerToNavigationController:self.userInterface.navigationController];
+}
+
 - (void)configureReactiveCocoa {
     @weakify(self);
     [RACObserve(self, listInteractor.contacts) subscribeNext:^(id x) {

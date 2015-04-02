@@ -20,4 +20,6 @@
 - (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
                                               withChatItem:(PCUChat *)chatItem;
 
+- (void)presentAddContactViewControllerToNavigationController:(UINavigationController *)navigationController;
+
 @end

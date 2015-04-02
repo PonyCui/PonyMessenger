@@ -18,4 +18,6 @@
 
 - (void)updateView;
 
+- (void)addContact;
+
 @end

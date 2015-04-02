@@ -77,6 +77,7 @@
 
 #pragma mark - Events
 
+#warning - FIXME:重构，搬到Interactor里面！
 - (void)reloadTableView {
     NSMutableArray *sectionIndexTitles = [NSMutableArray array];
     NSMutableArray *sectionCells = [NSMutableArray array];
@@ -100,5 +101,10 @@
     self.tableFooterViewTextLabel.text = [NSString stringWithFormat:@"%lu位联系人", (unsigned long)[self.eventHandler.listInteractor.contacts count]];
     [self.tableView reloadData];
 }
+
+- (IBAction)handleAddContactButtonTapped:(id)sender {
+    [self.eventHandler addContact];
+}
+
 
 @end
