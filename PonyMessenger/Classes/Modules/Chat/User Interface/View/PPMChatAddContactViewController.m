@@ -7,8 +7,12 @@
 //
 
 #import "PPMChatAddContactViewController.h"
+#import "PPMChatAddContactPresenter.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
-@interface PPMChatAddContactViewController ()
+@interface PPMChatAddContactViewController ()<UITextFieldDelegate>
+
+@property (nonatomic, strong) MBProgressHUD *loadingHUD;
 
 @end
 
@@ -16,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.keyboardTextField becomeFirstResponder];
     // Do any additional setup after loading the view.
 }
 
@@ -24,14 +29,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UITextFieldDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField.text.length) {
+        [self.eventHandler doSearch];
+    }
+    return YES;
 }
-*/
+
+#pragma mark - HUD
+
+- (void)showLoadingHUD {
+    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+
+- (void)hideLoadingHUD {
+    [self.loadingHUD hide:YES];
+}
+
+- (void)showErrorWithDescription:(NSString *)description {
+    if (description.length) {
+        [self.loadingHUD hide:NO];
+        MBProgressHUD *errorHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [errorHUD setMode:MBProgressHUDModeText];
+        [errorHUD setLabelText:description];
+        [errorHUD hide:YES afterDelay:1.5];
+    }
+}
 
 @end

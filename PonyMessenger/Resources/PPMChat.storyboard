@@ -221,7 +221,7 @@
         <!--添加朋友-->
         <scene sceneID="8ho-EM-kZR">
             <objects>
-                <viewController storyboardIdentifier="PPMChatAddContactViewController" id="7ef-Cn-xdA" customClass="PPMChatAddContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PPMChatAddContactViewController" hidesBottomBarWhenPushed="YES" id="7ef-Cn-xdA" customClass="PPMChatAddContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YWm-OD-Tug"/>
                         <viewControllerLayoutGuide type="bottom" id="zPf-lR-BhK"/>
@@ -243,7 +243,10 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱地址" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CnC-gd-RRO">
                                         <rect key="frame" x="48" y="0.0" width="272" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7ef-Cn-xdA" id="gYa-Zj-NG1"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -267,6 +270,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="添加朋友" id="gVx-ly-0yG"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="keyboardTextField" destination="CnC-gd-RRO" id="Jhw-pn-qE1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nE-FH-fUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

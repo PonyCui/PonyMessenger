@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class PPMChatAddContactPresenter;
+
 @interface PPMChatAddContactViewController : UIViewController
+
+@property (nonatomic, strong) PPMChatAddContactPresenter *eventHandler;
+
+@property (weak, nonatomic) IBOutlet UITextField *keyboardTextField;
+
+- (void)showLoadingHUD;
+
+- (void)hideLoadingHUD;
+
+- (void)showErrorWithDescription:(NSString *)description;
 
 @end

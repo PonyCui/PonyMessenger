@@ -17,6 +17,11 @@
 		63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D391ACB97C700646C58 /* PPMSyncSubService.m */; };
 		63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */; };
 		6317992F1ACCDE310052C566 /* PPMChatAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317992E1ACCDE310052C566 /* PPMChatAddContactViewController.m */; };
+		631799311ACD11F40052C566 /* PPMUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631799301ACD11F40052C566 /* PPMUser.storyboard */; };
+		631799371ACD1B750052C566 /* PPMUserInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631799361ACD1B740052C566 /* PPMUserInformationViewController.m */; };
+		6317993A1ACD1BB30052C566 /* PPMUserWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 631799391ACD1BB30052C566 /* PPMUserWireframe.m */; };
+		6317993D1ACD22850052C566 /* PPMChatAddContactPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317993C1ACD22850052C566 /* PPMChatAddContactPresenter.m */; };
+		631799401ACD23620052C566 /* PPMChatAddContactInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317993F1ACD23620052C566 /* PPMChatAddContactInteractor.m */; };
 		6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
@@ -110,6 +115,15 @@
 		63173D3C1ACB97D600646C58 /* PPMSyncTestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncTestService.m; sourceTree = "<group>"; };
 		6317992D1ACCDE310052C566 /* PPMChatAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatAddContactViewController.h; sourceTree = "<group>"; };
 		6317992E1ACCDE310052C566 /* PPMChatAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactViewController.m; sourceTree = "<group>"; };
+		631799301ACD11F40052C566 /* PPMUser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PPMUser.storyboard; sourceTree = "<group>"; };
+		631799351ACD1B740052C566 /* PPMUserInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserInformationViewController.h; sourceTree = "<group>"; };
+		631799361ACD1B740052C566 /* PPMUserInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserInformationViewController.m; sourceTree = "<group>"; };
+		631799381ACD1BB30052C566 /* PPMUserWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserWireframe.h; sourceTree = "<group>"; };
+		631799391ACD1BB30052C566 /* PPMUserWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserWireframe.m; sourceTree = "<group>"; };
+		6317993B1ACD22850052C566 /* PPMChatAddContactPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatAddContactPresenter.h; sourceTree = "<group>"; };
+		6317993C1ACD22850052C566 /* PPMChatAddContactPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactPresenter.m; sourceTree = "<group>"; };
+		6317993E1ACD23620052C566 /* PPMChatAddContactInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatAddContactInteractor.h; sourceTree = "<group>"; };
+		6317993F1ACD23620052C566 /* PPMChatAddContactInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatAddContactInteractor.m; sourceTree = "<group>"; };
 		6335D4281ACBD7E600C46430 /* PPMSyncUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncUserService.h; sourceTree = "<group>"; };
 		6335D4291ACBD7E600C46430 /* PPMSyncUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncUserService.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
@@ -330,6 +344,33 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		631799321ACD12220052C566 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				631799331ACD12220052C566 /* View */,
+				631799341ACD12220052C566 /* Wireframe */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		631799331ACD12220052C566 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				631799351ACD1B740052C566 /* PPMUserInformationViewController.h */,
+				631799361ACD1B740052C566 /* PPMUserInformationViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		631799341ACD12220052C566 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				631799381ACD1BB30052C566 /* PPMUserWireframe.h */,
+				631799391ACD1BB30052C566 /* PPMUserWireframe.m */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
 		63C08CFD1AC9221600106601 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +396,7 @@
 		63C08D0E1AC95C5200106601 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				631799321ACD12220052C566 /* User Interface */,
 				63C08D0F1AC95C5200106601 /* Application Logic */,
 				63C08D101AC95C5200106601 /* Module Interface */,
 			);
@@ -423,6 +465,7 @@
 				F00392E81AB87596002EF72B /* PPMChat.storyboard */,
 				F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */,
 				F029766E1AC842C500C7C37B /* PPMAccount.storyboard */,
+				631799301ACD11F40052C566 /* PPMUser.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -639,6 +682,8 @@
 				F08A3DF01ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m */,
 				F06782721AC0685A009E8C5B /* PPMChatSessionInteractor.h */,
 				F06782731AC0685A009E8C5B /* PPMChatSessionInteractor.m */,
+				6317993E1ACD23620052C566 /* PPMChatAddContactInteractor.h */,
+				6317993F1ACD23620052C566 /* PPMChatAddContactInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -656,6 +701,8 @@
 				F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */,
 				F067826F1AC0684E009E8C5B /* PPMChatSessionPresenter.h */,
 				F06782701AC0684E009E8C5B /* PPMChatSessionPresenter.m */,
+				6317993B1ACD22850052C566 /* PPMChatAddContactPresenter.h */,
+				6317993C1ACD22850052C566 /* PPMChatAddContactPresenter.m */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -853,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F029766F1AC842C500C7C37B /* PPMAccount.storyboard in Resources */,
+				631799311ACD11F40052C566 /* PPMUser.storyboard in Resources */,
 				F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */,
 				F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */,
 				F08A3DD11AB8859100A5E6AA /* PPMChat.xcassets in Resources */,
@@ -912,6 +960,7 @@
 				63C08D181AC95D4200106601 /* PPMUserItem.m in Sources */,
 				63173D3D1ACB97D600646C58 /* PPMSyncTestService.m in Sources */,
 				F023EFE11AC7A2C7007CF88C /* PPMProtocolHelper.m in Sources */,
+				631799371ACD1B750052C566 /* PPMUserInformationViewController.m in Sources */,
 				F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */,
 				63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
@@ -948,13 +997,16 @@
 				F05BFBE41AC6EF7D004E860F /* PPMAccountItem.m in Sources */,
 				F067826E1AC06832009E8C5B /* PPMChatSessionViewController.m in Sources */,
 				6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */,
+				631799401ACD23620052C566 /* PPMChatAddContactInteractor.m in Sources */,
 				63C08D151AC95C8300106601 /* PPMUserCore.m in Sources */,
 				63173D2D1ACB931F00646C58 /* PPMSyncDefine.m in Sources */,
 				F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */,
 				63C08D1B1AC95D4D00106601 /* PPMUserManager.m in Sources */,
+				6317993A1ACD1BB30052C566 /* PPMUserWireframe.m in Sources */,
 				F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */,
 				F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */,
 				63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */,
+				6317993D1ACD22850052C566 /* PPMChatAddContactPresenter.m in Sources */,
 				63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */,
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
 				63173D331ACB96A800646C58 /* PPMSyncSocketServiceManager.m in Sources */,

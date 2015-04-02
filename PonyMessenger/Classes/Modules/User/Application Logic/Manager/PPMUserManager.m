@@ -77,6 +77,46 @@
     }];
 }
 
+- (void)fetchUserInformationWithKeyword:(NSString *)keyword
+                        completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"nickname contains %@", keyword];
+    [UserStore fetchUserInformationWithPredicate:predicate completionBlock:^(NSArray *results) {
+        NSMutableArray *userIDS = [NSMutableArray array];
+        [results enumerateObjectsUsingBlock:^(PPMManagedUserInformationItem *obj, NSUInteger idx, BOOL *stop) {
+            [userIDS addObject:obj.user_id];
+        }];
+        NSString *URLString = [PPMDefine sharedDefine].user.searchURLString;
+        [[AFHTTPRequestOperationManager manager]
+         GET:URLString
+         parameters:@{@"keyword": TOString(keyword)}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                          initWithJSONObject:responseObject
+                                          eagerTypes:[PPMDefine sharedDefine].user.searchResponseEagerTypes];
+             if (opHelper.error == nil) {
+                 [opHelper requestDataObjectWithCompletionBlock:^(NSArray *dataObject) {
+                     [dataObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                         [userIDS addObject:obj];
+                     }];
+                     if (completionBlock) {
+                         completionBlock([userIDS copy]);
+                     }
+                 }];
+             }
+             else {
+                 if (completionBlock) {
+                     completionBlock([userIDS copy]);
+                 }
+             }
+        }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             if (completionBlock) {
+                 completionBlock([userIDS copy]);
+             }
+        }];
+    }];
+}
+
 - (void)updateUserInformationWithUserID:(NSNumber *)userID {
     NSString *URLString = [[[PPMDefine sharedDefine] user] infoURLString];
     NSDictionary *params = @{

@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _userManager = [[PPMUserManager alloc] init];
+        _wireframe = [[PPMUserWireframe alloc] init];
     }
     return self;
 }

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "PPMUserManager.h"
+#import "PPMUserWireframe.h"
 
 @interface PPMUserCore : NSObject
 
 @property (nonatomic, readonly) PPMUserManager *userManager;
+
+@property (nonatomic, readonly) PPMUserWireframe *wireframe;
 
 @end

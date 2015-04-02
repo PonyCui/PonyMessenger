@@ -15,6 +15,7 @@
 #import "PPMChatSessionPresenter.h"
 #import "PPMChatSessionInteractor.h"
 #import "PPMChatAddContactViewController.h"
+#import "PPMChatAddContactPresenter.h"
 #import "PPMApplication.h"
 
 @implementation PPMChatWireframe
@@ -75,6 +76,8 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"PPMChat" bundle:nil];
     PPMChatAddContactViewController *viewController =
     [storyBoard instantiateViewControllerWithIdentifier:@"PPMChatAddContactViewController"];
+    viewController.eventHandler = [[PPMChatAddContactPresenter alloc] init];
+    viewController.eventHandler.userInterface = viewController;
     return viewController;
 }
 

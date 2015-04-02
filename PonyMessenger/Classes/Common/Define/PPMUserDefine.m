@@ -54,4 +54,15 @@
              };
 }
 
+- (NSString *)searchURLString {
+    return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/search"];
+}
+
+- (NSDictionary *)searchResponseEagerTypes {
+    return @{
+             @"data": @"NSArray",
+             @"data[]": @"NSNumber"
+             };
+}
+
 @end

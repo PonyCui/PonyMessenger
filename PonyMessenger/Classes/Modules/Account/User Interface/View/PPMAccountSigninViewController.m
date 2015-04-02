@@ -144,6 +144,7 @@
 
 - (void)showErrorWithDescription:(NSString *)description {
     if (description.length) {
+        [self.loadingHUD hide:NO];
         MBProgressHUD *errorHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [errorHUD setMode:MBProgressHUDModeText];
         [errorHUD setLabelText:description];

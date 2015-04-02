@@ -43,6 +43,15 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
                             completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock;
 
 /**
+ *  @brief 通过关键词查找多个用户信息
+ *
+ *  @param keyword
+ *  @param completionBlock NSArray -> PPMUserItem
+ */
+- (void)fetchUserInformationWithKeyword:(NSString *)keyword
+                        completionBlock:(PPMUserManagerFetchUserInformationsCompletionBlock)completionBlock;
+
+/**
  *  @brief 获取单个用户关系
  *
  *  @param userID
