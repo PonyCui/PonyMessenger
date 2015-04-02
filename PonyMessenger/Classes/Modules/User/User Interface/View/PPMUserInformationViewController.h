@@ -20,4 +20,6 @@
 
 - (void)setTitleText:(NSString *)text;
 
+- (void)setAddContactButtonHidden:(BOOL)isHidden;
+
 @end

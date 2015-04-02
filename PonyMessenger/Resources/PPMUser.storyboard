@@ -57,7 +57,7 @@
                             <rect key="frame" x="0.0" y="314" width="320" height="138"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-do-6Ie">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-do-6Ie" userLabel="Add Contact Button View">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-KO-AWy">
@@ -160,6 +160,7 @@
                     <navigationItem key="navigationItem" title="详细资料" id="nYB-fu-WJF"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="addContactButtonView" destination="aSb-do-6Ie" id="8w4-OV-jxf"/>
                         <outlet property="avatarImageView" destination="Akp-DS-eWe" id="Iv4-0F-S2w"/>
                         <outlet property="titleLabel" destination="3eP-kj-DXc" id="03e-bs-z6V"/>
                     </connections>

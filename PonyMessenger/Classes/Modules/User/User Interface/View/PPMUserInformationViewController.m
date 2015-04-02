@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *addContactButtonView;
+
 @end
 
 @implementation PPMUserInformationViewController
@@ -36,6 +38,23 @@
 
 - (void)setTitleText:(NSString *)text {
     self.titleLabel.text = text;
+}
+
+- (void)setAddContactButtonHidden:(BOOL)isHidden {
+    __block NSLayoutConstraint *heightConstraint;
+    [self.addContactButtonView.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *obj, NSUInteger idx, BOOL *stop) {
+        if (obj.constant == 60.0) {
+            heightConstraint = obj;
+        }
+    }];
+    if (isHidden) {
+        self.addContactButtonView.hidden = YES;
+        heightConstraint.constant = 0.0;
+    }
+    else {
+        self.addContactButtonView.hidden = YES;
+        heightConstraint.constant = 60.0;
+    }
 }
 
 @end
