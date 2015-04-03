@@ -12,6 +12,7 @@
 @implementation PPMManagedChatRecordItem
 
 @dynamic record_id;
+@dynamic session_id;
 @dynamic from_user_id;
 @dynamic to_user_id;
 @dynamic record_time;
@@ -21,7 +22,15 @@
 @dynamic record_hash;
 
 - (void)setItem:(PPMChatRecordItem *)item {
-//    self.record_id = item
+    self.record_id = item.recordID;
+    self.session_id = item.sessionID;
+    self.from_user_id = item.fromUserID;
+    self.to_user_id = item.toUserID;
+    self.record_time = item.recordTime;
+    self.record_type = item.recordType;
+    self.record_title = item.recordTitle;
+    self.record_params = item.recordParams;
+    self.record_hash = item.recordHash;
 }
 
 @end

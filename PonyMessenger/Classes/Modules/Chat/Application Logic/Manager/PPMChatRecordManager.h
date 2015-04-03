@@ -10,6 +10,8 @@
 
 @interface PPMChatRecordManager : NSObject
 
+//- (void)findRecentRecordsWith
+
 - (void)updateRecords;
 
 @end

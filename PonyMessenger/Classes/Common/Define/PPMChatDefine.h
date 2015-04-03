@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kPPMChatRecordDidUpdateNotification @"PPMChatRecordDidUpdateNotification"
+
 @interface PPMChatDefine : NSObject
 
 @property (nonatomic, readonly) NSString *requestRecordsURLString;
