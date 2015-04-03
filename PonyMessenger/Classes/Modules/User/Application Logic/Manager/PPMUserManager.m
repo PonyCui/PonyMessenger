@@ -219,7 +219,7 @@
     }];
 }
 
-- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock {
+- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchUserRelationsCompletionBlock)completionBlock {
     [UserStore fetchUserRelationWithPredicate:nil completionBlock:^(NSArray *results) {
         if (completionBlock) {
             NSMutableArray *relationItems = [NSMutableArray array];
@@ -277,6 +277,37 @@
     }];
 }
 
+- (void)addUserRelationToUserID:(NSNumber *)userID
+                completionBlock:(PPMUserManagerAddUserRelationCompletionBlock)completionBlock
+                   failureBlock:(PPMUserManagerAddUserRelationFailureBlock)failureBlock {
+    NSString *URLString = [PPMDefine sharedDefine].user.relationAddURLString;
+    [[AFHTTPRequestOperationManager manager]
+     GET:URLString
+     parameters:@{@"user_id": TOString(userID)}
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                      initWithJSONObject:responseObject
+                                      eagerTypes:[PPMDefine sharedDefine].user.relationAddResponseEagerTypes];
+         if (opHelper.error == nil) {
+             [opHelper requestDataObjectWithCompletionBlock:^(NSNumber *dataObject) {
+                 if (completionBlock) {
+                     completionBlock([dataObject integerValue] > 0);
+                 }
+             }];
+         }
+         else {
+             if (failureBlock) {
+                 failureBlock(opHelper.error);
+             }
+         }
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         if (failureBlock) {
+             failureBlock(error);
+         }
+    }];
+}
+
 - (void)updateUserRelationWithRelationItem:(PPMUserRelationItem *)relationItem {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to_user_id = %@", relationItem.toUserID];
     [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
@@ -289,7 +320,7 @@
         }
         managedItem.to_user_id = relationItem.toUserID;
         [UserStore save];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:relationItem];
     }];
 }
 
@@ -298,7 +329,7 @@
     [UserStore fetchUserRelationWithPredicate:predicate completionBlock:^(NSArray *results) {
         if ([results count] > 0) {
             [UserStore deleteManagedItem:[results firstObject]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPPMUserRelationUpdatedNotification object:relationItem];
         }
     }];
 }

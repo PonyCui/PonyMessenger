@@ -14,6 +14,8 @@
 #import "PPMSyncCore.h"
 #import "PPMDefine.h"
 
+#define AppCore [[PPMApplication sharedApplication] core]
+
 #define ChatCore [[[PPMApplication sharedApplication] core] chatCore]
 
 #define AccountCore [[[PPMApplication sharedApplication] core] accountCore]

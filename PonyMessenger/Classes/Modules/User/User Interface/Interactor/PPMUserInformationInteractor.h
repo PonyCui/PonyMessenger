@@ -46,4 +46,10 @@ typedef NS_ENUM(NSInteger, PPMUserInformationIcon) {
  */
 @property (nonatomic, copy) NSArray *titleIcons;
 
+/**
+ *  @brief 请求添加到通讯录
+ */
+- (void)addRelationWithCompletionBlock:(void (^)(BOOL needUserAgree))completionBlock
+                          failureBlock:(void (^)(NSError *error))failureBlock;
+
 @end

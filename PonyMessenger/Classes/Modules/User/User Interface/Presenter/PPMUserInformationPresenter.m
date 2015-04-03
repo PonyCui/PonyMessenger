@@ -9,6 +9,7 @@
 #import "PPMUserInformationPresenter.h"
 #import "PPMUserInformationViewController.h"
 #import "PPMUserInformationInteractor.h"
+#import "PPMApplication.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface PPMUserInformationPresenter ()
@@ -31,6 +32,32 @@
 
 - (void)updateView {
     self.informationInteractor.userID = self.userInterface.userID;
+}
+
+- (void)addContact {
+    [[AppCore wireframe] showLoadingHUDToViewController:self.userInterface
+                                        timeoutInterval:60.0
+                                   allowUserInteraction:YES];
+    @weakify(self);
+    [self.informationInteractor addRelationWithCompletionBlock:^(BOOL needUserAgree) {
+        @strongify(self);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!needUserAgree) {
+                [[AppCore wireframe] showSucceedHUDToViewController:self.userInterface
+                                                        description:@"已添加到通讯录"];
+            }
+            else {
+                [[AppCore wireframe] showSucceedHUDToViewController:self.userInterface
+                                                        description:@"正在等待好友同意"];
+            }
+        });
+    } failureBlock:^(NSError *error) {
+        @strongify(self);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[AppCore wireframe] showErrorHUDToViewController:self.userInterface
+                                             errorDescription:error.localizedDescription];
+        });
+    }];
 }
 
 - (void)configureReactiveCocoa {

@@ -9,6 +9,13 @@
 #import "PPMWireframe.h"
 #import "PPMNavigationController.h"
 #import "PPMTabBarController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+
+@interface PPMWireframe ()
+
+@property (nonatomic, strong) MBProgressHUD *HUD;
+
+@end
 
 @implementation PPMWireframe
 
@@ -24,6 +31,38 @@
         [viewControllers addObject:navigationController];
     }
     [tabBarController setViewControllers:[viewControllers copy]];
+}
+
+- (void)showLoadingHUDToViewController:(UIViewController *)viewController
+                       timeoutInterval:(NSTimeInterval)timeoutInterval
+                  allowUserInteraction:(BOOL)allowUserInteraction{
+    [self.HUD hide:NO];
+    self.HUD = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
+    self.HUD.userInteractionEnabled = !allowUserInteraction;
+    [self.HUD hide:YES afterDelay:timeoutInterval];
+}
+
+- (void)hideLoading {
+    [self.HUD hide:YES];
+}
+
+- (void)showSucceedHUDToViewController:(UIViewController *)viewController description:(NSString *)description {
+    [self.HUD hide:NO];
+    self.HUD = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
+    [self.HUD setMode:MBProgressHUDModeCustomView];
+    [self.HUD setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TipViewIcon"]]];
+    [self.HUD setLabelText:description];
+    [self.HUD hide:YES afterDelay:1.5];
+}
+
+- (void)showErrorHUDToViewController:(UIViewController *)viewController
+                    errorDescription:(NSString *)errorDescription {
+    [self.HUD hide:NO];
+    self.HUD = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
+    [self.HUD setMode:MBProgressHUDModeCustomView];
+    [self.HUD setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TipViewIconError"]]];
+    [self.HUD setLabelText:errorDescription];
+    [self.HUD hide:YES afterDelay:1.5];
 }
 
 - (UINavigationController *)standardNavigationController {

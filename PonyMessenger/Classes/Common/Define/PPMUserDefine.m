@@ -54,6 +54,16 @@
              };
 }
 
+- (NSString *)relationAddURLString {
+    return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/relation_add"];
+}
+
+- (NSDictionary *)relationAddResponseEagerTypes {
+    return @{
+             @"data": @"NSNumber"
+             };
+}
+
 - (NSString *)searchURLString {
     return [[PPMDefine sharedDefine].apiAbsolutePath stringByAppendingString:@"/user/search"];
 }

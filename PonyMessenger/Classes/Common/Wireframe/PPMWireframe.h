@@ -14,6 +14,17 @@
 - (void)presentViewController:(UIViewController *)viewController
            toTabBarController:(UITabBarController *)tabBarController;
 
+- (void)showLoadingHUDToViewController:(UIViewController *)viewController
+                       timeoutInterval:(NSTimeInterval)timeoutInterval
+                  allowUserInteraction:(BOOL)allowUserInteraction;
+
+- (void)hideLoadingHUD;
+
+- (void)showSucceedHUDToViewController:(UIViewController *)viewController description:(NSString *)description;
+
+- (void)showErrorHUDToViewController:(UIViewController *)viewController
+                    errorDescription:(NSString *)errorDescription;
+
 - (UINavigationController *)standardNavigationController;
 
 - (UITabBarController *)standardTabBarController;

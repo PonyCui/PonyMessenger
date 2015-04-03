@@ -16,7 +16,11 @@ typedef void(^PPMUserManagerFetchUserInformationsCompletionBlock)(NSArray *items
 
 typedef void(^PPMUserManagerFetchUserRelationCompletionBlock)(PPMUserRelationItem *item);
 
-typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
+typedef void(^PPMUserManagerFetchUserRelationsCompletionBlock)(NSArray *items);
+
+typedef void(^PPMUserManagerAddUserRelationCompletionBlock)(BOOL needUserAgree);
+
+typedef void(^PPMUserManagerAddUserRelationFailureBlock)(NSError *error);
 
 @interface PPMUserManager : NSObject
 
@@ -65,11 +69,22 @@ typedef void(^PPMUserManagerFetchuserRelationsCompletionBlock)(NSArray *items);
  *
  *  @param completionBlock NSArray -> PPMUserRelationItem
  */
-- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchuserRelationsCompletionBlock)completionBlock;
+- (void)fetchUserRelationsWithCompletionBlock:(PPMUserManagerFetchUserRelationsCompletionBlock)completionBlock;
 
 /**
  *  @brief 更新所有用户关系
  */
 - (void)updateRelations;
+
+/**
+ *  @brief 请求与指定用户建立关系
+ *
+ *  @param userID
+ *  @param completionBlock
+ *  @param failureBlock
+ */
+- (void)addUserRelationToUserID:(NSNumber *)userID
+                completionBlock:(PPMUserManagerAddUserRelationCompletionBlock)completionBlock
+                   failureBlock:(PPMUserManagerAddUserRelationFailureBlock)failureBlock;
 
 @end

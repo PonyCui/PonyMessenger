@@ -76,4 +76,13 @@
     }
 }
 
+#pragma mark - Events
+
+- (IBAction)handleAddContactButtonTapped:(id)sender {
+    [self.eventHandler addContact];
+}
+
+- (IBAction)handleStartTalkButtonTapped:(id)sender {
+}
+
 @end

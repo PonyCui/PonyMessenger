@@ -65,7 +65,7 @@
 		F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F06782731AC0685A009E8C5B /* PPMChatSessionInteractor.m */; };
 		F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCB1AB8836E00A5E6AA /* PPMChatWireframe.m */; };
 		F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */; };
-		F08A3DD11AB8859100A5E6AA /* PPMChat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */; };
+		F08A3DD11AB8859100A5E6AA /* PPM.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F08A3DD01AB8859100A5E6AA /* PPM.xcassets */; };
 		F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DD31AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m */; };
 		F08A3DD71AB9D1C500A5E6AA /* PPMChatContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DD61AB9D1C500A5E6AA /* PPMChatContactViewController.m */; };
 		F08A3DDD1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DDC1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m */; };
@@ -210,7 +210,7 @@
 		F08A3DCB1AB8836E00A5E6AA /* PPMChatWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatWireframe.m; sourceTree = "<group>"; };
 		F08A3DCD1AB8839E00A5E6AA /* PPMChatRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentViewController.h; sourceTree = "<group>"; };
 		F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentViewController.m; sourceTree = "<group>"; };
-		F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PPMChat.xcassets; sourceTree = "<group>"; };
+		F08A3DD01AB8859100A5E6AA /* PPM.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PPM.xcassets; sourceTree = "<group>"; };
 		F08A3DD21AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentTableViewCell.h; sourceTree = "<group>"; };
 		F08A3DD31AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecentTableViewCell.m; sourceTree = "<group>"; };
 		F08A3DD51AB9D1C500A5E6AA /* PPMChatContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactViewController.h; sourceTree = "<group>"; };
@@ -489,7 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				F00392E81AB87596002EF72B /* PPMChat.storyboard */,
-				F08A3DD01AB8859100A5E6AA /* PPMChat.xcassets */,
+				F08A3DD01AB8859100A5E6AA /* PPM.xcassets */,
 				F029766E1AC842C500C7C37B /* PPMAccount.storyboard */,
 				631799301ACD11F40052C566 /* PPMUser.storyboard */,
 			);
@@ -929,7 +929,7 @@
 				631799311ACD11F40052C566 /* PPMUser.storyboard in Resources */,
 				F0F6470C1AB869D700CACCA2 /* Main.storyboard in Resources */,
 				F0F647111AB869D700CACCA2 /* LaunchScreen.xib in Resources */,
-				F08A3DD11AB8859100A5E6AA /* PPMChat.xcassets in Resources */,
+				F08A3DD11AB8859100A5E6AA /* PPM.xcassets in Resources */,
 				F00392E91AB87596002EF72B /* PPMChat.storyboard in Resources */,
 				F0F6470E1AB869D700CACCA2 /* Images.xcassets in Resources */,
 			);

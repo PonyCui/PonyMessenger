@@ -9,6 +9,7 @@
 #import "PPMUserInformationInteractor.h"
 #import "PPMApplication.h"
 #import "PPMUserItem.h"
+#import "PPMUserRelationItem.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface PPMUserInformationInteractor ()
@@ -32,6 +33,10 @@
                                                  selector:@selector(handlePPMUserInformationUpdatedNotification:)
                                                      name:kPPMUserInformationUpdatedNotification
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePPMUserRelationUpdatedNotification:)
+                                                     name:kPPMUserRelationUpdatedNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -40,6 +45,14 @@
     if ([sender.object isKindOfClass:[PPMUserItem class]]) {
         if ([[(PPMUserItem *)sender.object userID] isEqualToNumber:self.userID]) {
             [self requestUserInformation];
+        }
+    }
+}
+
+- (void)handlePPMUserRelationUpdatedNotification:(NSNotification *)sender {
+    if ([sender.object isKindOfClass:[PPMUserRelationItem class]]) {
+        if ([[(PPMUserRelationItem *)sender.object toUserID] isEqualToNumber:self.userID]) {
+            [self requestRelation];
         }
     }
 }
@@ -78,6 +91,18 @@
 - (void)requestRelation {
     [[UserCore userManager] fetchUserRelationToUserID:self.userID completionBlock:^(PPMUserRelationItem *item) {
         self.isFriend = item != nil;
+    }];
+}
+
+- (void)addRelationWithCompletionBlock:(void (^)(BOOL))completionBlock failureBlock:(void (^)(NSError *))failureBlock {
+    [[UserCore userManager] addUserRelationToUserID:self.userID completionBlock:^(BOOL needUserAgree) {
+        if (completionBlock) {
+            completionBlock(needUserAgree);
+        }
+    } failureBlock:^(NSError *error) {
+        if (failureBlock) {
+            failureBlock(error);
+        }
     }];
 }
 

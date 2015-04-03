@@ -27,6 +27,10 @@
 
 @property (nonatomic, readonly) NSDictionary *relationsResponseEagerTypes;
 
+@property (nonatomic, readonly) NSString *relationAddURLString;
+
+@property (nonatomic, readonly) NSDictionary *relationAddResponseEagerTypes;
+
 @property (nonatomic, readonly) NSString *searchURLString;
 
 @property (nonatomic, readonly) NSDictionary *searchResponseEagerTypes;
