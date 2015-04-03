@@ -83,6 +83,7 @@
 }
 
 - (IBAction)handleStartTalkButtonTapped:(id)sender {
+    [self.eventHandler startTalk];
 }
 
 @end

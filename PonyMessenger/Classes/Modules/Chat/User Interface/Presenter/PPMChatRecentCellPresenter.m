@@ -63,9 +63,8 @@
     PCUChat *chatItem = [[PCUChat alloc] init];
     chatItem.identifier = @"ChatIdentifier";
     chatItem.title = self.cellInteractor.nickname;
-    [[[[[PPMApplication sharedApplication] core] chatCore] wireframe]
-     presentSessionViewControllerToNavigationController:navigationController
-     withChatItem:chatItem];
+    [[ChatCore wireframe] presentSessionViewControllerToNavigationController:navigationController
+                                                                    toUserID:@0];
     
 }
 

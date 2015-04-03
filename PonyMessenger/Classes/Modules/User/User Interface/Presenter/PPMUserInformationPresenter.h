@@ -18,4 +18,6 @@
 
 - (void)addContact;
 
+- (void)startTalk;
+
 @end

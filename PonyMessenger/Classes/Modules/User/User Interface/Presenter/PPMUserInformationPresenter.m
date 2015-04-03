@@ -60,6 +60,10 @@
     }];
 }
 
+- (void)startTalk {
+    [[ChatCore wireframe] presentSessionViewControllerToNavigationController:self.userInterface.navigationController toUserID:self.informationInteractor.userID];
+}
+
 - (void)configureReactiveCocoa {
     @weakify(self);
     [RACObserve(self, informationInteractor.avatarImage) subscribeNext:^(id x) {
