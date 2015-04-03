@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithRed:31.0/255.0
                                                            green:185.0/255.0
                                                             blue:34.0/255.0
