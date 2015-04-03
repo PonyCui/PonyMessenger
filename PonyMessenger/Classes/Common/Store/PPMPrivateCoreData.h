@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMManagedUserInformationItem, PPMManagedUserRelationItem, NSManagedObject;
+@class PPMManagedUserInformationItem, PPMManagedUserRelationItem, PPMManagedChatRecordItem, NSManagedObject;
 
 /**
  *  @param item NSArray -> PPMManagedUserInformationItem
@@ -19,6 +19,10 @@ typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(NSArray *re
  *  @param results NSArray -> PPMManagedUserRelationItem
  */
 typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *results);
+
+typedef void(^PPMPrivateCoreDataChatRecordFetchCompletionBlock)(NSArray *results);
+
+typedef void(^PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)(NSNumber *recordID);
 
 /**
  * @brief  每个用户都拥有独立的PrivateCoreData实例
@@ -41,6 +45,13 @@ typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *resul
                      completionBlock:(PPMPrivateCoreDataUserRelationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserRelationItem *)newUserRelationItem;
+
+- (void)fetchChatRecordWithPredicate:(NSPredicate *)predicate
+                     completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock;
+
+- (void)fetchChatLastRecordIDWithCompletionBlock:(PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)completionBlock;
+
+- (PPMManagedChatRecordItem *)newChatRecordItem;
 
 - (void)save;
 

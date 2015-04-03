@@ -11,6 +11,7 @@
 #import "PPMSyncSubService.h"
 #import "PPMSyncTestService.h"
 #import "PPMSyncUserService.h"
+#import "PPMSyncChatService.h"
 
 @implementation PPMSyncSocketServiceManager
 
@@ -22,6 +23,7 @@
         _sub = [[PPMSyncSubService alloc] init];
         _test = [[PPMSyncTestService alloc] init];
         _user = [[PPMSyncUserService alloc] init];
+        _chat = [[PPMSyncChatService alloc] init];
     }
     return self;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "PPMSyncDefine.h"
-#import "PPMApplication.h"
+#import "PPMDefine.h"
 
 @implementation PPMSyncDefine
 

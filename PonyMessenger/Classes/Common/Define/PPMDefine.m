@@ -28,6 +28,7 @@
         _account = [[PPMAccountDefine alloc] init];
         _user = [[PPMUserDefine alloc] init];
         _sync = [[PPMSyncDefine alloc] init];
+        _chat = [[PPMChatDefine alloc] init];
     }
     return self;
 }

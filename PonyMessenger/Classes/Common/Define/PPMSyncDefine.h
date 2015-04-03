@@ -10,6 +10,6 @@
 
 @interface PPMSyncDefine : NSObject
 
-- (NSString *)requestSocketAddressURLString;
+@property (nonatomic, readonly) NSString *requestSocketAddressURLString;
 
 @end

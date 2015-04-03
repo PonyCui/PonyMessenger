@@ -8,6 +8,7 @@
 
 #import "PPMPrivateCoreData.h"
 #import <CoreData/CoreData.h>
+#import "PPMManagedChatRecordItem.h"
 
 @interface PPMPrivateCoreData ()
 
@@ -84,6 +85,43 @@
     PPMManagedUserRelationItem *newEntry = (PPMManagedUserRelationItem *)[[NSManagedObject alloc]
                                                                                 initWithEntity:entityDescription
                                                                                 insertIntoManagedObjectContext:self.managedObjectContext];
+    return newEntry;
+}
+
+- (void)fetchChatRecordWithPredicate:(NSPredicate *)predicate
+                     completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatRecord"];
+    [request setPredicate:predicate];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
+- (void)fetchChatLastRecordIDWithCompletionBlock:(PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatRecord"];
+    [request setFetchLimit:1];
+    [request setSortDescriptors:@[
+                                  [NSSortDescriptor sortDescriptorWithKey:@"record_id" ascending:NO]
+                                  ]];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        if ([result count] > 0) {
+            PPMManagedChatRecordItem *managedItem = [result firstObject];
+            completionBlock(managedItem.record_id);
+        }
+        else {
+            completionBlock(nil);
+        }
+    }];
+}
+
+- (PPMManagedChatRecordItem *)newChatRecordItem {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ChatRecord"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    PPMManagedChatRecordItem *newEntry = (PPMManagedChatRecordItem *)[[NSManagedObject alloc]
+                                                                          initWithEntity:entityDescription
+                                                                          insertIntoManagedObjectContext:self.managedObjectContext];
     return newEntry;
 }
 

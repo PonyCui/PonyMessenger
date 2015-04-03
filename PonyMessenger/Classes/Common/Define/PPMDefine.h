@@ -10,6 +10,7 @@
 #import "PPMAccountDefine.h"
 #import "PPMUserDefine.h"
 #import "PPMSyncDefine.h"
+#import "PPMChatDefine.h"
 
 @interface PPMDefine : NSObject
 
@@ -20,6 +21,8 @@
 @property (nonatomic, readonly) PPMUserDefine *user;
 
 @property (nonatomic, readonly) PPMSyncDefine *sync;
+
+@property (nonatomic, readonly) PPMChatDefine *chat;
 
 @property (nonatomic, readonly) NSString *apiAbsolutePath;
 
