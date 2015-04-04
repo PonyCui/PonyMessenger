@@ -21,19 +21,14 @@
 @dynamic record_hash;
 
 - (void)setItem:(PPMChatRecordItem *)item {
-<<<<<<< Updated upstream
     self.record_id = item.recordID;
     self.session_id = item.sessionID;
     self.from_user_id = item.fromUserID;
-    self.to_user_id = item.toUserID;
     self.record_time = item.recordTime;
     self.record_type = item.recordType;
     self.record_title = item.recordTitle;
     self.record_params = item.recordParams;
     self.record_hash = item.recordHash;
-=======
-    
->>>>>>> Stashed changes
 }
 
 @end
