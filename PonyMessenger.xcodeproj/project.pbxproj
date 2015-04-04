@@ -31,6 +31,7 @@
 		63416A061ACE7DD1000BDCF5 /* PPMChatRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A051ACE7DD1000BDCF5 /* PPMChatRecordManager.m */; };
 		63416A091ACE8208000BDCF5 /* PPMSyncChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A081ACE8208000BDCF5 /* PPMSyncChatService.m */; };
 		63416A0C1ACE8F5D000BDCF5 /* PPMChatDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A0B1ACE8F5D000BDCF5 /* PPMChatDefine.m */; };
+		63416A0F1AD01344000BDCF5 /* PPMManagedChatSessionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A0E1AD01344000BDCF5 /* PPMManagedChatSessionItem.m */; };
 		6345254E1ACA38F700B9D137 /* PPMUserDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6345254D1ACA38F700B9D137 /* PPMUserDefine.m */; };
 		634525531ACA407400B9D137 /* PPMUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525521ACA407400B9D137 /* PPMUserTests.m */; };
 		634525591ACA6E5500B9D137 /* PPMManagedUserRelationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 634525581ACA6E5500B9D137 /* PPMManagedUserRelationItem.m */; };
@@ -150,6 +151,8 @@
 		63416A081ACE8208000BDCF5 /* PPMSyncChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncChatService.m; sourceTree = "<group>"; };
 		63416A0A1ACE8F5D000BDCF5 /* PPMChatDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatDefine.h; sourceTree = "<group>"; };
 		63416A0B1ACE8F5D000BDCF5 /* PPMChatDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatDefine.m; sourceTree = "<group>"; };
+		63416A0D1AD01344000BDCF5 /* PPMManagedChatSessionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMManagedChatSessionItem.h; sourceTree = "<group>"; };
+		63416A0E1AD01344000BDCF5 /* PPMManagedChatSessionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMManagedChatSessionItem.m; sourceTree = "<group>"; };
 		6345254C1ACA38F700B9D137 /* PPMUserDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMUserDefine.h; sourceTree = "<group>"; };
 		6345254D1ACA38F700B9D137 /* PPMUserDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserDefine.m; sourceTree = "<group>"; };
 		634525521ACA407400B9D137 /* PPMUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMUserTests.m; sourceTree = "<group>"; };
@@ -812,6 +815,8 @@
 		F0E154721AC5A27D00E46E48 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				63416A0D1AD01344000BDCF5 /* PPMManagedChatSessionItem.h */,
+				63416A0E1AD01344000BDCF5 /* PPMManagedChatSessionItem.m */,
 				634169FE1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.h */,
 				634169FF1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m */,
 				F05BFBDD1AC6EE63004E860F /* PPMManagedAccountItem.h */,
@@ -1056,6 +1061,7 @@
 				F02976751AC84A4800C7C37B /* PPMAccountActiveSigninViewController.m in Sources */,
 				63416A091ACE8208000BDCF5 /* PPMSyncChatService.m in Sources */,
 				F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */,
+				63416A0F1AD01344000BDCF5 /* PPMManagedChatSessionItem.m in Sources */,
 				F08A3DEE1ABAFBC500A5E6AA /* PPMChatContactListInteractor.m in Sources */,
 				63416A001ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m in Sources */,
 				F0F647061AB869D700CACCA2 /* AppDelegate.m in Sources */,

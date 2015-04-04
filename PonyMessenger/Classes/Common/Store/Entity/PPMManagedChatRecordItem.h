@@ -14,9 +14,12 @@
 @interface PPMManagedChatRecordItem : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * record_id;
+<<<<<<< Updated upstream
 @property (nonatomic, retain) NSString * session_id;
+=======
+@property (nonatomic, retain) NSNumber * session_id;
+>>>>>>> Stashed changes
 @property (nonatomic, retain) NSNumber * from_user_id;
-@property (nonatomic, retain) NSNumber * to_user_id;
 @property (nonatomic, retain) NSNumber * record_time;
 @property (nonatomic, retain) NSNumber * record_type;
 @property (nonatomic, retain) NSString * record_title;
