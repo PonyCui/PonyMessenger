@@ -23,6 +23,7 @@
 }
 
 - (void)updateView {
+    [self.sessionInteractor requestSessionItem];
     [PCU[@protocol(PCUWireframe)] presentChatViewToViewController:self.userInterface
                                                      withChatItem:self.sessionInteractor.chatItem];
 }

@@ -7,7 +7,45 @@
 //
 
 #import "PPMChatSessionInteractor.h"
+#import "PPMApplication.h"
+#import "PPMChatDataManager.h"
+#import <PonyChatUI/PCUChat.h>
 
 @implementation PPMChatSessionInteractor
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePPMChatSessionDidUpdateNotification)
+                                                     name:kPPMChatSessionDidUpdateNotification
+                                                   object:nil];
+    }
+    return self;
+}
+
+- (void)handlePPMChatSessionDidUpdateNotification {
+    [self requestSessionItem];
+}
+
+- (void)requestSessionItem {
+    if (self.sessionItem == nil && [self.chatItem.identifier hasPrefix:@"User."]) {
+        NSNumber *userID = [NSNumber numberWithInteger:[[self.chatItem.identifier stringByReplacingOccurrencesOfString:@"User." withString:@""] integerValue]];
+        [[UserCore userManager] fetchUserInformationWithUserID:userID forceUpdate:NO completionBlock:^(PPMUserItem *userItem) {
+            [[ChatCore dataManager] findSessionWithUserItem:userItem completionBlock:^(PPMChatSessionItem *sessionItem) {
+                self.sessionItem = sessionItem;
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatItemSessionReadyNotification
+                                                                    object:self.chatItem
+                                                                  userInfo:@{@"sessionItem": self.sessionItem}];
+            }];
+        }];
+    }
+}
 
 @end

@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class PCUChat;
+@class PCUChat, PPMChatSessionItem;
 
 @interface PPMChatSessionInteractor : NSObject
 
 @property (nonatomic, strong) PCUChat *chatItem;
+
+@property (nonatomic, strong) PPMChatSessionItem *sessionItem;
+
+- (void)requestSessionItem;
 
 @end

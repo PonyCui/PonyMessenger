@@ -15,6 +15,6 @@
 
 @property (nonatomic, readonly) PPMChatWireframe *wireframe;
 
-@property (nonatomic, strong) PPMChatDataManager *recordManager;
+@property (nonatomic, strong) PPMChatDataManager *dataManager;
 
 @end

@@ -7,7 +7,16 @@
 //
 
 #import "PPMChatMessageManager.h"
+#import "PPMApplication.h"
+#import "PPMChatSessionItem.h"
+#import "PPMChatRecordItem.h"
 #import <PonyChatUI/PCUApplication.h>
+
+@interface PPMChatMessageManager ()
+
+@property (nonatomic, strong) PPMChatSessionItem *sessionItem;
+
+@end
 
 @implementation PPMChatMessageManager
 
@@ -23,6 +32,11 @@
     [PCUApplication setMessageManagerClass:[PPMChatMessageManager class]];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -33,15 +47,38 @@
 }
 
 - (void)connect {
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handlePPMChatItemSessionReadyNotification:)
+                                                 name:kPPMChatItemSessionReadyNotification
+                                               object:nil];
 }
 
 - (void)disconnect {
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)sendMessage:(PCUMessage *)message {
     
+}
+
+- (void)handlePPMChatItemSessionReadyNotification:(NSNotification *)sender {
+    if (sender.object == self.chatItem) {
+        self.sessionItem = sender.userInfo[@"sessionItem"];
+        [self connectStore];
+    }
+}
+
+- (void)connectStore {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handlePPMChatRecordDidUpdateNotification:)
+                                                 name:kPPMChatRecordDidUpdateNotification
+                                               object:nil];
+}
+
+- (void)handlePPMChatRecordDidUpdateNotification:(NSNotification *)sender {
+    if ([[sender.object sessionID] isEqualToNumber:self.sessionItem.sessionID]) {
+        //Received Message
+    }
 }
 
 @end

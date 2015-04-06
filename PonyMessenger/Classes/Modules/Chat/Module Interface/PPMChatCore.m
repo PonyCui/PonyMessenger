@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         _wireframe = [[PPMChatWireframe alloc] init];
-        _recordManager = [[PPMChatDataManager alloc] init];
+        _dataManager = [[PPMChatDataManager alloc] init];
     }
     return self;
 }

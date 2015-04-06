@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class PPMUserItem, PPMChatSessionItem;
+
+typedef void(^PPMChatDataManagerFindSessionCompletionBlock)(PPMChatSessionItem *sessionItem);
+
 @interface PPMChatDataManager : NSObject
+
+- (void)findSessionWithUserItem:(PPMUserItem *)userItem completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
 
 - (void)updateSessions;
 

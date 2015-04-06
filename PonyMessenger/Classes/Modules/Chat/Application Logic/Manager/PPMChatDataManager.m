@@ -15,11 +15,49 @@
 #import "PPMManagedChatRecordItem.h"
 #import "PPMChatSessionItem.h"
 #import "PPMManagedChatSessionItem.h"
+#import "PPMUserItem.h"
+#import "PPMChatSessionItem.h"
 #import <AFNetworking/AFNetworking.h>
 
 @implementation PPMChatDataManager
 
 #pragma mark - ChatSession
+
+- (void)findSessionWithUserItem:(PPMUserItem *)userItem completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock {
+    NSString *cacheKey = [NSString stringWithFormat:@"PPM.Chat.Session.User.%@", userItem.userID];
+    if ([[UserStore cacheStore] valueForKey:cacheKey] != nil) {
+        NSNumber *sessionID = [[UserStore cacheStore] valueForKey:cacheKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionID];
+        [UserStore fetchChatSessionWithPredicate:predicate completionBlock:^(NSArray *results) {
+            if ([results count] > 0) {
+                PPMChatSessionItem *sessionItem = [[PPMChatSessionItem alloc] initWithManagedItem:[results firstObject]];
+                completionBlock(sessionItem);
+            }
+            else {
+                completionBlock(nil);
+            }
+        }];
+    }
+    else {
+        NSString *URLString = [PPMDefine sharedDefine].chat.sessionRaiseURLString;
+        [[AFHTTPRequestOperationManager manager]
+         POST:URLString
+         parameters:@{@"ids": TOString([userItem.userID stringValue])}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                          initWithJSONObject:responseObject
+                                          eagerTypes:[PPMDefine sharedDefine].chat.sessionRaiseResponseEagerTypes];
+             if (opHelper.error == nil) {
+                 [opHelper requestDataObjectWithCompletionBlock:^(NSDictionary *dataObject) {
+                     [[UserStore cacheStore] setObject:dataObject[@"session_id"] forKey:cacheKey];
+                 }];
+             }
+        }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             
+         }];
+    }
+}
 
 - (void)updateSessions {
     [UserStore fetchChatSessionWithPredicate:nil completionBlock:^(NSArray *results) {
@@ -70,6 +108,7 @@
     [UserStore fetchChatSessionWithPredicate:predicate completionBlock:^(NSArray *results) {
         if ([results count] > 0) {
             [UserStore deleteManagedItem:[results firstObject]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatSessionDidUpdateNotification object:nil];
         }
     }];
 }
@@ -86,6 +125,7 @@
         }
         managedItem.session_id = sessionItem.sessionID;
         [UserStore save];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatSessionDidUpdateNotification object:nil];
     }];
 }
 

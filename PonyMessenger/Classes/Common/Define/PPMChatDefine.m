@@ -23,6 +23,17 @@
              };
 }
 
+- (NSString *)sessionRaiseURLString {
+    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/raise"];
+}
+
+- (NSDictionary *)sessionRaiseResponseEagerTypes {
+    return @{
+             @"data": @"NSDictionary",
+             @"session_id": @"NSNumber"
+             };
+}
+
 - (NSString *)recordURLString {
     return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/records"];
 }

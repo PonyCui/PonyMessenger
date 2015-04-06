@@ -16,6 +16,7 @@
 #import "PPMChatSessionInteractor.h"
 #import "PPMChatAddContactViewController.h"
 #import "PPMChatAddContactPresenter.h"
+#import <PonyChatUI/PCUChat.h>
 #import "PPMApplication.h"
 
 @implementation PPMChatWireframe
@@ -35,7 +36,9 @@
 - (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
                                                   toUserID:(NSNumber *)toUserID {
     PPMChatSessionViewController *sessionViewController = [self sessionViewController];
-//    sessionViewController.eventHandler.sessionInteractor.chatItem = chatItem;
+    PCUChat *chatItem = [[PCUChat alloc] init];
+    chatItem.identifier = [NSString stringWithFormat:@"User.%@", toUserID];
+    sessionViewController.eventHandler.sessionInteractor.chatItem = chatItem;
     [navigationController pushViewController:sessionViewController animated:YES];
 }
 

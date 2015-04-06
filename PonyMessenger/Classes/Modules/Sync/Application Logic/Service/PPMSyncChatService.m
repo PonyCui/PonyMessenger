@@ -35,7 +35,7 @@
     self.sessionSyncItem = [[PPMSyncItem alloc] init];
     self.sessionSyncItem.syncID = @"PPM.Chat.Session";
     [self.sessionSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
-        [[ChatCore recordManager] updateSessions];
+        [[ChatCore dataManager] updateSessions];
     }];
     [[SyncCore syncManager] addItem:self.sessionSyncItem];
 }
@@ -44,7 +44,7 @@
     self.recordSyncItem = [[PPMSyncItem alloc] init];
     self.recordSyncItem.syncID = @"PPM.Chat.Record";
     [self.recordSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
-        [[ChatCore recordManager] updateRecords];
+        [[ChatCore dataManager] updateRecords];
     }];
     [[SyncCore syncManager] addItem:self.recordSyncItem];
 }
