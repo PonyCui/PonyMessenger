@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMManagedUserInformationItem, PPMManagedUserRelationItem, PPMManagedChatRecordItem, NSManagedObject;
+@class PPMManagedUserInformationItem, PPMManagedUserRelationItem, PPMManagedChatRecordItem, PPMManagedChatSessionItem, NSManagedObject;
 
 /**
  *  @param item NSArray -> PPMManagedUserInformationItem
@@ -20,6 +20,14 @@ typedef void(^PPMPrivateCoreDataUserInformationFetchCompletionBlock)(NSArray *re
  */
 typedef void(^PPMPrivateCoreDataUserRelationFetchCompletionBlock)(NSArray *results);
 
+/**
+ *  @param results NSArray -> PPMManagedChatSessionItem
+ */
+typedef void(^PPMPrivateCoreDataChatSessionFetchCompletionBlock)(NSArray *results);
+
+/**
+ *  @param results NSArray -> PPMManagedChatRecordItem
+ */
 typedef void(^PPMPrivateCoreDataChatRecordFetchCompletionBlock)(NSArray *results);
 
 typedef void(^PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)(NSNumber *recordID);
@@ -45,6 +53,11 @@ typedef void(^PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)(NSNumber *
                      completionBlock:(PPMPrivateCoreDataUserRelationFetchCompletionBlock)completionBlock;
 
 - (PPMManagedUserRelationItem *)newUserRelationItem;
+
+- (void)fetchChatSessionWithPredicate:(NSPredicate *)predicate
+                      completionBlock:(PPMPrivateCoreDataChatSessionFetchCompletionBlock)completionBlock;
+
+- (PPMManagedChatSessionItem *)newChatSessionItem;
 
 - (void)fetchChatRecordWithPredicate:(NSPredicate *)predicate
                      completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock;

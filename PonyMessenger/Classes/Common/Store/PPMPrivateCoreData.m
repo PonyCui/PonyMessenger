@@ -88,6 +88,24 @@
     return newEntry;
 }
 
+- (void)fetchChatSessionWithPredicate:(NSPredicate *)predicate completionBlock:(PPMPrivateCoreDataChatSessionFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatSession"];
+    [request setPredicate:predicate];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
+- (PPMManagedChatSessionItem *)newChatSessionItem {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ChatSession"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    PPMManagedChatSessionItem *newEntry = (PPMManagedChatSessionItem *)[[NSManagedObject alloc]
+                                                                      initWithEntity:entityDescription
+                                                                      insertIntoManagedObjectContext:self.managedObjectContext];
+    return newEntry;
+}
+
 - (void)fetchChatRecordWithPredicate:(NSPredicate *)predicate
                      completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatRecord"];

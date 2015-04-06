@@ -11,17 +11,29 @@
 
 @implementation PPMChatDefine
 
-- (NSString *)requestRecordsURLString {
+- (NSString *)sessionURLString {
+    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/sessions"];
+}
+
+- (NSDictionary *)sessionResponseEagerTypes {
+    return @{
+             @"data": @"NSArray",
+             @"data[]": @"NSDictionary",
+             @"session_id": @"NSNumber"
+             };
+}
+
+- (NSString *)recordURLString {
     return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/records"];
 }
 
-- (NSDictionary *)requestRecordsResponseEagerTypes {
+- (NSDictionary *)recordResponseEagerTypes {
     return @{
              @"data": @"NSArray",
              @"data[]": @"NSDictionary",
              @"record_id": @"NSNumber",
+             @"session_id": @"NSNumber",
              @"from_user_id": @"NSNumber",
-             @"to_user_id": @"NSNumber",
              @"record_time": @"NSNumber",
              @"record_type": @"NSNumber",
              @"record_title": @"NSString",

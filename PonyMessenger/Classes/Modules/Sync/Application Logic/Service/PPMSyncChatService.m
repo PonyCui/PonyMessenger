@@ -13,6 +13,8 @@
 
 @interface PPMSyncChatService ()
 
+@property (nonatomic, strong) PPMSyncItem *sessionSyncItem;
+
 @property (nonatomic, strong) PPMSyncItem *recordSyncItem;
 
 @end
@@ -23,9 +25,19 @@
 {
     self = [super init];
     if (self) {
+        [self configureSession];
         [self configureRecord];
     }
     return self;
+}
+
+- (void)configureSession {
+    self.sessionSyncItem = [[PPMSyncItem alloc] init];
+    self.sessionSyncItem.syncID = @"PPM.Chat.Session";
+    [self.sessionSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
+        [[ChatCore recordManager] updateSessions];
+    }];
+    [[SyncCore syncManager] addItem:self.sessionSyncItem];
 }
 
 - (void)configureRecord {
@@ -35,6 +47,10 @@
         [[ChatCore recordManager] updateRecords];
     }];
     [[SyncCore syncManager] addItem:self.recordSyncItem];
+}
+
+- (void)didUpdateSession {
+    [self.sessionSyncItem doSync];
 }
 
 - (void)didAddRecord {

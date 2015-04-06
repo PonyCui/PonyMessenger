@@ -17,7 +17,6 @@
         self.recordID = dictionary[@"record_id"];
         self.sessionID = dictionary[@"session_id"];
         self.fromUserID = dictionary[@"from_user_id"];
-        self.toUserID = dictionary[@"to_user_id"];
         self.recordTime = dictionary[@"record_time"];
         self.recordType = dictionary[@"record_type"];
         self.recordTitle = dictionary[@"record_title"];
@@ -33,7 +32,6 @@
         self.recordID = managedItem.record_id;
         self.sessionID = managedItem.session_id;
         self.fromUserID = managedItem.from_user_id;
-        self.toUserID = managedItem.to_user_id;
         self.recordTime = managedItem.record_time;
         self.recordType = managedItem.record_type;
         self.recordTitle = managedItem.record_title;

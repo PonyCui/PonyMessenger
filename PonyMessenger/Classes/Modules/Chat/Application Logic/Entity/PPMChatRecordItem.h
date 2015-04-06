@@ -14,13 +14,7 @@
 
 @property (nonatomic, strong) NSNumber *recordID;
 
-<<<<<<< Updated upstream
-@property (nonatomic, copy) NSString *sessionID;
-
-@property (nonatomic, strong) NSNumber *fromUserID;
-=======
 @property (nonatomic, strong) NSNumber *sessionID;
->>>>>>> Stashed changes
 
 @property (nonatomic, strong) NSNumber *fromUserID;
 

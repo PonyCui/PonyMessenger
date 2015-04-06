@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F1066" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D113c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="PPMManagedAccountItem" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -12,15 +12,10 @@
         <attribute name="record_time" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="record_title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="record_type" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-<<<<<<< Updated upstream
-        <attribute name="session_id" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="to_user_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
-=======
-        <attribute name="session_id" optional="YES" syncable="YES"/>
-    </entity>
-    <entity name="ChatSession" representedClassName="ChatSession" syncable="YES">
         <attribute name="session_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
->>>>>>> Stashed changes
+    </entity>
+    <entity name="ChatSession" representedClassName="PPMManagedChatSessionItem" syncable="YES">
+        <attribute name="session_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="UserInformation" representedClassName="PPMManagedUserInformationItem" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,15 +27,9 @@
     </entity>
     <elements>
         <element name="Account" positionX="0" positionY="27" width="128" height="73"/>
-<<<<<<< Updated upstream
-        <element name="ChatRecord" positionX="0" positionY="27" width="128" height="180"/>
-        <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="UserRelation" positionX="0" positionY="27" width="128" height="60"/>
-=======
-        <element name="ChatRecord" positionX="0" positionY="27" width="128" height="163"/>
-        <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="UserRelation" positionX="0" positionY="27" width="128" height="60"/>
+        <element name="ChatRecord" positionX="0" positionY="27" width="128" height="165"/>
         <element name="ChatSession" positionX="9" positionY="72" width="128" height="58"/>
->>>>>>> Stashed changes
+        <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="UserRelation" positionX="0" positionY="27" width="128" height="60"/>
     </elements>
 </model>
