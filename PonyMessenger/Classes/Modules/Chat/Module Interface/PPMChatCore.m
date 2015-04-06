@@ -7,7 +7,7 @@
 //
 
 #import "PPMChatCore.h"
-#import "PPMChatRecordManager.h"
+#import "PPMChatDataManager.h"
 
 @interface PPMChatCore ()
 
@@ -20,7 +20,7 @@
     self = [super init];
     if (self) {
         _wireframe = [[PPMChatWireframe alloc] init];
-        _recordManager = [[PPMChatRecordManager alloc] init];
+        _recordManager = [[PPMChatDataManager alloc] init];
     }
     return self;
 }

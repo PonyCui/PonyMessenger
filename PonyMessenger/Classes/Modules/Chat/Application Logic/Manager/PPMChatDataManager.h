@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PPMChatRecordManager : NSObject
+@interface PPMChatDataManager : NSObject
 
 - (void)updateSessions;
 

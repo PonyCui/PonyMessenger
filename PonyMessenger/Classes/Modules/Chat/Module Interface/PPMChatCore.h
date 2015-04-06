@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "PPMChatWireframe.h"
 
-@class PPMChatRecordManager;
+@class PPMChatDataManager;
 
 @interface PPMChatCore : NSObject
 
 @property (nonatomic, readonly) PPMChatWireframe *wireframe;
 
-@property (nonatomic, strong) PPMChatRecordManager *recordManager;
+@property (nonatomic, strong) PPMChatDataManager *recordManager;
 
 @end

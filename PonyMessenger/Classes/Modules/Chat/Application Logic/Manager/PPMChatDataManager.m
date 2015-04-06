@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 崔 明辉. All rights reserved.
 //
 
-#import "PPMChatRecordManager.h"
+#import "PPMChatDataManager.h"
 #import "PPMApplication.h"
 #import "PPMPrivateCoreData.h"
 #import "PPMValueFormatter.h"
@@ -17,7 +17,7 @@
 #import "PPMManagedChatSessionItem.h"
 #import <AFNetworking/AFNetworking.h>
 
-@implementation PPMChatRecordManager
+@implementation PPMChatDataManager
 
 #pragma mark - ChatSession
 

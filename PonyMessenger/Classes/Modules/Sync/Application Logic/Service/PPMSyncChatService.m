@@ -9,7 +9,7 @@
 #import "PPMSyncChatService.h"
 #import "PPMApplication.h"
 #import "PPMSyncItem.h"
-#import "PPMChatRecordManager.h"
+#import "PPMChatDataManager.h"
 
 @interface PPMSyncChatService ()
 

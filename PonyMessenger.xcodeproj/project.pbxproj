@@ -28,7 +28,7 @@
 		634169FD1ACE7617000BDCF5 /* PPMChatMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 634169FC1ACE7617000BDCF5 /* PPMChatMessageManager.m */; };
 		63416A001ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 634169FF1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m */; };
 		63416A031ACE7DC2000BDCF5 /* PPMChatRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A021ACE7DC2000BDCF5 /* PPMChatRecordItem.m */; };
-		63416A061ACE7DD1000BDCF5 /* PPMChatRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A051ACE7DD1000BDCF5 /* PPMChatRecordManager.m */; };
+		63416A061ACE7DD1000BDCF5 /* PPMChatDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A051ACE7DD1000BDCF5 /* PPMChatDataManager.m */; };
 		63416A091ACE8208000BDCF5 /* PPMSyncChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A081ACE8208000BDCF5 /* PPMSyncChatService.m */; };
 		63416A0C1ACE8F5D000BDCF5 /* PPMChatDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A0B1ACE8F5D000BDCF5 /* PPMChatDefine.m */; };
 		63416A0F1AD01344000BDCF5 /* PPMManagedChatSessionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 63416A0E1AD01344000BDCF5 /* PPMManagedChatSessionItem.m */; };
@@ -146,8 +146,8 @@
 		634169FF1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMManagedChatRecordItem.m; sourceTree = "<group>"; };
 		63416A011ACE7DC2000BDCF5 /* PPMChatRecordItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecordItem.h; sourceTree = "<group>"; };
 		63416A021ACE7DC2000BDCF5 /* PPMChatRecordItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecordItem.m; sourceTree = "<group>"; };
-		63416A041ACE7DD1000BDCF5 /* PPMChatRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecordManager.h; sourceTree = "<group>"; };
-		63416A051ACE7DD1000BDCF5 /* PPMChatRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatRecordManager.m; sourceTree = "<group>"; };
+		63416A041ACE7DD1000BDCF5 /* PPMChatDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatDataManager.h; sourceTree = "<group>"; };
+		63416A051ACE7DD1000BDCF5 /* PPMChatDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatDataManager.m; sourceTree = "<group>"; };
 		63416A071ACE8207000BDCF5 /* PPMSyncChatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMSyncChatService.h; sourceTree = "<group>"; };
 		63416A081ACE8208000BDCF5 /* PPMSyncChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMSyncChatService.m; sourceTree = "<group>"; };
 		63416A0A1ACE8F5D000BDCF5 /* PPMChatDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatDefine.h; sourceTree = "<group>"; };
@@ -448,8 +448,8 @@
 			children = (
 				634169FB1ACE7617000BDCF5 /* PPMChatMessageManager.h */,
 				634169FC1ACE7617000BDCF5 /* PPMChatMessageManager.m */,
-				63416A041ACE7DD1000BDCF5 /* PPMChatRecordManager.h */,
-				63416A051ACE7DD1000BDCF5 /* PPMChatRecordManager.m */,
+				63416A041ACE7DD1000BDCF5 /* PPMChatDataManager.h */,
+				63416A051ACE7DD1000BDCF5 /* PPMChatDataManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1098,7 +1098,7 @@
 				63173D3A1ACB97C700646C58 /* PPMSyncSubService.m in Sources */,
 				6317993D1ACD22850052C566 /* PPMChatAddContactPresenter.m in Sources */,
 				63C08D0A1AC94BB600106601 /* PPMAccountSignupPresenter.m in Sources */,
-				63416A061ACE7DD1000BDCF5 /* PPMChatRecordManager.m in Sources */,
+				63416A061ACE7DD1000BDCF5 /* PPMChatDataManager.m in Sources */,
 				F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */,
 				63173D331ACB96A800646C58 /* PPMSyncSocketServiceManager.m in Sources */,
 				F00393051AB87E36002EF72B /* PPMNavigationController.m in Sources */,
