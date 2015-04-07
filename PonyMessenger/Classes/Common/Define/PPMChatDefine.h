@@ -28,4 +28,8 @@
 
 @property (nonatomic, readonly) NSDictionary *recordResponseEagerTypes;
 
+@property (nonatomic, readonly) NSString *postURLString;
+
+@property (nonatomic, readonly) NSDictionary *postResponseEagerTypes;
+
 @end

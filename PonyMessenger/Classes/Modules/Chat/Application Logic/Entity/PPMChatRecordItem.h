@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMManagedChatRecordItem;
+@class PPMManagedChatRecordItem, PCUMessage;
 
 @interface PPMChatRecordItem : NSObject
 
@@ -31,5 +31,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (instancetype)initWithManagedItem:(PPMManagedChatRecordItem *)managedItem;
+
+- (instancetype)initWithMessage:(PCUMessage *)message;
 
 @end

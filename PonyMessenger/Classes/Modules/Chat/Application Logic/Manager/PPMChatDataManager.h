@@ -8,15 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-@class PPMUserItem, PPMChatSessionItem;
+@class PPMUserItem, PPMChatSessionItem, PPMChatRecordItem;
 
 typedef void(^PPMChatDataManagerFindSessionCompletionBlock)(PPMChatSessionItem *sessionItem);
+
+typedef void(^PPMChatDataManagerPostRecordCompletionBlock)();
+
+typedef void(^PPMChatDataManagerPostRecordFailureBlock)(NSError *error);
 
 @interface PPMChatDataManager : NSObject
 
 - (void)findSessionWithUserItem:(PPMUserItem *)userItem completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
 
 - (void)updateSessions;
+
+- (void)postWithRecordItem:(PPMChatRecordItem *)recordItem
+           completionBlock:(PPMChatDataManagerPostRecordCompletionBlock)completionBlock
+              failureBlock:(PPMChatDataManagerPostRecordFailureBlock)failureBlock;
 
 - (void)updateRecords;
 

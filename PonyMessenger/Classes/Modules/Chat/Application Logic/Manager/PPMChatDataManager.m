@@ -160,6 +160,30 @@
     }];
 }
 
+- (void)postWithRecordItem:(PPMChatRecordItem *)recordItem
+           completionBlock:(PPMChatDataManagerPostRecordCompletionBlock)completionBlock
+              failureBlock:(PPMChatDataManagerPostRecordFailureBlock)failureBlock {
+    NSString *URLString = [PPMDefine sharedDefine].chat.postURLString;
+    NSDictionary *data = @{
+                           @"session_id": TOString(recordItem.sessionID),
+                           @"record_type": TOString(recordItem.recordType),
+                           @"record_title": TOString(recordItem.recordTitle),
+                           @"record_params": TOString(recordItem.recordParams),
+                           @"record_hash": TOString(recordItem.recordHash)
+                           };
+    [[AFHTTPRequestOperationManager manager] POST:URLString parameters:data success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        PPMOutputHelper *opHelper = [[PPMOutputHelper alloc] initWithJSONObject:responseObject];
+        if (opHelper.error == nil) {
+            completionBlock();
+        }
+        else {
+            failureBlock(opHelper.error);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failureBlock(error);
+    }];
+}
+
 - (void)updateStoreWithRecordItem:(PPMChatRecordItem *)recordItem {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"record_id = %@", recordItem.recordID];
     [UserStore fetchChatRecordWithPredicate:predicate completionBlock:^(NSArray *results) {

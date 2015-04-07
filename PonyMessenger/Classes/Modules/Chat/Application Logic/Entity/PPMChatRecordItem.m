@@ -8,6 +8,7 @@
 
 #import "PPMChatRecordItem.h"
 #import "PPMManagedChatRecordItem.h"
+#import <PonyChatUI/PCUMessage.h>
 
 @implementation PPMChatRecordItem
 
@@ -37,6 +38,20 @@
         self.recordTitle = managedItem.record_title;
         self.recordParams = managedItem.record_params;
         self.recordHash = managedItem.record_hash;
+    }
+    return self;
+}
+
+- (instancetype)initWithMessage:(PCUMessage *)message {
+    self = [super init];
+    if (self && [message isKindOfClass:[PCUMessage class]]) {
+        self.recordType = [NSNumber numberWithInteger:message.type];
+        self.recordTitle = message.title;
+        self.recordHash = message.identifier;
+        if (message.params != nil) {
+            NSData *JSONData = [NSJSONSerialization dataWithJSONObject:message.params options:kNilOptions error:NULL];
+            self.recordParams = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
+        }
     }
     return self;
 }

@@ -53,4 +53,12 @@
              };
 }
 
+- (NSString *)postURLString {
+    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/post"];
+}
+
+- (NSDictionary *)postResponseEagerTypes {
+    return nil;
+}
+
 @end

@@ -10,6 +10,7 @@
 #import "PPMApplication.h"
 #import "PPMChatSessionItem.h"
 #import "PPMChatRecordItem.h"
+#import "PPMChatDataManager.h"
 #import <PonyChatUI/PCUApplication.h>
 
 @interface PPMChatMessageManager ()
@@ -58,7 +59,13 @@
 }
 
 - (void)sendMessage:(PCUMessage *)message {
-    
+    PPMChatRecordItem *recordItem = [[PPMChatRecordItem alloc] initWithMessage:message];
+    recordItem.sessionID = self.sessionItem.sessionID;
+    [[ChatCore dataManager] postWithRecordItem:recordItem completionBlock:^{
+        
+    } failureBlock:^(NSError *error) {
+        
+    }];
 }
 
 - (void)handlePPMChatItemSessionReadyNotification:(NSNotification *)sender {
