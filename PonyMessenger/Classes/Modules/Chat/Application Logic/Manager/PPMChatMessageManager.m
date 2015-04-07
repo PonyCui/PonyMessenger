@@ -11,8 +11,10 @@
 #import "PPMChatSessionItem.h"
 #import "PPMChatRecordItem.h"
 #import "PPMChatDataManager.h"
+#import "PPMUserItem.h"
 #import <PonyChatUI/PCUApplication.h>
 #import <PonyChatUI/PCUSender.h>
+#import <PonyChatUI/PCUMessage.h>
 
 @interface PPMChatMessageManager ()
 
@@ -87,7 +89,25 @@
 
 - (void)handlePPMChatRecordDidUpdateNotification:(NSNotification *)sender {
     if ([[sender.object sessionID] isEqualToNumber:self.sessionItem.sessionID]) {
-        //Received Message
+        PPMChatRecordItem *recordItem = sender.object;
+        PCUMessage *message = [[PCUMessage alloc] init];
+        message.identifier = recordItem.recordHash;
+        message.orderIndex = [recordItem.recordTime unsignedIntegerValue] * 1000;
+        message.type = [recordItem.recordType unsignedIntegerValue];
+        message.title = recordItem.recordTitle;
+        if (recordItem.recordParams != nil && recordItem.recordParams.length) {
+            message.params = [NSJSONSerialization
+                              JSONObjectWithData:[recordItem.recordParams dataUsingEncoding:NSUTF8StringEncoding]
+                              options:kNilOptions
+                              error:NULL];
+        }
+        [[UserCore userManager] fetchUserInformationWithUserID:recordItem.fromUserID forceUpdate:NO completionBlock:^(PPMUserItem *item) {
+            message.sender = [[PCUSender alloc] init];
+            message.sender.identifier = [item.userID stringValue];
+            message.sender.title = item.nickname;
+            message.sender.thumbURLString = item.avatarURLString;
+            [self.delegate messageManagerDidReceivedMessage:message];
+        }];
     }
 }
 
