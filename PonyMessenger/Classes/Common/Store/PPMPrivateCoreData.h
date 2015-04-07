@@ -62,6 +62,10 @@ typedef void(^PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)(NSNumber *
 - (void)fetchChatRecordWithPredicate:(NSPredicate *)predicate
                      completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock;
 
+- (void)fetchChatRecordWithSessionID:(NSNumber *)sessionID
+                            lessThen:(NSNumber *)recordID
+                     completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock;
+
 - (void)fetchChatLastRecordIDWithCompletionBlock:(PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)completionBlock;
 
 - (PPMManagedChatRecordItem *)newChatRecordItem;

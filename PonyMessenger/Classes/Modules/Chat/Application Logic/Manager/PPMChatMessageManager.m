@@ -73,23 +73,8 @@
     [self.delegate messageManagerSendMessageStarted:message];
 }
 
-- (void)handlePPMChatItemSessionReadyNotification:(NSNotification *)sender {
-    if (sender.object == self.chatItem) {
-        self.sessionItem = sender.userInfo[@"sessionItem"];
-        [self connectStore];
-    }
-}
-
-- (void)connectStore {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handlePPMChatRecordDidUpdateNotification:)
-                                                 name:kPPMChatRecordDidUpdateNotification
-                                               object:nil];
-}
-
-- (void)handlePPMChatRecordDidUpdateNotification:(NSNotification *)sender {
-    if ([[sender.object sessionID] isEqualToNumber:self.sessionItem.sessionID]) {
-        PPMChatRecordItem *recordItem = sender.object;
+- (void)receiveMessageWithRecordItem:(PPMChatRecordItem *)recordItem {
+    if ([recordItem isKindOfClass:[PPMChatRecordItem class]]) {
         PCUMessage *message = [[PCUMessage alloc] init];
         message.identifier = recordItem.recordHash;
         message.orderIndex = [recordItem.recordTime unsignedIntegerValue] * 1000;
@@ -108,6 +93,33 @@
             message.sender.thumbURLString = item.avatarURLString;
             [self.delegate messageManagerDidReceivedMessage:message];
         }];
+    }
+}
+
+- (void)handlePPMChatItemSessionReadyNotification:(NSNotification *)sender {
+    if (sender.object == self.chatItem) {
+        self.sessionItem = sender.userInfo[@"sessionItem"];
+        [self connectStore];
+    }
+}
+
+- (void)connectStore {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handlePPMChatRecordDidUpdateNotification:)
+                                                 name:kPPMChatRecordDidUpdateNotification
+                                               object:nil];
+    [[ChatCore dataManager]
+     findRecentRecordsWithSessionItem:self.sessionItem
+     completionBlock:^(NSArray *items) {
+        [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [self receiveMessageWithRecordItem:obj];
+        }];
+    }];
+}
+
+- (void)handlePPMChatRecordDidUpdateNotification:(NSNotification *)sender {
+    if ([[sender.object sessionID] isEqualToNumber:self.sessionItem.sessionID]) {
+        [self receiveMessageWithRecordItem:sender.object];
     }
 }
 

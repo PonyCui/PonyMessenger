@@ -16,6 +16,8 @@ typedef void(^PPMChatDataManagerPostRecordCompletionBlock)();
 
 typedef void(^PPMChatDataManagerPostRecordFailureBlock)(NSError *error);
 
+typedef void(^PPMChatDataManagerFindRecordsCompletionBlock)(NSArray *items);
+
 @interface PPMChatDataManager : NSObject
 
 - (void)findSessionWithUserItem:(PPMUserItem *)userItem completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
@@ -27,5 +29,8 @@ typedef void(^PPMChatDataManagerPostRecordFailureBlock)(NSError *error);
               failureBlock:(PPMChatDataManagerPostRecordFailureBlock)failureBlock;
 
 - (void)updateRecords;
+
+- (void)findRecentRecordsWithSessionItem:(PPMChatSessionItem *)sessionItem
+                         completionBlock:(PPMChatDataManagerFindRecordsCompletionBlock)completionBlock;
 
 @end

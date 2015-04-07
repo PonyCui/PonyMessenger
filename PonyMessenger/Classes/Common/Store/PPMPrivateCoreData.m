@@ -116,6 +116,25 @@
     }];
 }
 
+- (void)fetchChatRecordWithSessionID:(NSNumber *)sessionID
+                            lessThen:(NSNumber *)recordID
+                     completionBlock:(PPMPrivateCoreDataChatRecordFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatRecord"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionID];
+    if (recordID != nil) {
+        predicate = [NSPredicate predicateWithFormat:@"session_id = %@ AND record_id < %@", sessionID, recordID];
+    }
+    [request setPredicate:predicate];
+    [request setFetchLimit:30];
+    [request setSortDescriptors:@[
+                                  [NSSortDescriptor sortDescriptorWithKey:@"record_id" ascending:NO]
+                                  ]];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
 - (void)fetchChatLastRecordIDWithCompletionBlock:(PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)completionBlock {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatRecord"];
     [request setFetchLimit:1];

@@ -197,4 +197,18 @@
     }];
 }
 
+- (void)findRecentRecordsWithSessionItem:(PPMChatSessionItem *)sessionItem
+                         completionBlock:(PPMChatDataManagerFindRecordsCompletionBlock)completionBlock {
+    [UserStore fetchChatRecordWithSessionID:sessionItem.sessionID lessThen:nil completionBlock:^(NSArray *results) {
+        NSMutableArray *items = [NSMutableArray array];
+        [results enumerateObjectsUsingBlock:^(PPMManagedChatRecordItem *obj, NSUInteger idx, BOOL *stop) {
+            PPMChatRecordItem *item = [[PPMChatRecordItem alloc] initWithManagedItem:obj];
+            [items addObject:item];
+        }];
+        if (completionBlock) {
+            completionBlock([items copy]);
+        }
+    }];
+}
+
 @end
