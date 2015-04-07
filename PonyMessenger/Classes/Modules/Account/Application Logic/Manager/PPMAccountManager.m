@@ -15,8 +15,11 @@
 #import "PPMAccountItem.h"
 #import "PPMOutputHelper.h"
 #import "PPMApplication.h"
+#import "PPMUserItem.h"
 #import <AFNetworking/AFNetworking.h>
 #import <SSKeychain/SSKeychain.h>
+#import <PonyChatUI/PCUApplication.h>
+#import <PonyChatUI/PCUSender.h>
 
 @interface PPMAccountManager ()
 
@@ -28,12 +31,21 @@
 
 @implementation PPMAccountManager
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.applicationStore = [PPMPublicCoreData sharedCoreData];
         self.userStore = nil;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePPMUserInformationUpdatedNotification:)
+                                                     name:kPPMUserInformationUpdatedNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -165,6 +177,7 @@
         [self configureKeychainWithAccountItem:activeAccount];
         [self configureUserStoreWithAccountItem:activeAccount];
         [self configureUserCookieWithAccountItem:activeAccount];
+        [self configurePCUSenderWithAccountItem:activeAccount];
     }
     else {
         [self deactiveAccount:_activeAccount];
@@ -234,6 +247,22 @@
                                   NSHTTPCookieVersion: @"0"
                                   }];
         [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    }
+}
+
+- (void)configurePCUSenderWithAccountItem:(PPMAccountItem *)accountItem {
+    [[UserCore userManager] fetchUserInformationWithUserID:accountItem.userID forceUpdate:NO completionBlock:^(PPMUserItem *item) {
+        PCUSender *sender = [[PCUSender alloc] init];
+        sender.identifier = [item.userID stringValue];
+        sender.title = item.nickname;
+        sender.thumbURLString = item.avatarURLString;
+        [PCUApplication setSender:sender];
+    }];
+}
+
+- (void)handlePPMUserInformationUpdatedNotification:(NSNotification *)sender {
+    if (self.activeAccount != nil && [[sender.object userID] isEqualToNumber:self.activeAccount.userID]) {
+        [self configurePCUSenderWithAccountItem:self.activeAccount];
     }
 }
 
