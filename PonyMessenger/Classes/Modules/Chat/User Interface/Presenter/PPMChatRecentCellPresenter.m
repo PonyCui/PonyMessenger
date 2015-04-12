@@ -64,7 +64,7 @@
     chatItem.identifier = @"ChatIdentifier";
     chatItem.title = self.cellInteractor.nickname;
     [[ChatCore wireframe] presentSessionViewControllerToNavigationController:navigationController
-                                                                    toUserID:@0];
+                                                                    toUserID:@0 sessionTitle:self.cellInteractor.nickname];
     
 }
 

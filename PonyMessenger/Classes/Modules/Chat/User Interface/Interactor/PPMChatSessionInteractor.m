@@ -9,6 +9,7 @@
 #import "PPMChatSessionInteractor.h"
 #import "PPMApplication.h"
 #import "PPMChatDataManager.h"
+#import "PPMUserItem.h"
 #import <PonyChatUI/PCUChat.h>
 
 @implementation PPMChatSessionInteractor
@@ -40,6 +41,7 @@
         [[UserCore userManager] fetchUserInformationWithUserID:userID forceUpdate:NO completionBlock:^(PPMUserItem *userItem) {
             [[ChatCore dataManager] findSessionWithUserItem:userItem completionBlock:^(PPMChatSessionItem *sessionItem) {
                 self.sessionItem = sessionItem;
+                self.sessionTitle = userItem.nickname;
                 [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatItemSessionReadyNotification
                                                                     object:self.chatItem
                                                                   userInfo:@{@"sessionItem": self.sessionItem}];

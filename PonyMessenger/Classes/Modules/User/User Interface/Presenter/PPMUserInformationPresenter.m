@@ -61,8 +61,9 @@
 }
 
 - (void)startTalk {
-    [[ChatCore wireframe] presentSessionViewControllerToNavigationController:self.userInterface.navigationController toUserID:self.informationInteractor.userID];
+    [[ChatCore wireframe] presentSessionViewControllerToNavigationController:self.userInterface.navigationController toUserID:self.informationInteractor.userID sessionTitle:self.informationInteractor.titleString];
 }
+
 
 - (void)configureReactiveCocoa {
     @weakify(self);

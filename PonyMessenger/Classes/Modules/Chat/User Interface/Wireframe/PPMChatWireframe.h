@@ -16,7 +16,8 @@
 - (void)presentContactViewControllerToTabBarController:(UITabBarController *)tabBarController;
 
 - (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
-                                                  toUserID:(NSNumber *)toUserID;
+                                                  toUserID:(NSNumber *)toUserID
+                                              sessionTitle:(NSString *)sessionTitle;
 
 - (void)presentAddContactViewControllerToNavigationController:(UINavigationController *)navigationController;
 

@@ -34,11 +34,13 @@
 }
 
 - (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
-                                                  toUserID:(NSNumber *)toUserID {
+                                                  toUserID:(NSNumber *)toUserID
+                                              sessionTitle:(NSString *)sessionTitle {
     PPMChatSessionViewController *sessionViewController = [self sessionViewController];
     PCUChat *chatItem = [[PCUChat alloc] init];
     chatItem.identifier = [NSString stringWithFormat:@"User.%@", toUserID];
     sessionViewController.eventHandler.sessionInteractor.chatItem = chatItem;
+    sessionViewController.eventHandler.sessionInteractor.sessionTitle = sessionTitle;
     [navigationController pushViewController:sessionViewController animated:YES];
 }
 

@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) PPMChatSessionItem *sessionItem;
 
+@property (nonatomic, copy) NSString *sessionTitle;
+
 - (void)requestSessionItem;
 
 @end
