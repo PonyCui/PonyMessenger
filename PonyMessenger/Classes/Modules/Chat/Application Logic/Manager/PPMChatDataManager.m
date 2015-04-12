@@ -17,6 +17,7 @@
 #import "PPMManagedChatSessionItem.h"
 #import "PPMUserItem.h"
 #import "PPMChatSessionItem.h"
+#import "PPMManagedChatSessionUserItem.h"
 #import <AFNetworking/AFNetworking.h>
 
 @implementation PPMChatDataManager
@@ -66,14 +67,14 @@
             PPMChatSessionItem *item = [[PPMChatSessionItem alloc] initWithManagedItem:obj];
             [storeItems addObject:item];
         }];
-        NSString *URLString = [PPMDefine sharedDefine].chat.sessionURLString;
+        NSString *URLString = [PPMDefine sharedDefine].chat.sessionsURLString;
         [[AFHTTPRequestOperationManager manager]
          GET:URLString
          parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
                                           initWithJSONObject:responseObject
-                                          eagerTypes:[PPMDefine sharedDefine].chat.sessionResponseEagerTypes];
+                                          eagerTypes:[PPMDefine sharedDefine].chat.sessionsResponseEagerTypes];
              if (opHelper.error == nil) {
                  [opHelper requestDataObjectWithCompletionBlock:^(NSArray *dataObject) {
                      NSMutableSet *responseItems = [NSMutableSet set];
@@ -103,6 +104,32 @@
     }];
 }
 
+- (void)updateSessionWithETag {
+    [UserStore fetchChatSessionLastUpdateWithCompletionBlock:^(NSNumber *lastUpdate) {
+        NSString *URLString = [PPMDefine sharedDefine].chat.sessionsURLString;
+        [[AFHTTPRequestOperationManager manager]
+         GET:URLString
+         parameters:@{@"etag": TOString(lastUpdate)}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             PPMOutputHelper *opHelper = [[PPMOutputHelper alloc]
+                                          initWithJSONObject:responseObject
+                                          eagerTypes:[PPMDefine sharedDefine].chat.sessionsResponseEagerTypes];
+             if (opHelper.error == nil) {
+                 [opHelper requestDataObjectWithCompletionBlock:^(NSArray *dataObject) {
+                     [dataObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                         PPMChatSessionItem *item = [[PPMChatSessionItem alloc] initWithDictionary:obj];
+                         [self updateChatSessionWithSessionItem:item];
+                     }];
+                 }];
+             }
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             if ([error.localizedDescription isEqualToString:@"The request timed out."]) {
+                 [self performSelector:@selector(updateSessionWithETag) withObject:nil afterDelay:15.0];
+             }
+         }];
+    }];
+}
+
 - (void)deleteChatSessionWithSessionItem:(PPMChatSessionItem *)sessionItem {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionItem.sessionID];
     [UserStore fetchChatSessionWithPredicate:predicate completionBlock:^(NSArray *results) {
@@ -111,9 +138,26 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatSessionDidUpdateNotification object:nil];
         }
     }];
+    NSPredicate *sessionUserPredicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionItem.sessionID];
+    [UserStore fetchChatSessionUserWithPredicate:sessionUserPredicate completionBlock:^(NSArray *results) {
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [UserStore deleteManagedItem:obj];
+        }];
+    }];
 }
 
 - (void)updateChatSessionWithSessionItem:(PPMChatSessionItem *)sessionItem {
+    [sessionItem.sessionUserIDS enumerateObjectsUsingBlock:^(NSNumber *obj, NSUInteger idx, BOOL *stop) {
+        NSPredicate *sessionUserPredicate = [NSPredicate predicateWithFormat:@"session_id = %@ AND user_id = %@", sessionItem.sessionID, obj];
+        [UserStore fetchChatSessionUserWithPredicate:sessionUserPredicate completionBlock:^(NSArray *results) {
+            if ([results count] == 0) {
+                PPMManagedChatSessionUserItem *managedItem = [UserStore newChatSessionUserItem];
+                managedItem.session_id = sessionItem.sessionID;
+                managedItem.user_id = obj;
+                [UserStore save];
+            }
+        }];
+    }];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionItem.sessionID];
     [UserStore fetchChatSessionWithPredicate:predicate completionBlock:^(NSArray *results) {
         PPMManagedChatSessionItem *managedItem;
@@ -123,7 +167,7 @@
         else {
             managedItem = [UserStore newChatSessionItem];
         }
-        managedItem.session_id = sessionItem.sessionID;
+        [managedItem setItem:sessionItem];
         [UserStore save];
         [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatSessionDidUpdateNotification object:nil];
     }];

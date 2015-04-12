@@ -20,6 +20,10 @@
 
 @property (nonatomic, readonly) NSDictionary *sessionResponseEagerTypes;
 
+@property (nonatomic, readonly) NSString *sessionsURLString;
+
+@property (nonatomic, readonly) NSDictionary *sessionsResponseEagerTypes;
+
 @property (nonatomic, readonly) NSString *sessionRaiseURLString;
 
 @property (nonatomic, readonly) NSDictionary *sessionRaiseResponseEagerTypes;

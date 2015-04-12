@@ -12,10 +12,18 @@
 
 typedef void(^PPMChatDataManagerFindSessionCompletionBlock)(PPMChatSessionItem *sessionItem);
 
+/**
+ *  @param sessions NSArray -> PPMChatSessionItem
+ */
+typedef void(^PPMChatDataManagerFindSessionsCompletionBlock)(NSArray *sessions);
+
 typedef void(^PPMChatDataManagerPostRecordCompletionBlock)();
 
 typedef void(^PPMChatDataManagerPostRecordFailureBlock)(NSError *error);
 
+/**
+ *  @param items NSArray -> PPMChatRecordItem
+ */
 typedef void(^PPMChatDataManagerFindRecordsCompletionBlock)(NSArray *items);
 
 @interface PPMChatDataManager : NSObject
@@ -23,6 +31,10 @@ typedef void(^PPMChatDataManagerFindRecordsCompletionBlock)(NSArray *items);
 - (void)findSessionWithUserItem:(PPMUserItem *)userItem completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
 
 - (void)updateSessions;
+
+- (void)updateSessionWithETag;
+
+- (void)findRecentSessionsWithCompletionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
 
 - (void)postWithRecordItem:(PPMChatRecordItem *)recordItem
            completionBlock:(PPMChatDataManagerPostRecordCompletionBlock)completionBlock

@@ -13,6 +13,8 @@ pod "PonyChatUI", :podspec => "https://raw.githubusercontent.com/PonyGroup/PonyC
 pod "PonyEmotionBoard", :podspec => "https://github.com/PonyGroup/PonyEmotionBoard/raw/master/PonyEmotionBoard.podspec"
 pod "PonyRouter", :podspec => "https://raw.githubusercontent.com/PonyGroup/PonyRouter/master/PonyRouter.podspec"
 
+pod "PonyDebugger"
+
 end
 
 target 'PonyMessengerTests' do

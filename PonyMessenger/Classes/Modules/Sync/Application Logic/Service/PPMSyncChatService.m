@@ -13,6 +13,8 @@
 
 @interface PPMSyncChatService ()
 
+@property (nonatomic, strong) PPMSyncItem *sessionsSyncItem;
+
 @property (nonatomic, strong) PPMSyncItem *sessionSyncItem;
 
 @property (nonatomic, strong) PPMSyncItem *recordSyncItem;
@@ -25,19 +27,34 @@
 {
     self = [super init];
     if (self) {
+        [self configureSessions];
         [self configureSession];
         [self configureRecord];
     }
     return self;
 }
 
+/**
+ *  @brief 全量更新
+ */
+- (void)configureSessions {
+    self.sessionsSyncItem = [[PPMSyncItem alloc] init];
+    self.sessionsSyncItem.syncID = @"PPM.Chat.Sessions";
+    [self.sessionsSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
+        [[ChatCore dataManager] updateSessions];
+    }];
+    [[SyncCore syncManager] addItem:self.sessionsSyncItem];
+}
+
+/**
+ *  @brief 差量更新
+ */
 - (void)configureSession {
     self.sessionSyncItem = [[PPMSyncItem alloc] init];
     self.sessionSyncItem.syncID = @"PPM.Chat.Session";
     [self.sessionSyncItem setSyncingBlock:^(PPMSyncItem *syncItem) {
-        [[ChatCore dataManager] updateSessions];
+        [[ChatCore dataManager] updateSessionWithETag];
     }];
-    [[SyncCore syncManager] addItem:self.sessionSyncItem];
 }
 
 - (void)configureRecord {
@@ -47,6 +64,10 @@
         [[ChatCore dataManager] updateRecords];
     }];
     [[SyncCore syncManager] addItem:self.recordSyncItem];
+}
+
+- (void)didAddSession {
+    [self.sessionSyncItem doSync];
 }
 
 - (void)didUpdateSession {

@@ -12,14 +12,39 @@
 @implementation PPMChatDefine
 
 - (NSString *)sessionURLString {
-    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/sessions"];
+    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/session"];
 }
 
 - (NSDictionary *)sessionResponseEagerTypes {
     return @{
+             @"data": @"NSDictionary",
+             @"session_id": @"NSNumber",
+             @"session_type": @"NSNumber",
+             @"session_title": @"NSString",
+             @"session_icon": @"NSString",
+             @"session_last_update": @"NSNumber",
+             @"session_last_post": @"NSString",
+             @"session_user_ids": @"NSArray",
+             @"session_user_ids[]": @"NSNumber"
+             };
+}
+
+- (NSString *)sessionsURLString {
+    return [[[PPMDefine sharedDefine] apiAbsolutePath] stringByAppendingString:@"/chat/sessions"];
+}
+
+- (NSDictionary *)sessionsResponseEagerTypes {
+    return @{
              @"data": @"NSArray",
              @"data[]": @"NSDictionary",
-             @"session_id": @"NSNumber"
+             @"session_id": @"NSNumber",
+             @"session_type": @"NSNumber",
+             @"session_title": @"NSString",
+             @"session_icon": @"NSString",
+             @"session_last_update": @"NSNumber",
+             @"session_last_post": @"NSString",
+             @"session_user_ids": @"NSArray",
+             @"session_user_ids[]": @"NSNumber"
              };
 }
 
@@ -30,7 +55,14 @@
 - (NSDictionary *)sessionRaiseResponseEagerTypes {
     return @{
              @"data": @"NSDictionary",
-             @"session_id": @"NSNumber"
+             @"session_id": @"NSNumber",
+             @"session_type": @"NSNumber",
+             @"session_title": @"NSString",
+             @"session_icon": @"NSString",
+             @"session_last_update": @"NSNumber",
+             @"session_last_post": @"NSString",
+             @"session_user_ids": @"NSArray",
+             @"session_user_ids[]": @"NSNumber"
              };
 }
 

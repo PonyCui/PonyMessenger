@@ -10,6 +10,7 @@
 #import "PPMApplication.h"
 #import <PonyChatUI/PCUApplication.h>
 #import <PonyChatUI/PCUSender.h>
+#import <PonyDebugger/PonyDebugger.h>
 
 @interface AppDelegate ()
 
@@ -39,6 +40,9 @@
     }
     
     [self configureApplicationAccounts];
+    
+    [[PDDebugger defaultInstance] autoConnect];
+    
     return YES;
 }
 

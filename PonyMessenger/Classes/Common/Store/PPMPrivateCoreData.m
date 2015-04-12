@@ -9,6 +9,7 @@
 #import "PPMPrivateCoreData.h"
 #import <CoreData/CoreData.h>
 #import "PPMManagedChatRecordItem.h"
+#import "PPMManagedChatSessionItem.h"
 
 @interface PPMPrivateCoreData ()
 
@@ -97,12 +98,48 @@
     }];
 }
 
+- (void)fetchChatSessionLastUpdateWithCompletionBlock:(PPMPrivateCoreDataChatSessionLastUpdateFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatSession"];
+    [request setFetchLimit:1];
+    [request setSortDescriptors:@[
+                                  [NSSortDescriptor sortDescriptorWithKey:@"session_last_update" ascending:NO]
+                                  ]];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        if ([result count] > 0) {
+            PPMManagedChatSessionItem *managedItem = [result firstObject];
+            completionBlock(managedItem.session_last_update);
+        }
+        else {
+            completionBlock(@0);
+        }
+    }];
+}
+
 - (PPMManagedChatSessionItem *)newChatSessionItem {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ChatSession"
                                                          inManagedObjectContext:self.managedObjectContext];
     PPMManagedChatSessionItem *newEntry = (PPMManagedChatSessionItem *)[[NSManagedObject alloc]
                                                                       initWithEntity:entityDescription
                                                                       insertIntoManagedObjectContext:self.managedObjectContext];
+    return newEntry;
+}
+
+- (void)fetchChatSessionUserWithPredicate:(NSPredicate *)predicate completionBlock:(PPMPrivateCoreDataChatSessionUserFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatSessionUser"];
+    [request setPredicate:predicate];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
+- (PPMManagedChatSessionUserItem *)newChatSessionUserItem {
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ChatSessionUser"
+                                                         inManagedObjectContext:self.managedObjectContext];
+    PPMManagedChatSessionUserItem *newEntry = (PPMManagedChatSessionUserItem *)[[NSManagedObject alloc]
+                                                                        initWithEntity:entityDescription
+                                                                        insertIntoManagedObjectContext:self.managedObjectContext];
     return newEntry;
 }
 

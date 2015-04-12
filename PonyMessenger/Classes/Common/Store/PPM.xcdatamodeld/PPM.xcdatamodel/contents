@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D113c" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="13F1077" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" representedClassName="PPMManagedAccountItem" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -15,7 +15,16 @@
         <attribute name="session_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="ChatSession" representedClassName="PPMManagedChatSessionItem" syncable="YES">
+        <attribute name="session_icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="session_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="session_last_post" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="session_last_update" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="session_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="session_type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="ChatSessionUser" representedClassName="PPMManagedChatSessionUserItem" syncable="YES">
+        <attribute name="session_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="user_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="UserInformation" representedClassName="PPMManagedUserInformationItem" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,8 +37,9 @@
     <elements>
         <element name="Account" positionX="0" positionY="27" width="128" height="73"/>
         <element name="ChatRecord" positionX="0" positionY="27" width="128" height="165"/>
-        <element name="ChatSession" positionX="9" positionY="72" width="128" height="58"/>
+        <element name="ChatSession" positionX="9" positionY="72" width="128" height="135"/>
         <element name="UserInformation" positionX="0" positionY="0" width="128" height="90"/>
         <element name="UserRelation" positionX="0" positionY="27" width="128" height="60"/>
+        <element name="ChatSessionUser" positionX="9" positionY="81" width="128" height="73"/>
     </elements>
 </model>

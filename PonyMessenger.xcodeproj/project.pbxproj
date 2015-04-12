@@ -85,6 +85,7 @@
 		F08A3DF11ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF01ABAFBD500A5E6AA /* PPMChatContactCellInteractor.m */; };
 		F08A3DF41ABAFBE300A5E6AA /* PPMChatContactListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF31ABAFBE300A5E6AA /* PPMChatContactListPresenter.m */; };
 		F08A3DF71ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */; };
+		F08E32CF1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F08E32CE1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.m */; };
 		F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0E154731AC5A2C900E46E48 /* PPM.xcdatamodeld */; };
 		F0E154781AC5A2F800E46E48 /* PPMPrivateCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E154771AC5A2F800E46E48 /* PPMPrivateCoreData.m */; };
 		F0E1547B1AC5A59300E46E48 /* PPMManagedUserInformationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F0E1547A1AC5A59300E46E48 /* PPMManagedUserInformationItem.m */; };
@@ -257,6 +258,8 @@
 		F08A3DF31ABAFBE300A5E6AA /* PPMChatContactListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactListPresenter.m; sourceTree = "<group>"; };
 		F08A3DF51ABAFBF100A5E6AA /* PPMChatContactCellPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatContactCellPresenter.h; sourceTree = "<group>"; };
 		F08A3DF61ABAFBF100A5E6AA /* PPMChatContactCellPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatContactCellPresenter.m; sourceTree = "<group>"; };
+		F08E32CD1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMManagedChatSessionUserItem.h; sourceTree = "<group>"; };
+		F08E32CE1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMManagedChatSessionUserItem.m; sourceTree = "<group>"; };
 		F0E154741AC5A2C900E46E48 /* PPM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PPM.xcdatamodel; sourceTree = "<group>"; };
 		F0E154761AC5A2F800E46E48 /* PPMPrivateCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMPrivateCoreData.h; sourceTree = "<group>"; };
 		F0E154771AC5A2F800E46E48 /* PPMPrivateCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMPrivateCoreData.m; sourceTree = "<group>"; };
@@ -822,6 +825,8 @@
 			children = (
 				63416A0D1AD01344000BDCF5 /* PPMManagedChatSessionItem.h */,
 				63416A0E1AD01344000BDCF5 /* PPMManagedChatSessionItem.m */,
+				F08E32CD1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.h */,
+				F08E32CE1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.m */,
 				634169FE1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.h */,
 				634169FF1ACE7CC2000BDCF5 /* PPMManagedChatRecordItem.m */,
 				F05BFBDD1AC6EE63004E860F /* PPMManagedAccountItem.h */,
@@ -1048,6 +1053,7 @@
 				F02976721AC843CB00C7C37B /* PPMAccountSigninViewController.m in Sources */,
 				63173D371ACB97B300646C58 /* PPMSyncConnService.m in Sources */,
 				F0E154751AC5A2C900E46E48 /* PPM.xcdatamodeld in Sources */,
+				F08E32CF1ADAB3B8007D9175 /* PPMManagedChatSessionUserItem.m in Sources */,
 				F08A3DDD1AB9D43300A5E6AA /* PPMChatContactTableViewCell.m in Sources */,
 				F08A3DE51AB9D6C300A5E6AA /* PPMChatRecentCellInteractor.m in Sources */,
 				F08A3DD41AB9CDC200A5E6AA /* PPMChatRecentTableViewCell.m in Sources */,
