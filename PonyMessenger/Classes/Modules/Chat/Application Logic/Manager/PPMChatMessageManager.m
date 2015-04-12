@@ -96,6 +96,41 @@
     }
 }
 
+- (void)receiveMessagesWithRecordItems:(NSArray *)recordItems {
+    NSMutableArray *userIDArray = [NSMutableArray array];
+    [recordItems enumerateObjectsUsingBlock:^(PPMChatRecordItem *obj, NSUInteger idx, BOOL *stop) {
+        if (![userIDArray containsObject:obj.fromUserID]) {
+            [userIDArray addObject:obj.fromUserID];
+        }
+    }];
+    [[UserCore userManager] fetchUserInformationWithUserIDArray:[userIDArray copy] forceUpdate:NO completionBlock:^(NSArray *userItems) {
+        NSMutableDictionary *userItemsDictionary = [NSMutableDictionary dictionary];
+        [userItems enumerateObjectsUsingBlock:^(PPMUserItem *obj, NSUInteger idx, BOOL *stop) {
+            [userItemsDictionary setObject:obj forKey:obj.userID];
+        }];
+        NSMutableArray *messages = [NSMutableArray array];
+        [recordItems enumerateObjectsUsingBlock:^(PPMChatRecordItem *recordItem, NSUInteger idx, BOOL *stop) {
+            PCUMessage *message = [[PCUMessage alloc] init];
+            message.identifier = recordItem.recordHash;
+            message.orderIndex = [recordItem.recordTime unsignedIntegerValue] * 1000;
+            message.type = [recordItem.recordType unsignedIntegerValue];
+            message.title = recordItem.recordTitle;
+            if (recordItem.recordParams != nil && recordItem.recordParams.length) {
+                message.params = [NSJSONSerialization
+                                  JSONObjectWithData:[recordItem.recordParams dataUsingEncoding:NSUTF8StringEncoding]
+                                  options:kNilOptions
+                                  error:NULL];
+            }
+            message.sender = [[PCUSender alloc] init];
+            message.sender.identifier = [[userItemsDictionary[recordItem.fromUserID] userID] stringValue];
+            message.sender.title = [userItemsDictionary[recordItem.fromUserID] nickname];
+            message.sender.thumbURLString = [userItemsDictionary[recordItem.fromUserID] avatarURLString];
+            [messages addObject:message];
+        }];
+        [self.delegate messageManagerDidReceivedMessages:[messages copy]];
+    }];
+}
+
 - (void)handlePPMChatItemSessionReadyNotification:(NSNotification *)sender {
     if (sender.object == self.chatItem) {
         self.sessionItem = sender.userInfo[@"sessionItem"];
@@ -111,9 +146,7 @@
     [[ChatCore dataManager]
      findRecentRecordsWithSessionItem:self.sessionItem
      completionBlock:^(NSArray *items) {
-        [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [self receiveMessageWithRecordItem:obj];
-        }];
+         [self receiveMessagesWithRecordItems:items];
     }];
 }
 
