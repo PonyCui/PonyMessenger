@@ -34,7 +34,7 @@ typedef void(^PPMChatDataManagerFindRecordsCompletionBlock)(NSArray *items);
 
 - (void)updateSessionWithETag;
 
-- (void)findRecentSessionsWithCompletionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock;
+- (void)findRecentSessionsWithCompletionBlock:(PPMChatDataManagerFindSessionsCompletionBlock)completionBlock;
 
 - (void)postWithRecordItem:(PPMChatRecordItem *)recordItem
            completionBlock:(PPMChatDataManagerPostRecordCompletionBlock)completionBlock

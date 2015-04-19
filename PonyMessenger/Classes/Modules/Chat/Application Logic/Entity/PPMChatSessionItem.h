@@ -14,11 +14,11 @@ typedef NS_ENUM(NSUInteger, PPMChatSessionType) {
     /**
      *  @brief 双人对话
      */
-    PPMChatSessionTypePerson = 0,
+    PPMChatSessionTypePerson = 1,
     /**
      *  @brief 群聊
      */
-    PPMChatSessionTypeGroup = 1
+    PPMChatSessionTypeGroup = 2
 };
 
 @interface PPMChatSessionItem : NSObject

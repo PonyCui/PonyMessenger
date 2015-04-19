@@ -29,7 +29,7 @@
 
 - (void)configureReactiveCocoa {
     @weakify(self);
-    [RACObserve(self, listInteractor) subscribeNext:^(id x) {
+    [RACObserve(self, listInteractor.cellInteractors) subscribeNext:^(id x) {
         @strongify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.userInterface reloadTableView];

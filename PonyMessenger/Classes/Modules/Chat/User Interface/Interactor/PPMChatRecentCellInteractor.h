@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class PPMChatSessionItem;
+
 @interface PPMChatRecentCellInteractor : NSObject
 
 /**
@@ -30,5 +32,7 @@
  *  @brief 最后一条交谈内容的时间
  */
 @property (nonatomic, strong) NSDate *recentDate;
+
+- (instancetype)initWithSessionItem:(PPMChatSessionItem *)sessionItem;
 
 @end

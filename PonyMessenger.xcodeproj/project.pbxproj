@@ -71,6 +71,7 @@
 		F067826E1AC06832009E8C5B /* PPMChatSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F067826D1AC06832009E8C5B /* PPMChatSessionViewController.m */; };
 		F06782711AC0684E009E8C5B /* PPMChatSessionPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F06782701AC0684E009E8C5B /* PPMChatSessionPresenter.m */; };
 		F06782741AC0685A009E8C5B /* PPMChatSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F06782731AC0685A009E8C5B /* PPMChatSessionInteractor.m */; };
+		F089549D1AE3E62D00D1DD72 /* PPMChatSessionMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = F089549C1AE3E62D00D1DD72 /* PPMChatSessionMetaData.m */; };
 		F08A3DCC1AB8836E00A5E6AA /* PPMChatWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCB1AB8836E00A5E6AA /* PPMChatWireframe.m */; };
 		F08A3DCF1AB8839E00A5E6AA /* PPMChatRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3DCE1AB8839E00A5E6AA /* PPMChatRecentViewController.m */; };
 		F08A3DD11AB8859100A5E6AA /* PPM.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F08A3DD01AB8859100A5E6AA /* PPM.xcassets */; };
@@ -231,6 +232,8 @@
 		F06782701AC0684E009E8C5B /* PPMChatSessionPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatSessionPresenter.m; sourceTree = "<group>"; };
 		F06782721AC0685A009E8C5B /* PPMChatSessionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatSessionInteractor.h; sourceTree = "<group>"; };
 		F06782731AC0685A009E8C5B /* PPMChatSessionInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatSessionInteractor.m; sourceTree = "<group>"; };
+		F089549B1AE3E62D00D1DD72 /* PPMChatSessionMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatSessionMetaData.h; sourceTree = "<group>"; };
+		F089549C1AE3E62D00D1DD72 /* PPMChatSessionMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatSessionMetaData.m; sourceTree = "<group>"; };
 		F08A3DCA1AB8836E00A5E6AA /* PPMChatWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatWireframe.h; sourceTree = "<group>"; };
 		F08A3DCB1AB8836E00A5E6AA /* PPMChatWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMChatWireframe.m; sourceTree = "<group>"; };
 		F08A3DCD1AB8839E00A5E6AA /* PPMChatRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPMChatRecentViewController.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 				63416A021ACE7DC2000BDCF5 /* PPMChatRecordItem.m */,
 				63416A101AD01B1C000BDCF5 /* PPMChatSessionItem.h */,
 				63416A111AD01B1C000BDCF5 /* PPMChatSessionItem.m */,
+				F089549B1AE3E62D00D1DD72 /* PPMChatSessionMetaData.h */,
+				F089549C1AE3E62D00D1DD72 /* PPMChatSessionMetaData.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1114,6 +1119,7 @@
 				631799451ACD33770052C566 /* PPMUserInformationPresenter.m in Sources */,
 				63173D241ACB8AF900646C58 /* PPMSyncItem.m in Sources */,
 				F05BFBD91AC6EA16004E860F /* PPMDefine.m in Sources */,
+				F089549D1AE3E62D00D1DD72 /* PPMChatSessionMetaData.m in Sources */,
 				63C08D0D1AC94BC300106601 /* PPMAccountSignupInteractor.m in Sources */,
 				F00392FB1AB8784C002EF72B /* PPMCore.m in Sources */,
 				6335D42A1ACBD7E600C46430 /* PPMSyncUserService.m in Sources */,

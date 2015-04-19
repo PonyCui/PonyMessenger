@@ -173,6 +173,19 @@
     }];
 }
 
+- (void)findRecentSessionsWithCompletionBlock:(PPMChatDataManagerFindSessionsCompletionBlock)completionBlock {
+    [UserStore fetchChatSessionsOrderByDescWithCompltionBlock:^(NSArray *results) {
+        NSMutableArray *items = [NSMutableArray array];
+        [results enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            PPMChatSessionItem *sessionItem = [[PPMChatSessionItem alloc] initWithManagedItem:obj];
+            [items addObject:sessionItem];
+        }];
+        if (completionBlock) {
+            completionBlock([items copy]);
+        }
+    }];
+}
+
 #pragma mark - ChatRecord
 
 - (void)updateRecords {

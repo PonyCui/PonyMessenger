@@ -67,6 +67,8 @@ typedef void(^PPMPrivateCoreDataChatLastRecordIDFetchCompletionBlock)(NSNumber *
 - (void)fetchChatSessionWithPredicate:(NSPredicate *)predicate
                       completionBlock:(PPMPrivateCoreDataChatSessionFetchCompletionBlock)completionBlock;
 
+- (void)fetchChatSessionsOrderByDescWithCompltionBlock:(PPMPrivateCoreDataChatSessionFetchCompletionBlock)completionBlock;
+
 - (PPMManagedChatSessionItem *)newChatSessionItem;
 
 - (void)fetchChatSessionUserWithPredicate:(NSPredicate *)predicate

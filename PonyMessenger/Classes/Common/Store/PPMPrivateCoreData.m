@@ -98,6 +98,17 @@
     }];
 }
 
+- (void)fetchChatSessionsOrderByDescWithCompltionBlock:(PPMPrivateCoreDataChatSessionFetchCompletionBlock)completionBlock {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatSession"];
+    [request setSortDescriptors:@[
+                                  [NSSortDescriptor sortDescriptorWithKey:@"session_last_update" ascending:NO]
+                                  ]];
+    [self.managedObjectContext performBlock:^{
+        NSArray *result = [self.managedObjectContext executeFetchRequest:request error:NULL];
+        completionBlock(result);
+    }];
+}
+
 - (void)fetchChatSessionLastUpdateWithCompletionBlock:(PPMPrivateCoreDataChatSessionLastUpdateFetchCompletionBlock)completionBlock {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ChatSession"];
     [request setFetchLimit:1];
