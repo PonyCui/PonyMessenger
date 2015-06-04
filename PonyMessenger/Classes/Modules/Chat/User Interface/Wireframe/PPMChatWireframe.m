@@ -44,6 +44,17 @@
     [navigationController pushViewController:sessionViewController animated:YES];
 }
 
+- (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
+                                               toSessionID:(NSNumber *)toSessionID
+                                              sessionTitle:(NSString *)sessionTitle {
+    PPMChatSessionViewController *sessionViewController = [self sessionViewController];
+    PCUChat *chatItem = [[PCUChat alloc] init];
+    chatItem.identifier = [NSString stringWithFormat:@"Session.%@", toSessionID];
+    sessionViewController.eventHandler.sessionInteractor.chatItem = chatItem;
+    sessionViewController.eventHandler.sessionInteractor.sessionTitle = sessionTitle;
+    [navigationController pushViewController:sessionViewController animated:YES];
+}
+
 - (void)presentAddContactViewControllerToNavigationController:(UINavigationController *)navigationController {
     PPMChatAddContactViewController *addContactViewController = [self addContactViewController];
     [navigationController pushViewController:addContactViewController animated:YES];

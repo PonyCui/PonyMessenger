@@ -60,6 +60,19 @@
     }
 }
 
+- (void)findSessionWithSessionID:(NSNumber *)sessionID completionBlock:(PPMChatDataManagerFindSessionCompletionBlock)completionBlock {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"session_id = %@", sessionID];
+    [UserStore fetchChatSessionWithPredicate:predicate completionBlock:^(NSArray *results) {
+        if ([results count] > 0) {
+            PPMChatSessionItem *sessionItem = [[PPMChatSessionItem alloc] initWithManagedItem:[results firstObject]];
+            completionBlock(sessionItem);
+        }
+        else {
+            completionBlock(nil);
+        }
+    }];
+}
+
 - (void)updateSessions {
     [UserStore fetchChatSessionWithPredicate:nil completionBlock:^(NSArray *results) {
         NSMutableSet *storeItems = [NSMutableSet set];

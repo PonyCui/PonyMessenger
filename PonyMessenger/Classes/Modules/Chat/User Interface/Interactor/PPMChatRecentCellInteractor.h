@@ -14,6 +14,11 @@
 @interface PPMChatRecentCellInteractor : NSObject
 
 /**
+ *  Session ID
+ */
+@property (nonatomic, strong) NSNumber *sessionID;
+
+/**
  *  @brief 头像
  */
 @property (nonatomic, strong) UIImage *iconImage;

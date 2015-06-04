@@ -10,6 +10,7 @@
 #import "PPMApplication.h"
 #import "PPMChatDataManager.h"
 #import "PPMUserItem.h"
+#import "PPMChatSessionItem.h"
 #import <PonyChatUI/PCUChat.h>
 
 @implementation PPMChatSessionInteractor
@@ -46,6 +47,15 @@
                                                                     object:self.chatItem
                                                                   userInfo:@{@"sessionItem": self.sessionItem}];
             }];
+        }];
+    }
+    else if (self.sessionItem == nil && [self.chatItem.identifier hasPrefix:@"Session."]) {
+        NSNumber *sessionID = [NSNumber numberWithInteger:[[self.chatItem.identifier stringByReplacingOccurrencesOfString:@"Session." withString:@""] integerValue]];
+        [[ChatCore dataManager] findSessionWithSessionID:sessionID completionBlock:^(PPMChatSessionItem *sessionItem) {
+            self.sessionItem = sessionItem;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPPMChatItemSessionReadyNotification
+                                                                object:self.chatItem
+                                                              userInfo:@{@"sessionItem": self.sessionItem}];
         }];
     }
 }

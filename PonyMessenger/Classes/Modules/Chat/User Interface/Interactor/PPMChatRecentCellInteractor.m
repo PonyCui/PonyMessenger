@@ -55,6 +55,7 @@
     else if ([self.sessionItem.sessionType unsignedIntegerValue] == PPMChatSessionTypeGroup) {
         [self configureGroupData];
     }
+    self.sessionID = self.sessionItem.sessionID;
     self.recentTalk = self.sessionItem.sessionLastPost;
     self.recentDate = [NSDate dateWithTimeIntervalSince1970:[self.sessionItem.sessionLastUpdate integerValue]];
 }

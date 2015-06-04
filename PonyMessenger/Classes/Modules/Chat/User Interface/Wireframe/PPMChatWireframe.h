@@ -19,6 +19,10 @@
                                                   toUserID:(NSNumber *)toUserID
                                               sessionTitle:(NSString *)sessionTitle;
 
+- (void)presentSessionViewControllerToNavigationController:(UINavigationController *)navigationController
+                                               toSessionID:(NSNumber *)toSessionID
+                                              sessionTitle:(NSString *)sessionTitle;
+
 - (void)presentAddContactViewControllerToNavigationController:(UINavigationController *)navigationController;
 
 @end
