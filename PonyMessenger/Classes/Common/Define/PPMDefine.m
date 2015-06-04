@@ -34,7 +34,7 @@
 }
 
 - (NSString *)apiAbsolutePath {
-    return @"http://localhost/PonyMessengerServer/index.php";
+    return @"http://ponymessenger.sinaapp.com/index.php";
 }
 
 - (NSDictionary *)appParams {
